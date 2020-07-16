@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>得召文-登录</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="elementui/index.css"/>
+	</head>
+	<style type="text/css">
+		.form-bg{
+			padding: 2em 0;
+		}
+		.form-horizontal{
+			background: #fff;
+			padding-bottom: 40px;
+			border-radius: 15px;
+			text-align: center;
+		}
+		.form-horizontal .heading{
+			display: block;
+			font-size: 35px;
+			font-weight: 700;
+			padding: 35px 0;
+			border-bottom: 1px solid #f0f0f0;
+			margin-bottom: 30px;
+		}
+		.form-horizontal .form-group{
+			padding: 0 40px;
+			margin: 0 0 25px 0;
+			position: relative;
+		}
+		.form-horizontal .form-control{
+			background: #f0f0f0;
+			border: none;
+			border-radius: 20px;
+			box-shadow: none;
+			padding: 0 20px 0 45px;
+			height: 40px;
+			transition: all 0.3s ease 0s;
+		}
+		.form-horizontal .form-control:focus{
+			background: #e0e0e0;
+			box-shadow: none;
+			outline: 0 none;
+		}
+		.form-horizontal .form-group i{
+			position: absolute;
+			top: 12px;
+			left: 60px;
+			font-size: 17px;
+			color: #c8c8c8;
+			transition : all 0.5s ease 0s;
+		}
+		.form-horizontal .form-control:focus + i{
+			color: #00b4ef;
+		}
+		.form-horizontal .fa-question-circle{
+			display: inline-block;
+			position: absolute;
+			top: 12px;
+			right: 60px;
+			font-size: 20px;
+			color: #808080;
+			transition: all 0.5s ease 0s;
+		}
+		.form-horizontal .fa-question-circle:hover{
+			color: #000;
+		}
+		.form-horizontal .main-checkbox{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background: #11a3fc;
+			border-radius: 50%;
+			position: relative;
+			margin: 5px 0 0 5px;
+			border: 1px solid #11a3fc;
+		}
+		.form-horizontal .main-checkbox label{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: pointer;
+		}
+		.form-horizontal .main-checkbox label:after{
+			content: "";
+			width: 10px;
+			height: 5px;
+			position: absolute;
+			top: 5px;
+			left: 4px;
+			border: 3px solid #fff;
+			border-top: none;
+			border-right: none;
+			background: transparent;
+			opacity: 0;
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+		.form-horizontal .main-checkbox input[type=checkbox]{
+			visibility: hidden;
+		}
+		.form-horizontal .main-checkbox input[type=checkbox]:checked + label:after{
+			opacity: 1;
+		}
+		.form-horizontal .text{
+			float: left;
+			margin-left: 7px;
+			line-height: 20px;
+			padding-top: 5px;
+			text-transform: capitalize;
+		}
+		.form-horizontal .btn{
+			float: right;
+			font-size: 14px;
+			color: #fff;
+			background: #00b4ef;
+			border-radius: 30px;
+			padding: 10px 25px;
+			border: none;
+			text-transform: capitalize;
+			transition: all 0.5s ease 0s;
+		}
+		@media only screen and (max-width: 479px){
+			.form-horizontal .form-group{
+				padding: 0 25px;
+			}
+			.form-horizontal .form-group i{
+				left: 45px;
+			}
+			.form-horizontal .btn{
+				padding: 10px 20px;
+			}
+		}
+	</style>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/yz.js" type="text/javascript" charset="utf-8"></script>
+	
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		button{width: 300px;line-height: 30px;}
+		.box {
+			margin: 0 auto;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: 420px;
+			width: 300px;
+			margin-left: -150px;
+			margin-top: -210px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+			border-radius: 25px;
+			display: none;
+			z-index: 2;
+			
+		}
+	
+		.top-s {
+			font-size: 12px;
+			color: #ccc;
+			display: block;
+			text-align: center;
+			margin-left: 25px;
+			margin-top: 25px;
+			margin-bottom: 5px;
+		}
+	
+		.top-x {
+			font-size: 18px;
+			color: black;
+			display: block;
+			text-align: center;
+			margin-bottom: 45px;
+		}
+	
+		.cuo {
+			float: right;
+			margin-right: 10px;
+			margin-top: 5px;
+			cursor: pointer;
+		}
+	
+		body {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		
+		.form-horizontal .btn{
+			float: none;
+		}
+	</style>
+	<body>
+	<div class="demo form-bg" >
+		<div class="container">
+			<h1 class="row text-center" style="color: orange;"><img src="img/logo.gif" style="width: 300px;height: 100px;">德召文汽修登录</h1>
+			<div class="row" style="margin-top: 100px;">
+				<div class="col-md-offset-3 col-md-6">
+					<form class="form-horizontal" style="background-color:#bcf6e1;">
+						<span class="heading">用户登录</span>
+						<div class="form-group">
+							<input type="text" class="form-control" id="inputEmail3" placeholder="登录账号">
+							<i class="fa fa-user"></i>
+						</div>
+						<div class="form-group help">
+							<input type="password" class="form-control" id="inputPassword3" placeholder="密码">
+							<i class="fa fa-lock"></i>
+							<a href="#" class="fa fa-question-circle"></a>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-default" style="background-color:#1c91e2;" onclick="login()">立刻登录</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+		<div class="box">
+			<img src="images/cw.png" class="cuo">
+				<span class="top-s">身份验证</span>
+					<span class="top-x">拖动滑块，使图片角度为正</span>
+						<div id="rotateWrap1">
+							<div class="rotateverify-contaniner">
+								<div class="rotate-can-wrap">
+									<canvas class="rotateCan rotate-can" width="200" height="200"></canvas>
+										<div class="statusBg status-bg"></div>
+								</div>
+								<div class="control-wrap slideDragWrap">
+									<div class="control-tips">
+											<p class="c-tips-txt cTipsTxt">滑动将图片转正</p>
+									</div>
+									<div class="control-bor-wrap controlBorWrap"></div>
+									<div class="control-btn slideDragBtn">
+										<i class="control-btn-ico"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		var yzm=false;
+		// 加一个div全部 然后设置display：block；
+		$(function () {
+			// 点击按钮
+			$("#yz").click(function () {
+				console.log('123123');
+				$(".box").css("display", "block");
+				$("body").css({ "background": "#ffffff" });
+				$("#yz").attr("disabled", true);
+			})
+			//    点击x
+			$(".cuo").click(function () {
+				$(".box").css("display", "none");
+				$("body").css("background", "#ffffff");
+				$("#yz").attr("disabled", false);
+			})
+			//1
+			var myRotateVerify = new RotateVerify('#rotateWrap1', {
+				initText: '滑动将图片转正',//默认
+				slideImage: ['images/1.png', 'images/2.png', 'images/4.png', 'images/5.png'],//arr  [imgsrc1,imgsrc2] 或者str 'imgsrc1'
+				slideAreaNum: 10,// 误差范围角度 +- 10(默认)
+				getSuccessState: function (res) {//验证通过 返回  true;
+					yzm=true;
+					$(".box").css("display", "none");
+					$("body").css("background", "#ffffff");
+					$("#yz").attr("disabled", false);
+					alert("图片验证成功");
+					// console.log('例1' + res);
+				}
+			}) 
+		})
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jq_ajax_config.js"></script>
+	<script>
+		function login(){
+			let eid=$("#inputEmail3").val();
+			let epaw=$("#inputPassword3").val();
+			if(eid=="" || epaw==""){
+				alert("所有框不能为空！");
+				return;
+			}else{
+				if(!yzm){
+					$(".box").css("display", "block");
+					$("body").css({ "background": "#ffffff" });
+					$("#yz").attr("disabled", true);
+					return;
+				}else{
+					window.location.href="file://D:/Documents/HBuilderProjects/Dezhaiwen/index.html";
+				}
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页 · 汽车维修管理系统</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="elementui/index.css"/>
+	</head>
+	<style>
+		#div-sy1{
+			background-color:#1c1d1e;
+			height:65px;
+			
+		}
+		
+		#sy1-1-1 p{
+			text-align:center;
+			width:70px;
+			line-height:35px;
+			border-radius:15px 15px 15px 15px;
+			color:#ffffff;
+			margin: 15px auto;
+			margin-left:15px;
+			background-color:#393d49;
+			border:0px;
+		}
+		#sy1-2 div{
+			border:0px;
+			line-height:65px;
+			text-align:center;
+		}
+		#sy1-2 div:hover {background-color:#666c81;}
+		#sy1-3 div{
+			text-align:center;
+			line-height:65px;
+		}
+		#div-sy2{
+			height:550px;
+		}
+		#sy2-zuo{
+			background-color:#1c1d1e;
+			height:550px;
+			padding:0;
+		}
+		#bott{
+			line-height:50px;
+			background-color:#393d49;
+		}
+		#bott:hover {background-color:#666c81;}
+		iframe{
+			border: none;
+			width: 100%;
+			height: 550px;
+		}
+	</style>
+	<body>
+		<div id="ctx" class="container-fluid" style="padding:0;">
+			<div id="div-sy1" class="row">
+				<div id="sy1-1" class="col-md-3">
+					<div id="sy1-1-1" class="col-md-6"><img src="img/logo.gif" width="100%" height="55" style="margin: 5px auto;"  /></div>
+					<div id="sy1-1-1" class="col-md-6">
+						<p id="yinchnag" class="glyphicon glyphicon-option-horizontal" @click="qiehuan"></p>
+					</div>
+				</div>
+				<div id="sy1-2" class="col-md-8">
+					<div class="col-md-2" @click="fujixz(item.id)" v-for="item,index in list1" style="color:#ffffff;">
+						<i :class="item.tubiao"></i>
+						{{item.cname}}
+					</div>
+				</div>
+				<div id="sy1-3" class="col-md-1" style=" padding:0; margin:0;">
+					<el-dropdown>
+					  <span class="el-dropdown-link" style="color:#ffffff;">
+					    <i class="el-icon-setting"></i>下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+					  </span>
+					  <el-dropdown-menu slot="dropdown">
+					    <el-dropdown-item>
+							<el-button type="text" @click="dialogVisible = true"><span style="color:#000000;">修改密码</span></el-button>
+						</el-dropdown-item>
+					    <el-dropdown-item><span style="color:#000000;">注销</span></el-dropdown-item>
+					  </el-dropdown-menu>
+					</el-dropdown>
+				</div>
+			</div>
+			<div id="div-sy2">
+				<div id="sy2-zuo" class="col-md-2">
+					<div id="bott" style="color:#ffffff;" class="'btn btn-'+item.btn+' col-md-2' row" @click="changeTab(item.id)" v-for="item,index in list">
+						<div class="col-md-3" style="text-align:center; padding:0;"> <i class="el-icon-menu "></i></div>
+						<div class="col-md-9" style="padding:0;"> {{item.cname}}</div>
+					</div>
+				</div>
+				<div id="sy2-you" class="col-md-10" style=" padding:0; margin:0;">
+					<div class="tab-content">
+						<div role="tabpanel" :class="'tab-pane '+item.active" :id="'tab_'+item.id" v-for="item in list">
+							<iframe :src="item.url"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- 修改密码 -->
+			<el-dialog
+			  title="修改密码"
+			  :visible.sync="dialogVisible"
+			  width="30%"
+			  :before-close="handleClose">
+			 <div>
+				 <div class="demo-input-suffix">
+					账号：<el-input v-model="input" placeholder="请输入内容"></el-input>
+				 </div>
+				 <div class="demo-input-suffix">
+				 	旧密码：<el-input placeholder="请输入旧密码"  show-password></el-input>			
+				 </div>
+				 <div class="demo-input-suffix">
+				 	新密码：<el-input placeholder="请输入新密码" show-password></el-input>			
+				 </div>
+			 </div>
+			  <span slot="footer" class="dialog-footer">
+			    <el-button @click="dialogVisible = false">取 消</el-button>
+			    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+			  </span>
+			</el-dialog>
+			
+			
+			
+			
+		</div>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="elementui/index.js"></script>
+		<script>
+			var vue=new Vue({
+				el:"#ctx",
+				data(){
+					return {
+						input:"",
+						dialogVisible: false,
+						list1:[
+							{id:"1",name:"log",cname:"首页",tubiao:"el-icon-s-home"},
+							{id:"2",name:"log",cname:"维修",tubiao:"glyphicon glyphicon-wrench"},
+							{id:"3",name:"log",cname:"前台",tubiao:"glyphicon glyphicon-credit-card"},
+							{id:"4",name:"log",cname:"客户",tubiao:"glyphicon glyphicon-user"},
+							{id:"5",name:"log",cname:"数据",tubiao:"glyphicon glyphicon-list-alt"},
+							{id:"6",name:"log",cname:"人事",tubiao:"el-icon-user-solid"}
+						],
+						list:[],
+						
+					}
+				},
+				methods:{
+					handleClose(done) {//修改密码
+					    this.$confirm('确认关闭？')
+					      .then(_ => {
+					           done();
+					       })
+					      .catch(_ => {});
+					},
+					qiehuan(){//切换
+						$("#sy2-zuo").toggle();
+					},
+					fujixz(id){
+						var thah=this;
+						switch (id) {
+							case "1":
+								thah.list=[
+									{id:"1",name:"log",cname:"ss",active:'active',url:"sss.html"},
+									{id:"2",name:"bricks",cname:"sss",active:'none',url:"ss.html"}	
+								]
+								break;
+							case "2":
+								thah.list=[
+									{id:"1",name:"log",cname:"qqq",active:'active',url:"sss.html"},
+									{id:"2",name:"bricks",cname:"sqsqqqs",active:'none',url:"ss.html"}	
+								]
+								break;
+						}
+					},
+					changeTab(id){
+						this.list.forEach(item=>item.active = "none")
+						this.list = this.list.map(item=>{
+							if(item.id==id){
+								item.active="active";
+							}
+								return item;
+						});
+					}
+				},
+				created(){
+					/* this.qiehuan(); */
+					this.fujixz("1");
+				}
+			}).$mount('#ctx')
+		</script>
+	</body>
+</html>
