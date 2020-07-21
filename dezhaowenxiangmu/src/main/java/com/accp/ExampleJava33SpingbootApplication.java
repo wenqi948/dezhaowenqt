@@ -10,6 +10,7 @@ public class ExampleJava33SpingbootApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExampleJava33SpingbootApplication.class, args);
+		System.out.println("你好");
 	}
 
 }
