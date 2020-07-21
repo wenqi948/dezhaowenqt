@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ClientcarMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Clientcar" >
+    <id column="carno" property="carno" jdbcType="VARCHAR" />
+    <result column="typeId" property="typeid" jdbcType="VARCHAR" />
+    <result column="people" property="people" jdbcType="VARCHAR" />
+    <result column="peoplePhone" property="peoplephone" jdbcType="VARCHAR" />
+    <result column="peopleday" property="peopleday" jdbcType="DATE" />
+    <result column="carguishu" property="carguishu" jdbcType="VARCHAR" />
+    <result column="cardaoqi" property="cardaoqi" jdbcType="DATE" />
+    <result column="chejiahao" property="chejiahao" jdbcType="VARCHAR" />
+    <result column="fadongji" property="fadongji" jdbcType="VARCHAR" />
+    <result column="carniankuan" property="carniankuan" jdbcType="INTEGER" />
+    <result column="licheng" property="licheng" jdbcType="INTEGER" />
+    <result column="fadongjipp" property="fadongjipp" jdbcType="VARCHAR" />
+    <result column="zaizhong" property="zaizhong" jdbcType="REAL" />
+    <result column="buyday" property="buyday" jdbcType="DATE" />
+    <result column="shangpaiday" property="shangpaiday" jdbcType="DATE" />
+    <result column="chejian" property="chejian" jdbcType="DATE" />
+    <result column="ranyou" property="ranyou" jdbcType="VARCHAR" />
+    <result column="chexi" property="chexi" jdbcType="VARCHAR" />
+    <result column="jiaoqiang" property="jiaoqiang" jdbcType="VARCHAR" />
+    <result column="jiaoqiangday" property="jiaoqiangday" jdbcType="DATE" />
+    <result column="shangye" property="shangye" jdbcType="VARCHAR" />
+    <result column="shangyeday" property="shangyeday" jdbcType="DATE" />
+    <result column="yuliu" property="yuliu" jdbcType="VARCHAR" />
+    <result column="yuliu2" property="yuliu2" jdbcType="VARCHAR" />
+    <result column="yuliu3" property="yuliu3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    carno, typeId, people, peoplePhone, peopleday, carguishu, cardaoqi, chejiahao, fadongji, 
+    carniankuan, licheng, fadongjipp, zaizhong, buyday, shangpaiday, chejian, ranyou, 
+    chexi, jiaoqiang, jiaoqiangday, shangye, shangyeday, yuliu, yuliu2, yuliu3
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.ClientcarExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from clientcar
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from clientcar
+    where carno = #{carno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from clientcar
+    where carno = #{carno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.ClientcarExample" >
+    delete from clientcar
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Clientcar" >
+    insert into clientcar (carno, typeId, people, 
+      peoplePhone, peopleday, carguishu, 
+      cardaoqi, chejiahao, fadongji, 
+      carniankuan, licheng, fadongjipp, 
+      zaizhong, buyday, shangpaiday, 
+      chejian, ranyou, chexi, 
+      jiaoqiang, jiaoqiangday, shangye, 
+      shangyeday, yuliu, yuliu2, 
+      yuliu3)
+    values (#{carno,jdbcType=VARCHAR}, #{typeid,jdbcType=VARCHAR}, #{people,jdbcType=VARCHAR}, 
+      #{peoplephone,jdbcType=VARCHAR}, #{peopleday,jdbcType=DATE}, #{carguishu,jdbcType=VARCHAR}, 
+      #{cardaoqi,jdbcType=DATE}, #{chejiahao,jdbcType=VARCHAR}, #{fadongji,jdbcType=VARCHAR}, 
+      #{carniankuan,jdbcType=INTEGER}, #{licheng,jdbcType=INTEGER}, #{fadongjipp,jdbcType=VARCHAR}, 
+      #{zaizhong,jdbcType=REAL}, #{buyday,jdbcType=DATE}, #{shangpaiday,jdbcType=DATE}, 
+      #{chejian,jdbcType=DATE}, #{ranyou,jdbcType=VARCHAR}, #{chexi,jdbcType=VARCHAR}, 
+      #{jiaoqiang,jdbcType=VARCHAR}, #{jiaoqiangday,jdbcType=DATE}, #{shangye,jdbcType=VARCHAR}, 
+      #{shangyeday,jdbcType=DATE}, #{yuliu,jdbcType=VARCHAR}, #{yuliu2,jdbcType=VARCHAR}, 
+      #{yuliu3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Clientcar" >
+    insert into clientcar
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carno != null" >
+        carno,
+      </if>
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="people != null" >
+        people,
+      </if>
+      <if test="peoplephone != null" >
+        peoplePhone,
+      </if>
+      <if test="peopleday != null" >
+        peopleday,
+      </if>
+      <if test="carguishu != null" >
+        carguishu,
+      </if>
+      <if test="cardaoqi != null" >
+        cardaoqi,
+      </if>
+      <if test="chejiahao != null" >
+        chejiahao,
+      </if>
+      <if test="fadongji != null" >
+        fadongji,
+      </if>
+      <if test="carniankuan != null" >
+        carniankuan,
+      </if>
+      <if test="licheng != null" >
+        licheng,
+      </if>
+      <if test="fadongjipp != null" >
+        fadongjipp,
+      </if>
+      <if test="zaizhong != null" >
+        zaizhong,
+      </if>
+      <if test="buyday != null" >
+        buyday,
+      </if>
+      <if test="shangpaiday != null" >
+        shangpaiday,
+      </if>
+      <if test="chejian != null" >
+        chejian,
+      </if>
+      <if test="ranyou != null" >
+        ranyou,
+      </if>
+      <if test="chexi != null" >
+        chexi,
+      </if>
+      <if test="jiaoqiang != null" >
+        jiaoqiang,
+      </if>
+      <if test="jiaoqiangday != null" >
+        jiaoqiangday,
+      </if>
+      <if test="shangye != null" >
+        shangye,
+      </if>
+      <if test="shangyeday != null" >
+        shangyeday,
+      </if>
+      <if test="yuliu != null" >
+        yuliu,
+      </if>
+      <if test="yuliu2 != null" >
+        yuliu2,
+      </if>
+      <if test="yuliu3 != null" >
+        yuliu3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carno != null" >
+        #{carno,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="people != null" >
+        #{people,jdbcType=VARCHAR},
+      </if>
+      <if test="peoplephone != null" >
+        #{peoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleday != null" >
+        #{peopleday,jdbcType=DATE},
+      </if>
+      <if test="carguishu != null" >
+        #{carguishu,jdbcType=VARCHAR},
+      </if>
+      <if test="cardaoqi != null" >
+        #{cardaoqi,jdbcType=DATE},
+      </if>
+      <if test="chejiahao != null" >
+        #{chejiahao,jdbcType=VARCHAR},
+      </if>
+      <if test="fadongji != null" >
+        #{fadongji,jdbcType=VARCHAR},
+      </if>
+      <if test="carniankuan != null" >
+        #{carniankuan,jdbcType=INTEGER},
+      </if>
+      <if test="licheng != null" >
+        #{licheng,jdbcType=INTEGER},
+      </if>
+      <if test="fadongjipp != null" >
+        #{fadongjipp,jdbcType=VARCHAR},
+      </if>
+      <if test="zaizhong != null" >
+        #{zaizhong,jdbcType=REAL},
+      </if>
+      <if test="buyday != null" >
+        #{buyday,jdbcType=DATE},
+      </if>
+      <if test="shangpaiday != null" >
+        #{shangpaiday,jdbcType=DATE},
+      </if>
+      <if test="chejian != null" >
+        #{chejian,jdbcType=DATE},
+      </if>
+      <if test="ranyou != null" >
+        #{ranyou,jdbcType=VARCHAR},
+      </if>
+      <if test="chexi != null" >
+        #{chexi,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoqiang != null" >
+        #{jiaoqiang,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoqiangday != null" >
+        #{jiaoqiangday,jdbcType=DATE},
+      </if>
+      <if test="shangye != null" >
+        #{shangye,jdbcType=VARCHAR},
+      </if>
+      <if test="shangyeday != null" >
+        #{shangyeday,jdbcType=DATE},
+      </if>
+      <if test="yuliu != null" >
+        #{yuliu,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu2 != null" >
+        #{yuliu2,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu3 != null" >
+        #{yuliu3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.ClientcarExample" resultType="java.lang.Integer" >
+    select count(*) from clientcar
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update clientcar
+    <set >
+      <if test="record.carno != null" >
+        carno = #{record.carno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeid != null" >
+        typeId = #{record.typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.people != null" >
+        people = #{record.people,jdbcType=VARCHAR},
+      </if>
+      <if test="record.peoplephone != null" >
+        peoplePhone = #{record.peoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.peopleday != null" >
+        peopleday = #{record.peopleday,jdbcType=DATE},
+      </if>
+      <if test="record.carguishu != null" >
+        carguishu = #{record.carguishu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardaoqi != null" >
+        cardaoqi = #{record.cardaoqi,jdbcType=DATE},
+      </if>
+      <if test="record.chejiahao != null" >
+        chejiahao = #{record.chejiahao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fadongji != null" >
+        fadongji = #{record.fadongji,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carniankuan != null" >
+        carniankuan = #{record.carniankuan,jdbcType=INTEGER},
+      </if>
+      <if test="record.licheng != null" >
+        licheng = #{record.licheng,jdbcType=INTEGER},
+      </if>
+      <if test="record.fadongjipp != null" >
+        fadongjipp = #{record.fadongjipp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zaizhong != null" >
+        zaizhong = #{record.zaizhong,jdbcType=REAL},
+      </if>
+      <if test="record.buyday != null" >
+        buyday = #{record.buyday,jdbcType=DATE},
+      </if>
+      <if test="record.shangpaiday != null" >
+        shangpaiday = #{record.shangpaiday,jdbcType=DATE},
+      </if>
+      <if test="record.chejian != null" >
+        chejian = #{record.chejian,jdbcType=DATE},
+      </if>
+      <if test="record.ranyou != null" >
+        ranyou = #{record.ranyou,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chexi != null" >
+        chexi = #{record.chexi,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jiaoqiang != null" >
+        jiaoqiang = #{record.jiaoqiang,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jiaoqiangday != null" >
+        jiaoqiangday = #{record.jiaoqiangday,jdbcType=DATE},
+      </if>
+      <if test="record.shangye != null" >
+        shangye = #{record.shangye,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangyeday != null" >
+        shangyeday = #{record.shangyeday,jdbcType=DATE},
+      </if>
+      <if test="record.yuliu != null" >
+        yuliu = #{record.yuliu,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yuliu2 != null" >
+        yuliu2 = #{record.yuliu2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yuliu3 != null" >
+        yuliu3 = #{record.yuliu3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update clientcar
+    set carno = #{record.carno,jdbcType=VARCHAR},
+      typeId = #{record.typeid,jdbcType=VARCHAR},
+      people = #{record.people,jdbcType=VARCHAR},
+      peoplePhone = #{record.peoplephone,jdbcType=VARCHAR},
+      peopleday = #{record.peopleday,jdbcType=DATE},
+      carguishu = #{record.carguishu,jdbcType=VARCHAR},
+      cardaoqi = #{record.cardaoqi,jdbcType=DATE},
+      chejiahao = #{record.chejiahao,jdbcType=VARCHAR},
+      fadongji = #{record.fadongji,jdbcType=VARCHAR},
+      carniankuan = #{record.carniankuan,jdbcType=INTEGER},
+      licheng = #{record.licheng,jdbcType=INTEGER},
+      fadongjipp = #{record.fadongjipp,jdbcType=VARCHAR},
+      zaizhong = #{record.zaizhong,jdbcType=REAL},
+      buyday = #{record.buyday,jdbcType=DATE},
+      shangpaiday = #{record.shangpaiday,jdbcType=DATE},
+      chejian = #{record.chejian,jdbcType=DATE},
+      ranyou = #{record.ranyou,jdbcType=VARCHAR},
+      chexi = #{record.chexi,jdbcType=VARCHAR},
+      jiaoqiang = #{record.jiaoqiang,jdbcType=VARCHAR},
+      jiaoqiangday = #{record.jiaoqiangday,jdbcType=DATE},
+      shangye = #{record.shangye,jdbcType=VARCHAR},
+      shangyeday = #{record.shangyeday,jdbcType=DATE},
+      yuliu = #{record.yuliu,jdbcType=VARCHAR},
+      yuliu2 = #{record.yuliu2,jdbcType=VARCHAR},
+      yuliu3 = #{record.yuliu3,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Clientcar" >
+    update clientcar
+    <set >
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="people != null" >
+        people = #{people,jdbcType=VARCHAR},
+      </if>
+      <if test="peoplephone != null" >
+        peoplePhone = #{peoplephone,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleday != null" >
+        peopleday = #{peopleday,jdbcType=DATE},
+      </if>
+      <if test="carguishu != null" >
+        carguishu = #{carguishu,jdbcType=VARCHAR},
+      </if>
+      <if test="cardaoqi != null" >
+        cardaoqi = #{cardaoqi,jdbcType=DATE},
+      </if>
+      <if test="chejiahao != null" >
+        chejiahao = #{chejiahao,jdbcType=VARCHAR},
+      </if>
+      <if test="fadongji != null" >
+        fadongji = #{fadongji,jdbcType=VARCHAR},
+      </if>
+      <if test="carniankuan != null" >
+        carniankuan = #{carniankuan,jdbcType=INTEGER},
+      </if>
+      <if test="licheng != null" >
+        licheng = #{licheng,jdbcType=INTEGER},
+      </if>
+      <if test="fadongjipp != null" >
+        fadongjipp = #{fadongjipp,jdbcType=VARCHAR},
+      </if>
+      <if test="zaizhong != null" >
+        zaizhong = #{zaizhong,jdbcType=REAL},
+      </if>
+      <if test="buyday != null" >
+        buyday = #{buyday,jdbcType=DATE},
+      </if>
+      <if test="shangpaiday != null" >
+        shangpaiday = #{shangpaiday,jdbcType=DATE},
+      </if>
+      <if test="chejian != null" >
+        chejian = #{chejian,jdbcType=DATE},
+      </if>
+      <if test="ranyou != null" >
+        ranyou = #{ranyou,jdbcType=VARCHAR},
+      </if>
+      <if test="chexi != null" >
+        chexi = #{chexi,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoqiang != null" >
+        jiaoqiang = #{jiaoqiang,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoqiangday != null" >
+        jiaoqiangday = #{jiaoqiangday,jdbcType=DATE},
+      </if>
+      <if test="shangye != null" >
+        shangye = #{shangye,jdbcType=VARCHAR},
+      </if>
+      <if test="shangyeday != null" >
+        shangyeday = #{shangyeday,jdbcType=DATE},
+      </if>
+      <if test="yuliu != null" >
+        yuliu = #{yuliu,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu2 != null" >
+        yuliu2 = #{yuliu2,jdbcType=VARCHAR},
+      </if>
+      <if test="yuliu3 != null" >
+        yuliu3 = #{yuliu3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where carno = #{carno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Clientcar" >
+    update clientcar
+    set typeId = #{typeid,jdbcType=VARCHAR},
+      people = #{people,jdbcType=VARCHAR},
+      peoplePhone = #{peoplephone,jdbcType=VARCHAR},
+      peopleday = #{peopleday,jdbcType=DATE},
+      carguishu = #{carguishu,jdbcType=VARCHAR},
+      cardaoqi = #{cardaoqi,jdbcType=DATE},
+      chejiahao = #{chejiahao,jdbcType=VARCHAR},
+      fadongji = #{fadongji,jdbcType=VARCHAR},
+      carniankuan = #{carniankuan,jdbcType=INTEGER},
+      licheng = #{licheng,jdbcType=INTEGER},
+      fadongjipp = #{fadongjipp,jdbcType=VARCHAR},
+      zaizhong = #{zaizhong,jdbcType=REAL},
+      buyday = #{buyday,jdbcType=DATE},
+      shangpaiday = #{shangpaiday,jdbcType=DATE},
+      chejian = #{chejian,jdbcType=DATE},
+      ranyou = #{ranyou,jdbcType=VARCHAR},
+      chexi = #{chexi,jdbcType=VARCHAR},
+      jiaoqiang = #{jiaoqiang,jdbcType=VARCHAR},
+      jiaoqiangday = #{jiaoqiangday,jdbcType=DATE},
+      shangye = #{shangye,jdbcType=VARCHAR},
+      shangyeday = #{shangyeday,jdbcType=DATE},
+      yuliu = #{yuliu,jdbcType=VARCHAR},
+      yuliu2 = #{yuliu2,jdbcType=VARCHAR},
+      yuliu3 = #{yuliu3,jdbcType=VARCHAR}
+    where carno = #{carno,jdbcType=VARCHAR}
+  </update>
+</mapper>

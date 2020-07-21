@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Shop" >
+    <id column="shopid" property="shopid" jdbcType="VARCHAR" />
+    <result column="firmno" property="firmno" jdbcType="VARCHAR" />
+    <result column="stateid" property="stateid" jdbcType="INTEGER" />
+    <result column="storeid" property="storeid" jdbcType="VARCHAR" />
+    <result column="unitid" property="unitid" jdbcType="INTEGER" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="shopname" property="shopname" jdbcType="VARCHAR" />
+    <result column="sBrand" property="sbrand" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="pictrueUrl" property="pictrueurl" jdbcType="VARCHAR" />
+    <result column="stockprice" property="stockprice" jdbcType="REAL" />
+    <result column="bjmoney" property="bjmoney" jdbcType="REAL" />
+    <result column="hymoney" property="hymoney" jdbcType="REAL" />
+    <result column="vipmoney" property="vipmoney" jdbcType="REAL" />
+    <result column="rxyprice" property="rxyprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    shopid, firmno, stateid, storeid, unitid, gid, shopname, sBrand, weight, pictrueUrl, 
+    stockprice, bjmoney, hymoney, vipmoney, rxyprice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.ShopExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where shopid = #{shopid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from shop
+    where shopid = #{shopid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.ShopExample" >
+    delete from shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Shop" >
+    insert into shop (shopid, firmno, stateid, 
+      storeid, unitid, gid, 
+      shopname, sBrand, weight, 
+      pictrueUrl, stockprice, bjmoney, 
+      hymoney, vipmoney, rxyprice)
+    values (#{shopid,jdbcType=VARCHAR}, #{firmno,jdbcType=VARCHAR}, #{stateid,jdbcType=INTEGER}, 
+      #{storeid,jdbcType=VARCHAR}, #{unitid,jdbcType=INTEGER}, #{gid,jdbcType=INTEGER}, 
+      #{shopname,jdbcType=VARCHAR}, #{sbrand,jdbcType=VARCHAR}, #{weight,jdbcType=INTEGER}, 
+      #{pictrueurl,jdbcType=VARCHAR}, #{stockprice,jdbcType=REAL}, #{bjmoney,jdbcType=REAL}, 
+      #{hymoney,jdbcType=REAL}, #{vipmoney,jdbcType=REAL}, #{rxyprice,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Shop" >
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shopid != null" >
+        shopid,
+      </if>
+      <if test="firmno != null" >
+        firmno,
+      </if>
+      <if test="stateid != null" >
+        stateid,
+      </if>
+      <if test="storeid != null" >
+        storeid,
+      </if>
+      <if test="unitid != null" >
+        unitid,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="shopname != null" >
+        shopname,
+      </if>
+      <if test="sbrand != null" >
+        sBrand,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="pictrueurl != null" >
+        pictrueUrl,
+      </if>
+      <if test="stockprice != null" >
+        stockprice,
+      </if>
+      <if test="bjmoney != null" >
+        bjmoney,
+      </if>
+      <if test="hymoney != null" >
+        hymoney,
+      </if>
+      <if test="vipmoney != null" >
+        vipmoney,
+      </if>
+      <if test="rxyprice != null" >
+        rxyprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="firmno != null" >
+        #{firmno,jdbcType=VARCHAR},
+      </if>
+      <if test="stateid != null" >
+        #{stateid,jdbcType=INTEGER},
+      </if>
+      <if test="storeid != null" >
+        #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        #{unitid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="sbrand != null" >
+        #{sbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="pictrueurl != null" >
+        #{pictrueurl,jdbcType=VARCHAR},
+      </if>
+      <if test="stockprice != null" >
+        #{stockprice,jdbcType=REAL},
+      </if>
+      <if test="bjmoney != null" >
+        #{bjmoney,jdbcType=REAL},
+      </if>
+      <if test="hymoney != null" >
+        #{hymoney,jdbcType=REAL},
+      </if>
+      <if test="vipmoney != null" >
+        #{vipmoney,jdbcType=REAL},
+      </if>
+      <if test="rxyprice != null" >
+        #{rxyprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.ShopExample" resultType="java.lang.Integer" >
+    select count(*) from shop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update shop
+    <set >
+      <if test="record.shopid != null" >
+        shopid = #{record.shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firmno != null" >
+        firmno = #{record.firmno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stateid != null" >
+        stateid = #{record.stateid,jdbcType=INTEGER},
+      </if>
+      <if test="record.storeid != null" >
+        storeid = #{record.storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unitid != null" >
+        unitid = #{record.unitid,jdbcType=INTEGER},
+      </if>
+      <if test="record.gid != null" >
+        gid = #{record.gid,jdbcType=INTEGER},
+      </if>
+      <if test="record.shopname != null" >
+        shopname = #{record.shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sbrand != null" >
+        sBrand = #{record.sbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=INTEGER},
+      </if>
+      <if test="record.pictrueurl != null" >
+        pictrueUrl = #{record.pictrueurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stockprice != null" >
+        stockprice = #{record.stockprice,jdbcType=REAL},
+      </if>
+      <if test="record.bjmoney != null" >
+        bjmoney = #{record.bjmoney,jdbcType=REAL},
+      </if>
+      <if test="record.hymoney != null" >
+        hymoney = #{record.hymoney,jdbcType=REAL},
+      </if>
+      <if test="record.vipmoney != null" >
+        vipmoney = #{record.vipmoney,jdbcType=REAL},
+      </if>
+      <if test="record.rxyprice != null" >
+        rxyprice = #{record.rxyprice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update shop
+    set shopid = #{record.shopid,jdbcType=VARCHAR},
+      firmno = #{record.firmno,jdbcType=VARCHAR},
+      stateid = #{record.stateid,jdbcType=INTEGER},
+      storeid = #{record.storeid,jdbcType=VARCHAR},
+      unitid = #{record.unitid,jdbcType=INTEGER},
+      gid = #{record.gid,jdbcType=INTEGER},
+      shopname = #{record.shopname,jdbcType=VARCHAR},
+      sBrand = #{record.sbrand,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=INTEGER},
+      pictrueUrl = #{record.pictrueurl,jdbcType=VARCHAR},
+      stockprice = #{record.stockprice,jdbcType=REAL},
+      bjmoney = #{record.bjmoney,jdbcType=REAL},
+      hymoney = #{record.hymoney,jdbcType=REAL},
+      vipmoney = #{record.vipmoney,jdbcType=REAL},
+      rxyprice = #{record.rxyprice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Shop" >
+    update shop
+    <set >
+      <if test="firmno != null" >
+        firmno = #{firmno,jdbcType=VARCHAR},
+      </if>
+      <if test="stateid != null" >
+        stateid = #{stateid,jdbcType=INTEGER},
+      </if>
+      <if test="storeid != null" >
+        storeid = #{storeid,jdbcType=VARCHAR},
+      </if>
+      <if test="unitid != null" >
+        unitid = #{unitid,jdbcType=INTEGER},
+      </if>
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        shopname = #{shopname,jdbcType=VARCHAR},
+      </if>
+      <if test="sbrand != null" >
+        sBrand = #{sbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="pictrueurl != null" >
+        pictrueUrl = #{pictrueurl,jdbcType=VARCHAR},
+      </if>
+      <if test="stockprice != null" >
+        stockprice = #{stockprice,jdbcType=REAL},
+      </if>
+      <if test="bjmoney != null" >
+        bjmoney = #{bjmoney,jdbcType=REAL},
+      </if>
+      <if test="hymoney != null" >
+        hymoney = #{hymoney,jdbcType=REAL},
+      </if>
+      <if test="vipmoney != null" >
+        vipmoney = #{vipmoney,jdbcType=REAL},
+      </if>
+      <if test="rxyprice != null" >
+        rxyprice = #{rxyprice,jdbcType=REAL},
+      </if>
+    </set>
+    where shopid = #{shopid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Shop" >
+    update shop
+    set firmno = #{firmno,jdbcType=VARCHAR},
+      stateid = #{stateid,jdbcType=INTEGER},
+      storeid = #{storeid,jdbcType=VARCHAR},
+      unitid = #{unitid,jdbcType=INTEGER},
+      gid = #{gid,jdbcType=INTEGER},
+      shopname = #{shopname,jdbcType=VARCHAR},
+      sBrand = #{sbrand,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      pictrueUrl = #{pictrueurl,jdbcType=VARCHAR},
+      stockprice = #{stockprice,jdbcType=REAL},
+      bjmoney = #{bjmoney,jdbcType=REAL},
+      hymoney = #{hymoney,jdbcType=REAL},
+      vipmoney = #{vipmoney,jdbcType=REAL},
+      rxyprice = #{rxyprice,jdbcType=REAL}
+    where shopid = #{shopid,jdbcType=VARCHAR}
+  </update>
+</mapper>

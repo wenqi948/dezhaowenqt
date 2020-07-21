@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.ModeltypeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Modeltype" >
+    <id column="cartypeid" property="cartypeid" jdbcType="VARCHAR" />
+    <result column="engineid" property="engineid" jdbcType="INTEGER" />
+    <result column="ctsid" property="ctsid" jdbcType="INTEGER" />
+    <result column="cartypename" property="cartypename" jdbcType="VARCHAR" />
+    <result column="ckprice" property="ckprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cartypeid, engineid, ctsid, cartypename, ckprice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.ModeltypeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from modeltype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from modeltype
+    where cartypeid = #{cartypeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from modeltype
+    where cartypeid = #{cartypeid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.ModeltypeExample" >
+    delete from modeltype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Modeltype" >
+    insert into modeltype (cartypeid, engineid, ctsid, 
+      cartypename, ckprice)
+    values (#{cartypeid,jdbcType=VARCHAR}, #{engineid,jdbcType=INTEGER}, #{ctsid,jdbcType=INTEGER}, 
+      #{cartypename,jdbcType=VARCHAR}, #{ckprice,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Modeltype" >
+    insert into modeltype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cartypeid != null" >
+        cartypeid,
+      </if>
+      <if test="engineid != null" >
+        engineid,
+      </if>
+      <if test="ctsid != null" >
+        ctsid,
+      </if>
+      <if test="cartypename != null" >
+        cartypename,
+      </if>
+      <if test="ckprice != null" >
+        ckprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cartypeid != null" >
+        #{cartypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="engineid != null" >
+        #{engineid,jdbcType=INTEGER},
+      </if>
+      <if test="ctsid != null" >
+        #{ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="cartypename != null" >
+        #{cartypename,jdbcType=VARCHAR},
+      </if>
+      <if test="ckprice != null" >
+        #{ckprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.ModeltypeExample" resultType="java.lang.Integer" >
+    select count(*) from modeltype
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update modeltype
+    <set >
+      <if test="record.cartypeid != null" >
+        cartypeid = #{record.cartypeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engineid != null" >
+        engineid = #{record.engineid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ctsid != null" >
+        ctsid = #{record.ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cartypename != null" >
+        cartypename = #{record.cartypename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ckprice != null" >
+        ckprice = #{record.ckprice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update modeltype
+    set cartypeid = #{record.cartypeid,jdbcType=VARCHAR},
+      engineid = #{record.engineid,jdbcType=INTEGER},
+      ctsid = #{record.ctsid,jdbcType=INTEGER},
+      cartypename = #{record.cartypename,jdbcType=VARCHAR},
+      ckprice = #{record.ckprice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Modeltype" >
+    update modeltype
+    <set >
+      <if test="engineid != null" >
+        engineid = #{engineid,jdbcType=INTEGER},
+      </if>
+      <if test="ctsid != null" >
+        ctsid = #{ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="cartypename != null" >
+        cartypename = #{cartypename,jdbcType=VARCHAR},
+      </if>
+      <if test="ckprice != null" >
+        ckprice = #{ckprice,jdbcType=REAL},
+      </if>
+    </set>
+    where cartypeid = #{cartypeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Modeltype" >
+    update modeltype
+    set engineid = #{engineid,jdbcType=INTEGER},
+      ctsid = #{ctsid,jdbcType=INTEGER},
+      cartypename = #{cartypename,jdbcType=VARCHAR},
+      ckprice = #{ckprice,jdbcType=REAL}
+    where cartypeid = #{cartypeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

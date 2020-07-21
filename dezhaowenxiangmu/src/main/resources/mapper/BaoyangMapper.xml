@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.BaoyangMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Baoyang" >
+    <result column="carno" property="carno" jdbcType="VARCHAR" />
+    <result column="baoyname" property="baoyname" jdbcType="VARCHAR" />
+    <result column="jihuadate" property="jihuadate" jdbcType="DATE" />
+    <result column="jihualicheng" property="jihualicheng" jdbcType="VARCHAR" />
+    <result column="shijidate" property="shijidate" jdbcType="DATE" />
+    <result column="shijilicheng" property="shijilicheng" jdbcType="VARCHAR" />
+    <result column="beizhu" property="beizhu" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    carno, baoyname, jihuadate, jihualicheng, shijidate, shijilicheng, beizhu
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.BaoyangExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from baoyang
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.accp.domain.BaoyangExample" >
+    delete from baoyang
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Baoyang" >
+    insert into baoyang (carno, baoyname, jihuadate, 
+      jihualicheng, shijidate, shijilicheng, 
+      beizhu)
+    values (#{carno,jdbcType=VARCHAR}, #{baoyname,jdbcType=VARCHAR}, #{jihuadate,jdbcType=DATE}, 
+      #{jihualicheng,jdbcType=VARCHAR}, #{shijidate,jdbcType=DATE}, #{shijilicheng,jdbcType=VARCHAR}, 
+      #{beizhu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Baoyang" >
+    insert into baoyang
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carno != null" >
+        carno,
+      </if>
+      <if test="baoyname != null" >
+        baoyname,
+      </if>
+      <if test="jihuadate != null" >
+        jihuadate,
+      </if>
+      <if test="jihualicheng != null" >
+        jihualicheng,
+      </if>
+      <if test="shijidate != null" >
+        shijidate,
+      </if>
+      <if test="shijilicheng != null" >
+        shijilicheng,
+      </if>
+      <if test="beizhu != null" >
+        beizhu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carno != null" >
+        #{carno,jdbcType=VARCHAR},
+      </if>
+      <if test="baoyname != null" >
+        #{baoyname,jdbcType=VARCHAR},
+      </if>
+      <if test="jihuadate != null" >
+        #{jihuadate,jdbcType=DATE},
+      </if>
+      <if test="jihualicheng != null" >
+        #{jihualicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shijidate != null" >
+        #{shijidate,jdbcType=DATE},
+      </if>
+      <if test="shijilicheng != null" >
+        #{shijilicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.BaoyangExample" resultType="java.lang.Integer" >
+    select count(*) from baoyang
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update baoyang
+    <set >
+      <if test="record.carno != null" >
+        carno = #{record.carno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.baoyname != null" >
+        baoyname = #{record.baoyname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jihuadate != null" >
+        jihuadate = #{record.jihuadate,jdbcType=DATE},
+      </if>
+      <if test="record.jihualicheng != null" >
+        jihualicheng = #{record.jihualicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shijidate != null" >
+        shijidate = #{record.shijidate,jdbcType=DATE},
+      </if>
+      <if test="record.shijilicheng != null" >
+        shijilicheng = #{record.shijilicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.beizhu != null" >
+        beizhu = #{record.beizhu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update baoyang
+    set carno = #{record.carno,jdbcType=VARCHAR},
+      baoyname = #{record.baoyname,jdbcType=VARCHAR},
+      jihuadate = #{record.jihuadate,jdbcType=DATE},
+      jihualicheng = #{record.jihualicheng,jdbcType=VARCHAR},
+      shijidate = #{record.shijidate,jdbcType=DATE},
+      shijilicheng = #{record.shijilicheng,jdbcType=VARCHAR},
+      beizhu = #{record.beizhu,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.EmployeeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Employee" >
+    <id column="employeeid" property="employeeid" jdbcType="VARCHAR" />
+    <result column="emname" property="emname" jdbcType="VARCHAR" />
+    <result column="emsex" property="emsex" jdbcType="VARCHAR" />
+    <result column="emmd" property="emmd" jdbcType="INTEGER" />
+    <result column="embm" property="embm" jdbcType="INTEGER" />
+    <result column="emadmin" property="emadmin" jdbcType="VARCHAR" />
+    <result column="emstzk" property="emstzk" jdbcType="VARCHAR" />
+    <result column="emgw" property="emgw" jdbcType="VARCHAR" />
+    <result column="emheight" property="emheight" jdbcType="VARCHAR" />
+    <result column="emjg" property="emjg" jdbcType="VARCHAR" />
+    <result column="emmz" property="emmz" jdbcType="VARCHAR" />
+    <result column="emhyzk" property="emhyzk" jdbcType="VARCHAR" />
+    <result column="emxl" property="emxl" jdbcType="VARCHAR" />
+    <result column="embyyx" property="embyyx" jdbcType="VARCHAR" />
+    <result column="emzy" property="emzy" jdbcType="VARCHAR" />
+    <result column="emzyzg" property="emzyzg" jdbcType="VARCHAR" />
+    <result column="emsx" property="emsx" jdbcType="VARCHAR" />
+    <result column="emxw" property="emxw" jdbcType="VARCHAR" />
+    <result column="embz" property="embz" jdbcType="VARCHAR" />
+    <result column="emsfz" property="emsfz" jdbcType="VARCHAR" />
+    <result column="emhkdz" property="emhkdz" jdbcType="VARCHAR" />
+    <result column="emxzdz" property="emxzdz" jdbcType="VARCHAR" />
+    <result column="emlxdh" property="emlxdh" jdbcType="VARCHAR" />
+    <result column="emsj" property="emsj" jdbcType="VARCHAR" />
+    <result column="ememail" property="ememail" jdbcType="VARCHAR" />
+    <result column="emkhyh" property="emkhyh" jdbcType="VARCHAR" />
+    <result column="emyhzh" property="emyhzh" jdbcType="VARCHAR" />
+    <result column="emjjlxr" property="emjjlxr" jdbcType="VARCHAR" />
+    <result column="emrzrq" property="emrzrq" jdbcType="DATE" />
+    <result column="emsyrq" property="emsyrq" jdbcType="DATE" />
+    <result column="emcsrq" property="emcsrq" jdbcType="DATE" />
+    <result column="emhtks" property="emhtks" jdbcType="DATE" />
+    <result column="emhtjs" property="emhtjs" jdbcType="DATE" />
+    <result column="emkzbh" property="emkzbh" jdbcType="VARCHAR" />
+    <result column="emknbh" property="emknbh" jdbcType="VARCHAR" />
+    <result column="emtjr" property="emtjr" jdbcType="VARCHAR" />
+    <result column="emzdzkq" property="emzdzkq" jdbcType="VARCHAR" />
+    <result column="emgszkq" property="emgszkq" jdbcType="VARCHAR" />
+    <result column="emspzkq" property="emspzkq" jdbcType="VARCHAR" />
+    <result column="emjmq" property="emjmq" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    employeeid, emname, emsex, emmd, embm, emadmin, emstzk, emgw, emheight, emjg, emmz, 
+    emhyzk, emxl, embyyx, emzy, emzyzg, emsx, emxw, embz, emsfz, emhkdz, emxzdz, emlxdh, 
+    emsj, ememail, emkhyh, emyhzh, emjjlxr, emrzrq, emsyrq, emcsrq, emhtks, emhtjs, emkzbh, 
+    emknbh, emtjr, emzdzkq, emgszkq, emspzkq, emjmq
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.EmployeeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where employeeid = #{employeeid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from employee
+    where employeeid = #{employeeid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.EmployeeExample" >
+    delete from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Employee" >
+    insert into employee (employeeid, emname, emsex, 
+      emmd, embm, emadmin, 
+      emstzk, emgw, emheight, 
+      emjg, emmz, emhyzk, 
+      emxl, embyyx, emzy, 
+      emzyzg, emsx, emxw, 
+      embz, emsfz, emhkdz, 
+      emxzdz, emlxdh, emsj, 
+      ememail, emkhyh, emyhzh, 
+      emjjlxr, emrzrq, emsyrq, 
+      emcsrq, emhtks, emhtjs, emkzbh, 
+      emknbh, emtjr, emzdzkq, 
+      emgszkq, emspzkq, emjmq
+      )
+    values (#{employeeid,jdbcType=VARCHAR}, #{emname,jdbcType=VARCHAR}, #{emsex,jdbcType=VARCHAR}, 
+      #{emmd,jdbcType=INTEGER}, #{embm,jdbcType=INTEGER}, #{emadmin,jdbcType=VARCHAR}, 
+      #{emstzk,jdbcType=VARCHAR}, #{emgw,jdbcType=VARCHAR}, #{emheight,jdbcType=VARCHAR}, 
+      #{emjg,jdbcType=VARCHAR}, #{emmz,jdbcType=VARCHAR}, #{emhyzk,jdbcType=VARCHAR}, 
+      #{emxl,jdbcType=VARCHAR}, #{embyyx,jdbcType=VARCHAR}, #{emzy,jdbcType=VARCHAR}, 
+      #{emzyzg,jdbcType=VARCHAR}, #{emsx,jdbcType=VARCHAR}, #{emxw,jdbcType=VARCHAR}, 
+      #{embz,jdbcType=VARCHAR}, #{emsfz,jdbcType=VARCHAR}, #{emhkdz,jdbcType=VARCHAR}, 
+      #{emxzdz,jdbcType=VARCHAR}, #{emlxdh,jdbcType=VARCHAR}, #{emsj,jdbcType=VARCHAR}, 
+      #{ememail,jdbcType=VARCHAR}, #{emkhyh,jdbcType=VARCHAR}, #{emyhzh,jdbcType=VARCHAR}, 
+      #{emjjlxr,jdbcType=VARCHAR}, #{emrzrq,jdbcType=DATE}, #{emsyrq,jdbcType=DATE}, 
+      #{emcsrq,jdbcType=DATE}, #{emhtks,jdbcType=DATE}, #{emhtjs,jdbcType=DATE}, #{emkzbh,jdbcType=VARCHAR}, 
+      #{emknbh,jdbcType=VARCHAR}, #{emtjr,jdbcType=VARCHAR}, #{emzdzkq,jdbcType=VARCHAR}, 
+      #{emgszkq,jdbcType=VARCHAR}, #{emspzkq,jdbcType=VARCHAR}, #{emjmq,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Employee" >
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeeid != null" >
+        employeeid,
+      </if>
+      <if test="emname != null" >
+        emname,
+      </if>
+      <if test="emsex != null" >
+        emsex,
+      </if>
+      <if test="emmd != null" >
+        emmd,
+      </if>
+      <if test="embm != null" >
+        embm,
+      </if>
+      <if test="emadmin != null" >
+        emadmin,
+      </if>
+      <if test="emstzk != null" >
+        emstzk,
+      </if>
+      <if test="emgw != null" >
+        emgw,
+      </if>
+      <if test="emheight != null" >
+        emheight,
+      </if>
+      <if test="emjg != null" >
+        emjg,
+      </if>
+      <if test="emmz != null" >
+        emmz,
+      </if>
+      <if test="emhyzk != null" >
+        emhyzk,
+      </if>
+      <if test="emxl != null" >
+        emxl,
+      </if>
+      <if test="embyyx != null" >
+        embyyx,
+      </if>
+      <if test="emzy != null" >
+        emzy,
+      </if>
+      <if test="emzyzg != null" >
+        emzyzg,
+      </if>
+      <if test="emsx != null" >
+        emsx,
+      </if>
+      <if test="emxw != null" >
+        emxw,
+      </if>
+      <if test="embz != null" >
+        embz,
+      </if>
+      <if test="emsfz != null" >
+        emsfz,
+      </if>
+      <if test="emhkdz != null" >
+        emhkdz,
+      </if>
+      <if test="emxzdz != null" >
+        emxzdz,
+      </if>
+      <if test="emlxdh != null" >
+        emlxdh,
+      </if>
+      <if test="emsj != null" >
+        emsj,
+      </if>
+      <if test="ememail != null" >
+        ememail,
+      </if>
+      <if test="emkhyh != null" >
+        emkhyh,
+      </if>
+      <if test="emyhzh != null" >
+        emyhzh,
+      </if>
+      <if test="emjjlxr != null" >
+        emjjlxr,
+      </if>
+      <if test="emrzrq != null" >
+        emrzrq,
+      </if>
+      <if test="emsyrq != null" >
+        emsyrq,
+      </if>
+      <if test="emcsrq != null" >
+        emcsrq,
+      </if>
+      <if test="emhtks != null" >
+        emhtks,
+      </if>
+      <if test="emhtjs != null" >
+        emhtjs,
+      </if>
+      <if test="emkzbh != null" >
+        emkzbh,
+      </if>
+      <if test="emknbh != null" >
+        emknbh,
+      </if>
+      <if test="emtjr != null" >
+        emtjr,
+      </if>
+      <if test="emzdzkq != null" >
+        emzdzkq,
+      </if>
+      <if test="emgszkq != null" >
+        emgszkq,
+      </if>
+      <if test="emspzkq != null" >
+        emspzkq,
+      </if>
+      <if test="emjmq != null" >
+        emjmq,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeeid != null" >
+        #{employeeid,jdbcType=VARCHAR},
+      </if>
+      <if test="emname != null" >
+        #{emname,jdbcType=VARCHAR},
+      </if>
+      <if test="emsex != null" >
+        #{emsex,jdbcType=VARCHAR},
+      </if>
+      <if test="emmd != null" >
+        #{emmd,jdbcType=INTEGER},
+      </if>
+      <if test="embm != null" >
+        #{embm,jdbcType=INTEGER},
+      </if>
+      <if test="emadmin != null" >
+        #{emadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="emstzk != null" >
+        #{emstzk,jdbcType=VARCHAR},
+      </if>
+      <if test="emgw != null" >
+        #{emgw,jdbcType=VARCHAR},
+      </if>
+      <if test="emheight != null" >
+        #{emheight,jdbcType=VARCHAR},
+      </if>
+      <if test="emjg != null" >
+        #{emjg,jdbcType=VARCHAR},
+      </if>
+      <if test="emmz != null" >
+        #{emmz,jdbcType=VARCHAR},
+      </if>
+      <if test="emhyzk != null" >
+        #{emhyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="emxl != null" >
+        #{emxl,jdbcType=VARCHAR},
+      </if>
+      <if test="embyyx != null" >
+        #{embyyx,jdbcType=VARCHAR},
+      </if>
+      <if test="emzy != null" >
+        #{emzy,jdbcType=VARCHAR},
+      </if>
+      <if test="emzyzg != null" >
+        #{emzyzg,jdbcType=VARCHAR},
+      </if>
+      <if test="emsx != null" >
+        #{emsx,jdbcType=VARCHAR},
+      </if>
+      <if test="emxw != null" >
+        #{emxw,jdbcType=VARCHAR},
+      </if>
+      <if test="embz != null" >
+        #{embz,jdbcType=VARCHAR},
+      </if>
+      <if test="emsfz != null" >
+        #{emsfz,jdbcType=VARCHAR},
+      </if>
+      <if test="emhkdz != null" >
+        #{emhkdz,jdbcType=VARCHAR},
+      </if>
+      <if test="emxzdz != null" >
+        #{emxzdz,jdbcType=VARCHAR},
+      </if>
+      <if test="emlxdh != null" >
+        #{emlxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="emsj != null" >
+        #{emsj,jdbcType=VARCHAR},
+      </if>
+      <if test="ememail != null" >
+        #{ememail,jdbcType=VARCHAR},
+      </if>
+      <if test="emkhyh != null" >
+        #{emkhyh,jdbcType=VARCHAR},
+      </if>
+      <if test="emyhzh != null" >
+        #{emyhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="emjjlxr != null" >
+        #{emjjlxr,jdbcType=VARCHAR},
+      </if>
+      <if test="emrzrq != null" >
+        #{emrzrq,jdbcType=DATE},
+      </if>
+      <if test="emsyrq != null" >
+        #{emsyrq,jdbcType=DATE},
+      </if>
+      <if test="emcsrq != null" >
+        #{emcsrq,jdbcType=DATE},
+      </if>
+      <if test="emhtks != null" >
+        #{emhtks,jdbcType=DATE},
+      </if>
+      <if test="emhtjs != null" >
+        #{emhtjs,jdbcType=DATE},
+      </if>
+      <if test="emkzbh != null" >
+        #{emkzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="emknbh != null" >
+        #{emknbh,jdbcType=VARCHAR},
+      </if>
+      <if test="emtjr != null" >
+        #{emtjr,jdbcType=VARCHAR},
+      </if>
+      <if test="emzdzkq != null" >
+        #{emzdzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emgszkq != null" >
+        #{emgszkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emspzkq != null" >
+        #{emspzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emjmq != null" >
+        #{emjmq,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.EmployeeExample" resultType="java.lang.Integer" >
+    select count(*) from employee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update employee
+    <set >
+      <if test="record.employeeid != null" >
+        employeeid = #{record.employeeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emname != null" >
+        emname = #{record.emname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emsex != null" >
+        emsex = #{record.emsex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emmd != null" >
+        emmd = #{record.emmd,jdbcType=INTEGER},
+      </if>
+      <if test="record.embm != null" >
+        embm = #{record.embm,jdbcType=INTEGER},
+      </if>
+      <if test="record.emadmin != null" >
+        emadmin = #{record.emadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emstzk != null" >
+        emstzk = #{record.emstzk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emgw != null" >
+        emgw = #{record.emgw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emheight != null" >
+        emheight = #{record.emheight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emjg != null" >
+        emjg = #{record.emjg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emmz != null" >
+        emmz = #{record.emmz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emhyzk != null" >
+        emhyzk = #{record.emhyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emxl != null" >
+        emxl = #{record.emxl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.embyyx != null" >
+        embyyx = #{record.embyyx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emzy != null" >
+        emzy = #{record.emzy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emzyzg != null" >
+        emzyzg = #{record.emzyzg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emsx != null" >
+        emsx = #{record.emsx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emxw != null" >
+        emxw = #{record.emxw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.embz != null" >
+        embz = #{record.embz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emsfz != null" >
+        emsfz = #{record.emsfz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emhkdz != null" >
+        emhkdz = #{record.emhkdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emxzdz != null" >
+        emxzdz = #{record.emxzdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emlxdh != null" >
+        emlxdh = #{record.emlxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emsj != null" >
+        emsj = #{record.emsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ememail != null" >
+        ememail = #{record.ememail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emkhyh != null" >
+        emkhyh = #{record.emkhyh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emyhzh != null" >
+        emyhzh = #{record.emyhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emjjlxr != null" >
+        emjjlxr = #{record.emjjlxr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emrzrq != null" >
+        emrzrq = #{record.emrzrq,jdbcType=DATE},
+      </if>
+      <if test="record.emsyrq != null" >
+        emsyrq = #{record.emsyrq,jdbcType=DATE},
+      </if>
+      <if test="record.emcsrq != null" >
+        emcsrq = #{record.emcsrq,jdbcType=DATE},
+      </if>
+      <if test="record.emhtks != null" >
+        emhtks = #{record.emhtks,jdbcType=DATE},
+      </if>
+      <if test="record.emhtjs != null" >
+        emhtjs = #{record.emhtjs,jdbcType=DATE},
+      </if>
+      <if test="record.emkzbh != null" >
+        emkzbh = #{record.emkzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emknbh != null" >
+        emknbh = #{record.emknbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emtjr != null" >
+        emtjr = #{record.emtjr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emzdzkq != null" >
+        emzdzkq = #{record.emzdzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emgszkq != null" >
+        emgszkq = #{record.emgszkq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emspzkq != null" >
+        emspzkq = #{record.emspzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emjmq != null" >
+        emjmq = #{record.emjmq,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update employee
+    set employeeid = #{record.employeeid,jdbcType=VARCHAR},
+      emname = #{record.emname,jdbcType=VARCHAR},
+      emsex = #{record.emsex,jdbcType=VARCHAR},
+      emmd = #{record.emmd,jdbcType=INTEGER},
+      embm = #{record.embm,jdbcType=INTEGER},
+      emadmin = #{record.emadmin,jdbcType=VARCHAR},
+      emstzk = #{record.emstzk,jdbcType=VARCHAR},
+      emgw = #{record.emgw,jdbcType=VARCHAR},
+      emheight = #{record.emheight,jdbcType=VARCHAR},
+      emjg = #{record.emjg,jdbcType=VARCHAR},
+      emmz = #{record.emmz,jdbcType=VARCHAR},
+      emhyzk = #{record.emhyzk,jdbcType=VARCHAR},
+      emxl = #{record.emxl,jdbcType=VARCHAR},
+      embyyx = #{record.embyyx,jdbcType=VARCHAR},
+      emzy = #{record.emzy,jdbcType=VARCHAR},
+      emzyzg = #{record.emzyzg,jdbcType=VARCHAR},
+      emsx = #{record.emsx,jdbcType=VARCHAR},
+      emxw = #{record.emxw,jdbcType=VARCHAR},
+      embz = #{record.embz,jdbcType=VARCHAR},
+      emsfz = #{record.emsfz,jdbcType=VARCHAR},
+      emhkdz = #{record.emhkdz,jdbcType=VARCHAR},
+      emxzdz = #{record.emxzdz,jdbcType=VARCHAR},
+      emlxdh = #{record.emlxdh,jdbcType=VARCHAR},
+      emsj = #{record.emsj,jdbcType=VARCHAR},
+      ememail = #{record.ememail,jdbcType=VARCHAR},
+      emkhyh = #{record.emkhyh,jdbcType=VARCHAR},
+      emyhzh = #{record.emyhzh,jdbcType=VARCHAR},
+      emjjlxr = #{record.emjjlxr,jdbcType=VARCHAR},
+      emrzrq = #{record.emrzrq,jdbcType=DATE},
+      emsyrq = #{record.emsyrq,jdbcType=DATE},
+      emcsrq = #{record.emcsrq,jdbcType=DATE},
+      emhtks = #{record.emhtks,jdbcType=DATE},
+      emhtjs = #{record.emhtjs,jdbcType=DATE},
+      emkzbh = #{record.emkzbh,jdbcType=VARCHAR},
+      emknbh = #{record.emknbh,jdbcType=VARCHAR},
+      emtjr = #{record.emtjr,jdbcType=VARCHAR},
+      emzdzkq = #{record.emzdzkq,jdbcType=VARCHAR},
+      emgszkq = #{record.emgszkq,jdbcType=VARCHAR},
+      emspzkq = #{record.emspzkq,jdbcType=VARCHAR},
+      emjmq = #{record.emjmq,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Employee" >
+    update employee
+    <set >
+      <if test="emname != null" >
+        emname = #{emname,jdbcType=VARCHAR},
+      </if>
+      <if test="emsex != null" >
+        emsex = #{emsex,jdbcType=VARCHAR},
+      </if>
+      <if test="emmd != null" >
+        emmd = #{emmd,jdbcType=INTEGER},
+      </if>
+      <if test="embm != null" >
+        embm = #{embm,jdbcType=INTEGER},
+      </if>
+      <if test="emadmin != null" >
+        emadmin = #{emadmin,jdbcType=VARCHAR},
+      </if>
+      <if test="emstzk != null" >
+        emstzk = #{emstzk,jdbcType=VARCHAR},
+      </if>
+      <if test="emgw != null" >
+        emgw = #{emgw,jdbcType=VARCHAR},
+      </if>
+      <if test="emheight != null" >
+        emheight = #{emheight,jdbcType=VARCHAR},
+      </if>
+      <if test="emjg != null" >
+        emjg = #{emjg,jdbcType=VARCHAR},
+      </if>
+      <if test="emmz != null" >
+        emmz = #{emmz,jdbcType=VARCHAR},
+      </if>
+      <if test="emhyzk != null" >
+        emhyzk = #{emhyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="emxl != null" >
+        emxl = #{emxl,jdbcType=VARCHAR},
+      </if>
+      <if test="embyyx != null" >
+        embyyx = #{embyyx,jdbcType=VARCHAR},
+      </if>
+      <if test="emzy != null" >
+        emzy = #{emzy,jdbcType=VARCHAR},
+      </if>
+      <if test="emzyzg != null" >
+        emzyzg = #{emzyzg,jdbcType=VARCHAR},
+      </if>
+      <if test="emsx != null" >
+        emsx = #{emsx,jdbcType=VARCHAR},
+      </if>
+      <if test="emxw != null" >
+        emxw = #{emxw,jdbcType=VARCHAR},
+      </if>
+      <if test="embz != null" >
+        embz = #{embz,jdbcType=VARCHAR},
+      </if>
+      <if test="emsfz != null" >
+        emsfz = #{emsfz,jdbcType=VARCHAR},
+      </if>
+      <if test="emhkdz != null" >
+        emhkdz = #{emhkdz,jdbcType=VARCHAR},
+      </if>
+      <if test="emxzdz != null" >
+        emxzdz = #{emxzdz,jdbcType=VARCHAR},
+      </if>
+      <if test="emlxdh != null" >
+        emlxdh = #{emlxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="emsj != null" >
+        emsj = #{emsj,jdbcType=VARCHAR},
+      </if>
+      <if test="ememail != null" >
+        ememail = #{ememail,jdbcType=VARCHAR},
+      </if>
+      <if test="emkhyh != null" >
+        emkhyh = #{emkhyh,jdbcType=VARCHAR},
+      </if>
+      <if test="emyhzh != null" >
+        emyhzh = #{emyhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="emjjlxr != null" >
+        emjjlxr = #{emjjlxr,jdbcType=VARCHAR},
+      </if>
+      <if test="emrzrq != null" >
+        emrzrq = #{emrzrq,jdbcType=DATE},
+      </if>
+      <if test="emsyrq != null" >
+        emsyrq = #{emsyrq,jdbcType=DATE},
+      </if>
+      <if test="emcsrq != null" >
+        emcsrq = #{emcsrq,jdbcType=DATE},
+      </if>
+      <if test="emhtks != null" >
+        emhtks = #{emhtks,jdbcType=DATE},
+      </if>
+      <if test="emhtjs != null" >
+        emhtjs = #{emhtjs,jdbcType=DATE},
+      </if>
+      <if test="emkzbh != null" >
+        emkzbh = #{emkzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="emknbh != null" >
+        emknbh = #{emknbh,jdbcType=VARCHAR},
+      </if>
+      <if test="emtjr != null" >
+        emtjr = #{emtjr,jdbcType=VARCHAR},
+      </if>
+      <if test="emzdzkq != null" >
+        emzdzkq = #{emzdzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emgszkq != null" >
+        emgszkq = #{emgszkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emspzkq != null" >
+        emspzkq = #{emspzkq,jdbcType=VARCHAR},
+      </if>
+      <if test="emjmq != null" >
+        emjmq = #{emjmq,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where employeeid = #{employeeid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Employee" >
+    update employee
+    set emname = #{emname,jdbcType=VARCHAR},
+      emsex = #{emsex,jdbcType=VARCHAR},
+      emmd = #{emmd,jdbcType=INTEGER},
+      embm = #{embm,jdbcType=INTEGER},
+      emadmin = #{emadmin,jdbcType=VARCHAR},
+      emstzk = #{emstzk,jdbcType=VARCHAR},
+      emgw = #{emgw,jdbcType=VARCHAR},
+      emheight = #{emheight,jdbcType=VARCHAR},
+      emjg = #{emjg,jdbcType=VARCHAR},
+      emmz = #{emmz,jdbcType=VARCHAR},
+      emhyzk = #{emhyzk,jdbcType=VARCHAR},
+      emxl = #{emxl,jdbcType=VARCHAR},
+      embyyx = #{embyyx,jdbcType=VARCHAR},
+      emzy = #{emzy,jdbcType=VARCHAR},
+      emzyzg = #{emzyzg,jdbcType=VARCHAR},
+      emsx = #{emsx,jdbcType=VARCHAR},
+      emxw = #{emxw,jdbcType=VARCHAR},
+      embz = #{embz,jdbcType=VARCHAR},
+      emsfz = #{emsfz,jdbcType=VARCHAR},
+      emhkdz = #{emhkdz,jdbcType=VARCHAR},
+      emxzdz = #{emxzdz,jdbcType=VARCHAR},
+      emlxdh = #{emlxdh,jdbcType=VARCHAR},
+      emsj = #{emsj,jdbcType=VARCHAR},
+      ememail = #{ememail,jdbcType=VARCHAR},
+      emkhyh = #{emkhyh,jdbcType=VARCHAR},
+      emyhzh = #{emyhzh,jdbcType=VARCHAR},
+      emjjlxr = #{emjjlxr,jdbcType=VARCHAR},
+      emrzrq = #{emrzrq,jdbcType=DATE},
+      emsyrq = #{emsyrq,jdbcType=DATE},
+      emcsrq = #{emcsrq,jdbcType=DATE},
+      emhtks = #{emhtks,jdbcType=DATE},
+      emhtjs = #{emhtjs,jdbcType=DATE},
+      emkzbh = #{emkzbh,jdbcType=VARCHAR},
+      emknbh = #{emknbh,jdbcType=VARCHAR},
+      emtjr = #{emtjr,jdbcType=VARCHAR},
+      emzdzkq = #{emzdzkq,jdbcType=VARCHAR},
+      emgszkq = #{emgszkq,jdbcType=VARCHAR},
+      emspzkq = #{emspzkq,jdbcType=VARCHAR},
+      emjmq = #{emjmq,jdbcType=VARCHAR}
+    where employeeid = #{employeeid,jdbcType=VARCHAR}
+  </update>
+</mapper>

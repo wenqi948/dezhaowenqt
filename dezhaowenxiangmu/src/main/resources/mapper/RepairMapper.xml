@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.RepairMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Repair" >
+    <id column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="ftype" property="ftype" jdbcType="INTEGER" />
+    <result column="xtype" property="xtype" jdbcType="INTEGER" />
+    <result column="repairname" property="repairname" jdbcType="VARCHAR" />
+    <result column="repevent" property="repevent" jdbcType="VARCHAR" />
+    <result column="rjbmoney" property="rjbmoney" jdbcType="REAL" />
+    <result column="rhymoney" property="rhymoney" jdbcType="REAL" />
+    <result column="rvipmoney" property="rvipmoney" jdbcType="REAL" />
+    <result column="repxyperice" property="repxyperice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    rid, ftype, xtype, repairname, repevent, rjbmoney, rhymoney, rvipmoney, repxyperice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.RepairExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from repair
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from repair
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from repair
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.RepairExample" >
+    delete from repair
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Repair" >
+    insert into repair (rid, ftype, xtype, 
+      repairname, repevent, rjbmoney, 
+      rhymoney, rvipmoney, repxyperice
+      )
+    values (#{rid,jdbcType=INTEGER}, #{ftype,jdbcType=INTEGER}, #{xtype,jdbcType=INTEGER}, 
+      #{repairname,jdbcType=VARCHAR}, #{repevent,jdbcType=VARCHAR}, #{rjbmoney,jdbcType=REAL}, 
+      #{rhymoney,jdbcType=REAL}, #{rvipmoney,jdbcType=REAL}, #{repxyperice,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Repair" >
+    insert into repair
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="ftype != null" >
+        ftype,
+      </if>
+      <if test="xtype != null" >
+        xtype,
+      </if>
+      <if test="repairname != null" >
+        repairname,
+      </if>
+      <if test="repevent != null" >
+        repevent,
+      </if>
+      <if test="rjbmoney != null" >
+        rjbmoney,
+      </if>
+      <if test="rhymoney != null" >
+        rhymoney,
+      </if>
+      <if test="rvipmoney != null" >
+        rvipmoney,
+      </if>
+      <if test="repxyperice != null" >
+        repxyperice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="ftype != null" >
+        #{ftype,jdbcType=INTEGER},
+      </if>
+      <if test="xtype != null" >
+        #{xtype,jdbcType=INTEGER},
+      </if>
+      <if test="repairname != null" >
+        #{repairname,jdbcType=VARCHAR},
+      </if>
+      <if test="repevent != null" >
+        #{repevent,jdbcType=VARCHAR},
+      </if>
+      <if test="rjbmoney != null" >
+        #{rjbmoney,jdbcType=REAL},
+      </if>
+      <if test="rhymoney != null" >
+        #{rhymoney,jdbcType=REAL},
+      </if>
+      <if test="rvipmoney != null" >
+        #{rvipmoney,jdbcType=REAL},
+      </if>
+      <if test="repxyperice != null" >
+        #{repxyperice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.RepairExample" resultType="java.lang.Integer" >
+    select count(*) from repair
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update repair
+    <set >
+      <if test="record.rid != null" >
+        rid = #{record.rid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ftype != null" >
+        ftype = #{record.ftype,jdbcType=INTEGER},
+      </if>
+      <if test="record.xtype != null" >
+        xtype = #{record.xtype,jdbcType=INTEGER},
+      </if>
+      <if test="record.repairname != null" >
+        repairname = #{record.repairname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.repevent != null" >
+        repevent = #{record.repevent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rjbmoney != null" >
+        rjbmoney = #{record.rjbmoney,jdbcType=REAL},
+      </if>
+      <if test="record.rhymoney != null" >
+        rhymoney = #{record.rhymoney,jdbcType=REAL},
+      </if>
+      <if test="record.rvipmoney != null" >
+        rvipmoney = #{record.rvipmoney,jdbcType=REAL},
+      </if>
+      <if test="record.repxyperice != null" >
+        repxyperice = #{record.repxyperice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update repair
+    set rid = #{record.rid,jdbcType=INTEGER},
+      ftype = #{record.ftype,jdbcType=INTEGER},
+      xtype = #{record.xtype,jdbcType=INTEGER},
+      repairname = #{record.repairname,jdbcType=VARCHAR},
+      repevent = #{record.repevent,jdbcType=VARCHAR},
+      rjbmoney = #{record.rjbmoney,jdbcType=REAL},
+      rhymoney = #{record.rhymoney,jdbcType=REAL},
+      rvipmoney = #{record.rvipmoney,jdbcType=REAL},
+      repxyperice = #{record.repxyperice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Repair" >
+    update repair
+    <set >
+      <if test="ftype != null" >
+        ftype = #{ftype,jdbcType=INTEGER},
+      </if>
+      <if test="xtype != null" >
+        xtype = #{xtype,jdbcType=INTEGER},
+      </if>
+      <if test="repairname != null" >
+        repairname = #{repairname,jdbcType=VARCHAR},
+      </if>
+      <if test="repevent != null" >
+        repevent = #{repevent,jdbcType=VARCHAR},
+      </if>
+      <if test="rjbmoney != null" >
+        rjbmoney = #{rjbmoney,jdbcType=REAL},
+      </if>
+      <if test="rhymoney != null" >
+        rhymoney = #{rhymoney,jdbcType=REAL},
+      </if>
+      <if test="rvipmoney != null" >
+        rvipmoney = #{rvipmoney,jdbcType=REAL},
+      </if>
+      <if test="repxyperice != null" >
+        repxyperice = #{repxyperice,jdbcType=REAL},
+      </if>
+    </set>
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Repair" >
+    update repair
+    set ftype = #{ftype,jdbcType=INTEGER},
+      xtype = #{xtype,jdbcType=INTEGER},
+      repairname = #{repairname,jdbcType=VARCHAR},
+      repevent = #{repevent,jdbcType=VARCHAR},
+      rjbmoney = #{rjbmoney,jdbcType=REAL},
+      rhymoney = #{rhymoney,jdbcType=REAL},
+      rvipmoney = #{rvipmoney,jdbcType=REAL},
+      repxyperice = #{repxyperice,jdbcType=REAL}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+</mapper>

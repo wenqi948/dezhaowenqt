@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.InstationMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Instation" >
+    <id column="insid" property="insid" jdbcType="INTEGER" />
+    <result column="wxstateid" property="wxstateid" jdbcType="INTEGER" />
+    <result column="artisanid" property="artisanid" jdbcType="VARCHAR" />
+    <result column="ctsid" property="ctsid" jdbcType="INTEGER" />
+    <result column="instation" property="instation" jdbcType="VARCHAR" />
+    <result column="jsyuan" property="jsyuan" jdbcType="VARCHAR" />
+    <result column="joininstimes" property="joininstimes" jdbcType="DATE" />
+    <result column="predictcompletetime" property="predictcompletetime" jdbcType="DATE" />
+    <result column="predicttime" property="predicttime" jdbcType="DATE" />
+    <result column="budgetmoney" property="budgetmoney" jdbcType="REAL" />
+    <result column="insevent" property="insevent" jdbcType="VARCHAR" />
+    <result column="iszn" property="iszn" jdbcType="BIT" />
+    <result column="ifjs" property="ifjs" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    insid, wxstateid, artisanid, ctsid, instation, jsyuan, joininstimes, predictcompletetime, 
+    predicttime, budgetmoney, insevent, iszn, ifjs
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.InstationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from instation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from instation
+    where insid = #{insid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from instation
+    where insid = #{insid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.InstationExample" >
+    delete from instation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Instation" >
+    insert into instation (insid, wxstateid, artisanid, 
+      ctsid, instation, jsyuan, 
+      joininstimes, predictcompletetime, predicttime, 
+      budgetmoney, insevent, iszn, 
+      ifjs)
+    values (#{insid,jdbcType=INTEGER}, #{wxstateid,jdbcType=INTEGER}, #{artisanid,jdbcType=VARCHAR}, 
+      #{ctsid,jdbcType=INTEGER}, #{instation,jdbcType=VARCHAR}, #{jsyuan,jdbcType=VARCHAR}, 
+      #{joininstimes,jdbcType=DATE}, #{predictcompletetime,jdbcType=DATE}, #{predicttime,jdbcType=DATE}, 
+      #{budgetmoney,jdbcType=REAL}, #{insevent,jdbcType=VARCHAR}, #{iszn,jdbcType=BIT}, 
+      #{ifjs,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Instation" >
+    insert into instation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="insid != null" >
+        insid,
+      </if>
+      <if test="wxstateid != null" >
+        wxstateid,
+      </if>
+      <if test="artisanid != null" >
+        artisanid,
+      </if>
+      <if test="ctsid != null" >
+        ctsid,
+      </if>
+      <if test="instation != null" >
+        instation,
+      </if>
+      <if test="jsyuan != null" >
+        jsyuan,
+      </if>
+      <if test="joininstimes != null" >
+        joininstimes,
+      </if>
+      <if test="predictcompletetime != null" >
+        predictcompletetime,
+      </if>
+      <if test="predicttime != null" >
+        predicttime,
+      </if>
+      <if test="budgetmoney != null" >
+        budgetmoney,
+      </if>
+      <if test="insevent != null" >
+        insevent,
+      </if>
+      <if test="iszn != null" >
+        iszn,
+      </if>
+      <if test="ifjs != null" >
+        ifjs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="insid != null" >
+        #{insid,jdbcType=INTEGER},
+      </if>
+      <if test="wxstateid != null" >
+        #{wxstateid,jdbcType=INTEGER},
+      </if>
+      <if test="artisanid != null" >
+        #{artisanid,jdbcType=VARCHAR},
+      </if>
+      <if test="ctsid != null" >
+        #{ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="instation != null" >
+        #{instation,jdbcType=VARCHAR},
+      </if>
+      <if test="jsyuan != null" >
+        #{jsyuan,jdbcType=VARCHAR},
+      </if>
+      <if test="joininstimes != null" >
+        #{joininstimes,jdbcType=DATE},
+      </if>
+      <if test="predictcompletetime != null" >
+        #{predictcompletetime,jdbcType=DATE},
+      </if>
+      <if test="predicttime != null" >
+        #{predicttime,jdbcType=DATE},
+      </if>
+      <if test="budgetmoney != null" >
+        #{budgetmoney,jdbcType=REAL},
+      </if>
+      <if test="insevent != null" >
+        #{insevent,jdbcType=VARCHAR},
+      </if>
+      <if test="iszn != null" >
+        #{iszn,jdbcType=BIT},
+      </if>
+      <if test="ifjs != null" >
+        #{ifjs,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.InstationExample" resultType="java.lang.Integer" >
+    select count(*) from instation
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update instation
+    <set >
+      <if test="record.insid != null" >
+        insid = #{record.insid,jdbcType=INTEGER},
+      </if>
+      <if test="record.wxstateid != null" >
+        wxstateid = #{record.wxstateid,jdbcType=INTEGER},
+      </if>
+      <if test="record.artisanid != null" >
+        artisanid = #{record.artisanid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctsid != null" >
+        ctsid = #{record.ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.instation != null" >
+        instation = #{record.instation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jsyuan != null" >
+        jsyuan = #{record.jsyuan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.joininstimes != null" >
+        joininstimes = #{record.joininstimes,jdbcType=DATE},
+      </if>
+      <if test="record.predictcompletetime != null" >
+        predictcompletetime = #{record.predictcompletetime,jdbcType=DATE},
+      </if>
+      <if test="record.predicttime != null" >
+        predicttime = #{record.predicttime,jdbcType=DATE},
+      </if>
+      <if test="record.budgetmoney != null" >
+        budgetmoney = #{record.budgetmoney,jdbcType=REAL},
+      </if>
+      <if test="record.insevent != null" >
+        insevent = #{record.insevent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iszn != null" >
+        iszn = #{record.iszn,jdbcType=BIT},
+      </if>
+      <if test="record.ifjs != null" >
+        ifjs = #{record.ifjs,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update instation
+    set insid = #{record.insid,jdbcType=INTEGER},
+      wxstateid = #{record.wxstateid,jdbcType=INTEGER},
+      artisanid = #{record.artisanid,jdbcType=VARCHAR},
+      ctsid = #{record.ctsid,jdbcType=INTEGER},
+      instation = #{record.instation,jdbcType=VARCHAR},
+      jsyuan = #{record.jsyuan,jdbcType=VARCHAR},
+      joininstimes = #{record.joininstimes,jdbcType=DATE},
+      predictcompletetime = #{record.predictcompletetime,jdbcType=DATE},
+      predicttime = #{record.predicttime,jdbcType=DATE},
+      budgetmoney = #{record.budgetmoney,jdbcType=REAL},
+      insevent = #{record.insevent,jdbcType=VARCHAR},
+      iszn = #{record.iszn,jdbcType=BIT},
+      ifjs = #{record.ifjs,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Instation" >
+    update instation
+    <set >
+      <if test="wxstateid != null" >
+        wxstateid = #{wxstateid,jdbcType=INTEGER},
+      </if>
+      <if test="artisanid != null" >
+        artisanid = #{artisanid,jdbcType=VARCHAR},
+      </if>
+      <if test="ctsid != null" >
+        ctsid = #{ctsid,jdbcType=INTEGER},
+      </if>
+      <if test="instation != null" >
+        instation = #{instation,jdbcType=VARCHAR},
+      </if>
+      <if test="jsyuan != null" >
+        jsyuan = #{jsyuan,jdbcType=VARCHAR},
+      </if>
+      <if test="joininstimes != null" >
+        joininstimes = #{joininstimes,jdbcType=DATE},
+      </if>
+      <if test="predictcompletetime != null" >
+        predictcompletetime = #{predictcompletetime,jdbcType=DATE},
+      </if>
+      <if test="predicttime != null" >
+        predicttime = #{predicttime,jdbcType=DATE},
+      </if>
+      <if test="budgetmoney != null" >
+        budgetmoney = #{budgetmoney,jdbcType=REAL},
+      </if>
+      <if test="insevent != null" >
+        insevent = #{insevent,jdbcType=VARCHAR},
+      </if>
+      <if test="iszn != null" >
+        iszn = #{iszn,jdbcType=BIT},
+      </if>
+      <if test="ifjs != null" >
+        ifjs = #{ifjs,jdbcType=BIT},
+      </if>
+    </set>
+    where insid = #{insid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Instation" >
+    update instation
+    set wxstateid = #{wxstateid,jdbcType=INTEGER},
+      artisanid = #{artisanid,jdbcType=VARCHAR},
+      ctsid = #{ctsid,jdbcType=INTEGER},
+      instation = #{instation,jdbcType=VARCHAR},
+      jsyuan = #{jsyuan,jdbcType=VARCHAR},
+      joininstimes = #{joininstimes,jdbcType=DATE},
+      predictcompletetime = #{predictcompletetime,jdbcType=DATE},
+      predicttime = #{predicttime,jdbcType=DATE},
+      budgetmoney = #{budgetmoney,jdbcType=REAL},
+      insevent = #{insevent,jdbcType=VARCHAR},
+      iszn = #{iszn,jdbcType=BIT},
+      ifjs = #{ifjs,jdbcType=BIT}
+    where insid = #{insid,jdbcType=INTEGER}
+  </update>
+</mapper>
