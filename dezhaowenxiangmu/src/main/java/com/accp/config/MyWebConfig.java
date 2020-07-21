@@ -33,7 +33,10 @@ public class MyWebConfig extends WebMvcConfigurationSupport {
 
 	@Override
 	protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+		registry.addResourceHandler("/**")
+		.addResourceLocations("classpath:/static/")
+		.addResourceLocations("file:d://images/")
+		;
 	}
 
 	@Override
@@ -45,6 +48,13 @@ public class MyWebConfig extends WebMvcConfigurationSupport {
 		super.configureMessageConverters(converters);
 	}
 	
+	/**
+	 * 跨域
+	 */
+	@Override
+	protected void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**").allowedHeaders("*").allowedOrigins("*").allowCredentials(true);
+	}
 	
 
 }
