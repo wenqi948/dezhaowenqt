@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @Configuration:标注此类为配置，覆盖此类继承的类的配置
  * 	 addResourceHandlers:添加静态资源
  * 	 configureMessageConverters:配置消息转换器的
- * @author admin
+ * @author admin,
  *
  */
 //wuqing
