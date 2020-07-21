@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @author admin
  *
  */
+//wuqing
 @Configuration
 public class MyWebConfig extends WebMvcConfigurationSupport {
 
