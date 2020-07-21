@@ -29,6 +29,20 @@ public class Instation {
 
     private Boolean ifjs;
 
+    private String qcxinhao;
+
+    private String chezhuname;
+
+    private String yewutype;
+
+    private String jiesuantype;
+
+    private String shigonclass;
+
+    private String toptime;
+
+    private String jiecheren;
+
     public Integer getInsid() {
         return insid;
     }
@@ -131,5 +145,61 @@ public class Instation {
 
     public void setIfjs(Boolean ifjs) {
         this.ifjs = ifjs;
+    }
+
+    public String getQcxinhao() {
+        return qcxinhao;
+    }
+
+    public void setQcxinhao(String qcxinhao) {
+        this.qcxinhao = qcxinhao;
+    }
+
+    public String getChezhuname() {
+        return chezhuname;
+    }
+
+    public void setChezhuname(String chezhuname) {
+        this.chezhuname = chezhuname;
+    }
+
+    public String getYewutype() {
+        return yewutype;
+    }
+
+    public void setYewutype(String yewutype) {
+        this.yewutype = yewutype;
+    }
+
+    public String getJiesuantype() {
+        return jiesuantype;
+    }
+
+    public void setJiesuantype(String jiesuantype) {
+        this.jiesuantype = jiesuantype;
+    }
+
+    public String getShigonclass() {
+        return shigonclass;
+    }
+
+    public void setShigonclass(String shigonclass) {
+        this.shigonclass = shigonclass;
+    }
+
+    public String getToptime() {
+        return toptime;
+    }
+
+    public void setToptime(String toptime) {
+        this.toptime = toptime;
+    }
+
+    public String getJiecheren() {
+        return jiecheren;
+    }
+
+    public void setJiecheren(String jiecheren) {
+        this.jiecheren = jiecheren;
     }
 }

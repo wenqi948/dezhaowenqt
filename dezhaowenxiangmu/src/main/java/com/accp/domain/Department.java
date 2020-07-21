@@ -5,6 +5,10 @@ public class Department {
 
     private String depnames;
 
+    private Integer parentid;
+
+    private Integer code;
+
     public Integer getDepartmentid() {
         return departmentid;
     }
@@ -19,5 +23,21 @@ public class Department {
 
     public void setDepnames(String depnames) {
         this.depnames = depnames;
+    }
+
+    public Integer getParentid() {
+        return parentid;
+    }
+
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 }

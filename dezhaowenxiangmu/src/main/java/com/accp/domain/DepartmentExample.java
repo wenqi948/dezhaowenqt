@@ -233,6 +233,126 @@ public class DepartmentExample {
             addCriterion("depnames not between", value1, value2, "depnames");
             return (Criteria) this;
         }
+
+        public Criteria andParentidIsNull() {
+            addCriterion("parentid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidIsNotNull() {
+            addCriterion("parentid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidEqualTo(Integer value) {
+            addCriterion("parentid =", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidNotEqualTo(Integer value) {
+            addCriterion("parentid <>", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidGreaterThan(Integer value) {
+            addCriterion("parentid >", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parentid >=", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidLessThan(Integer value) {
+            addCriterion("parentid <", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidLessThanOrEqualTo(Integer value) {
+            addCriterion("parentid <=", value, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidIn(List<Integer> values) {
+            addCriterion("parentid in", values, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidNotIn(List<Integer> values) {
+            addCriterion("parentid not in", values, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidBetween(Integer value1, Integer value2) {
+            addCriterion("parentid between", value1, value2, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentidNotBetween(Integer value1, Integer value2) {
+            addCriterion("parentid not between", value1, value2, "parentid");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIsNull() {
+            addCriterion("code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIsNotNull() {
+            addCriterion("code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeEqualTo(Integer value) {
+            addCriterion("code =", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotEqualTo(Integer value) {
+            addCriterion("code <>", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeGreaterThan(Integer value) {
+            addCriterion("code >", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("code >=", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeLessThan(Integer value) {
+            addCriterion("code <", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeLessThanOrEqualTo(Integer value) {
+            addCriterion("code <=", value, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeIn(List<Integer> values) {
+            addCriterion("code in", values, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotIn(List<Integer> values) {
+            addCriterion("code not in", values, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeBetween(Integer value1, Integer value2) {
+            addCriterion("code between", value1, value2, "code");
+            return (Criteria) this;
+        }
+
+        public Criteria andCodeNotBetween(Integer value1, Integer value2) {
+            addCriterion("code not between", value1, value2, "code");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
