@@ -10,6 +10,26 @@ public class Modeltype {
     private String cartypename;
 
     private Float ckprice;
+    
+    private String ctsnames;
+ 
+    public String getCtsnames() {
+		return ctsnames;
+	}
+
+	public void setCtsnames(String ctsnames) {
+		this.ctsnames = ctsnames;
+	}
+
+	public String getEnginename() {
+		return enginename;
+	}
+
+	public void setEnginename(String enginename) {
+		this.enginename = enginename;
+	}
+
+	private String enginename;
 
     public String getCartypeid() {
         return cartypeid;
