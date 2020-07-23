@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.accp.dao.CartypesMapper;
 import com.accp.dao.EngineMapper;
@@ -49,6 +50,10 @@ public class modeltypeService {
 		return list;
 	}
 	
+	public int update(@RequestBody Modeltype modeltype) {
+		return modeltypemapper.updateByPrimaryKey(modeltype);
+	}
+	
 	public List<Modeltype> selectAll(){
 		List<Modeltype> list=modeltypemapper.selectByExample(null);
 		for (Modeltype modeltype : list) {
@@ -74,6 +79,11 @@ public class modeltypeService {
 	}
 	
 	public Modeltype selectId(String cartypeid) {
-		return modeltypemapper.selectByPrimaryKey(cartypeid);
+		Modeltype m= modeltypemapper.selectByPrimaryKey(cartypeid);
+		Engine engine=enginemapper.selectByPrimaryKey(m.getEngineid());
+		m.setEnginename(engine.getEnginename());
+		Cartypes cartypes=cartypesmapper.selectByPrimaryKey(m.getCtsid());
+		m.setCtsnames(cartypes.getCtsnames());
+		return m;
 	}
 }

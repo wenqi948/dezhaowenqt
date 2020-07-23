@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.domain.Engine;
+import com.accp.domain.Modeltype;
 import com.accp.service.fcy.engineService;
 
 @RestController
@@ -73,6 +74,14 @@ public class engineController {
 	@ResponseBody
 	public List<Engine> selectOne(@PathVariable("enginename") String enginename) {
 		return engineservice.selectOne(enginename);
+	}
+	
+	
+//	判断发动机品牌id在车型表中是否存在
+	@GetMapping("/modeltype/{engineid}")
+	@ResponseBody
+	public List<Modeltype> selectmodeltype(@PathVariable("engineid") Integer engineid) {
+		return engineservice.selectmodeltype(engineid);
 	}
 	
 	

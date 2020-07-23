@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.accp.dao.CartypesMapper;
 import com.accp.dao.ModeltypeMapper;
@@ -26,6 +27,10 @@ public class cartypesService {
 	
 	public int insert(Cartypes cartypes) {
 		return cartypesmapper.insert(cartypes);
+	}
+	
+	public int update(@RequestBody Cartypes cartypes) {
+		return cartypesmapper.updateByPrimaryKey(cartypes);
 	}
 	
 	public int remove(Integer ctsid) {

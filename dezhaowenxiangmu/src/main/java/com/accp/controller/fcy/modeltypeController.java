@@ -46,6 +46,18 @@ public class modeltypeController {
 	}
 	
 	
+//	修改
+	@PostMapping("/update")
+	@ResponseBody
+	public int update(@RequestBody Modeltype modeltype) {
+		int flag=modeltypeservice.update(modeltype);
+		if(flag>0) {
+			return 111;
+		}
+		return 000;
+	}
+	
+	
 //	查询所有
 	@GetMapping
 	@ResponseBody

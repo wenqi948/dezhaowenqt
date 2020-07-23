@@ -45,6 +45,18 @@ public class cartypesController {
 	}
 	
 	
+//	修改
+	@PostMapping("/update")
+	@ResponseBody
+	public int update(@RequestBody Cartypes cartypes) {
+		int flag=cartypesservice.update(cartypes);
+		if(flag>0) {
+			return 111;
+		}
+		return 000;
+	}
+	
+	
 //	查询所有
 	@GetMapping
 	@ResponseBody
