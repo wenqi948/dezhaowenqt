@@ -30,8 +30,56 @@ public class Shop {
     private Float vipmoney;
 
     private Float rxyprice;
+    
+    
+    private Firm fi;
+    private State st;
+    private Store sto;
+    private Unit un;
+    private Goodstype go;
+    
 
-    public String getShopid() {
+    public Firm getFi() {
+		return fi;
+	}
+
+	public void setFi(Firm fi) {
+		this.fi = fi;
+	}
+
+	public State getSt() {
+		return st;
+	}
+
+	public void setSt(State st) {
+		this.st = st;
+	}
+
+	public Store getSto() {
+		return sto;
+	}
+
+	public void setSto(Store sto) {
+		this.sto = sto;
+	}
+
+	public Unit getUn() {
+		return un;
+	}
+
+	public void setUn(Unit un) {
+		this.un = un;
+	}
+
+	public Goodstype getGo() {
+		return go;
+	}
+
+	public void setGo(Goodstype go) {
+		this.go = go;
+	}
+
+	public String getShopid() {
         return shopid;
     }
 
