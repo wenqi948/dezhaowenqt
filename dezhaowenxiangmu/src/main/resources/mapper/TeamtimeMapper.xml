@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.TeamtimeMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Teamtime" >
+    <id column="ttid" property="ttid" jdbcType="INTEGER" />
+    <result column="teamname" property="teamname" jdbcType="VARCHAR" />
+    <result column="teamid" property="teamid" jdbcType="INTEGER" />
+    <result column="moneyznbt" property="moneyznbt" jdbcType="DOUBLE" />
+    <result column="znws" property="znws" jdbcType="DOUBLE" />
+    <result column="zwbt" property="zwbt" jdbcType="DOUBLE" />
+    <result column="zwws" property="zwws" jdbcType="DOUBLE" />
+    <result column="ztbt" property="ztbt" jdbcType="DOUBLE" />
+    <result column="ztws" property="ztws" jdbcType="DOUBLE" />
+    <result column="rymoney" property="rymoney" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ttid, teamname, teamid, moneyznbt, znws, zwbt, zwws, ztbt, ztws, rymoney
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.TeamtimeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from teamtime
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from teamtime
+    where ttid = #{ttid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from teamtime
+    where ttid = #{ttid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.TeamtimeExample" >
+    delete from teamtime
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Teamtime" >
+    insert into teamtime (ttid, teamname, teamid, 
+      moneyznbt, znws, zwbt, 
+      zwws, ztbt, ztws, rymoney
+      )
+    values (#{ttid,jdbcType=INTEGER}, #{teamname,jdbcType=VARCHAR}, #{teamid,jdbcType=INTEGER}, 
+      #{moneyznbt,jdbcType=DOUBLE}, #{znws,jdbcType=DOUBLE}, #{zwbt,jdbcType=DOUBLE}, 
+      #{zwws,jdbcType=DOUBLE}, #{ztbt,jdbcType=DOUBLE}, #{ztws,jdbcType=DOUBLE}, #{rymoney,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Teamtime" >
+    insert into teamtime
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ttid != null" >
+        ttid,
+      </if>
+      <if test="teamname != null" >
+        teamname,
+      </if>
+      <if test="teamid != null" >
+        teamid,
+      </if>
+      <if test="moneyznbt != null" >
+        moneyznbt,
+      </if>
+      <if test="znws != null" >
+        znws,
+      </if>
+      <if test="zwbt != null" >
+        zwbt,
+      </if>
+      <if test="zwws != null" >
+        zwws,
+      </if>
+      <if test="ztbt != null" >
+        ztbt,
+      </if>
+      <if test="ztws != null" >
+        ztws,
+      </if>
+      <if test="rymoney != null" >
+        rymoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ttid != null" >
+        #{ttid,jdbcType=INTEGER},
+      </if>
+      <if test="teamname != null" >
+        #{teamname,jdbcType=VARCHAR},
+      </if>
+      <if test="teamid != null" >
+        #{teamid,jdbcType=INTEGER},
+      </if>
+      <if test="moneyznbt != null" >
+        #{moneyznbt,jdbcType=DOUBLE},
+      </if>
+      <if test="znws != null" >
+        #{znws,jdbcType=DOUBLE},
+      </if>
+      <if test="zwbt != null" >
+        #{zwbt,jdbcType=DOUBLE},
+      </if>
+      <if test="zwws != null" >
+        #{zwws,jdbcType=DOUBLE},
+      </if>
+      <if test="ztbt != null" >
+        #{ztbt,jdbcType=DOUBLE},
+      </if>
+      <if test="ztws != null" >
+        #{ztws,jdbcType=DOUBLE},
+      </if>
+      <if test="rymoney != null" >
+        #{rymoney,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.TeamtimeExample" resultType="java.lang.Integer" >
+    select count(*) from teamtime
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update teamtime
+    <set >
+      <if test="record.ttid != null" >
+        ttid = #{record.ttid,jdbcType=INTEGER},
+      </if>
+      <if test="record.teamname != null" >
+        teamname = #{record.teamname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teamid != null" >
+        teamid = #{record.teamid,jdbcType=INTEGER},
+      </if>
+      <if test="record.moneyznbt != null" >
+        moneyznbt = #{record.moneyznbt,jdbcType=DOUBLE},
+      </if>
+      <if test="record.znws != null" >
+        znws = #{record.znws,jdbcType=DOUBLE},
+      </if>
+      <if test="record.zwbt != null" >
+        zwbt = #{record.zwbt,jdbcType=DOUBLE},
+      </if>
+      <if test="record.zwws != null" >
+        zwws = #{record.zwws,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ztbt != null" >
+        ztbt = #{record.ztbt,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ztws != null" >
+        ztws = #{record.ztws,jdbcType=DOUBLE},
+      </if>
+      <if test="record.rymoney != null" >
+        rymoney = #{record.rymoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update teamtime
+    set ttid = #{record.ttid,jdbcType=INTEGER},
+      teamname = #{record.teamname,jdbcType=VARCHAR},
+      teamid = #{record.teamid,jdbcType=INTEGER},
+      moneyznbt = #{record.moneyznbt,jdbcType=DOUBLE},
+      znws = #{record.znws,jdbcType=DOUBLE},
+      zwbt = #{record.zwbt,jdbcType=DOUBLE},
+      zwws = #{record.zwws,jdbcType=DOUBLE},
+      ztbt = #{record.ztbt,jdbcType=DOUBLE},
+      ztws = #{record.ztws,jdbcType=DOUBLE},
+      rymoney = #{record.rymoney,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Teamtime" >
+    update teamtime
+    <set >
+      <if test="teamname != null" >
+        teamname = #{teamname,jdbcType=VARCHAR},
+      </if>
+      <if test="teamid != null" >
+        teamid = #{teamid,jdbcType=INTEGER},
+      </if>
+      <if test="moneyznbt != null" >
+        moneyznbt = #{moneyznbt,jdbcType=DOUBLE},
+      </if>
+      <if test="znws != null" >
+        znws = #{znws,jdbcType=DOUBLE},
+      </if>
+      <if test="zwbt != null" >
+        zwbt = #{zwbt,jdbcType=DOUBLE},
+      </if>
+      <if test="zwws != null" >
+        zwws = #{zwws,jdbcType=DOUBLE},
+      </if>
+      <if test="ztbt != null" >
+        ztbt = #{ztbt,jdbcType=DOUBLE},
+      </if>
+      <if test="ztws != null" >
+        ztws = #{ztws,jdbcType=DOUBLE},
+      </if>
+      <if test="rymoney != null" >
+        rymoney = #{rymoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where ttid = #{ttid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Teamtime" >
+    update teamtime
+    set teamname = #{teamname,jdbcType=VARCHAR},
+      teamid = #{teamid,jdbcType=INTEGER},
+      moneyznbt = #{moneyznbt,jdbcType=DOUBLE},
+      znws = #{znws,jdbcType=DOUBLE},
+      zwbt = #{zwbt,jdbcType=DOUBLE},
+      zwws = #{zwws,jdbcType=DOUBLE},
+      ztbt = #{ztbt,jdbcType=DOUBLE},
+      ztws = #{ztws,jdbcType=DOUBLE},
+      rymoney = #{rymoney,jdbcType=DOUBLE}
+    where ttid = #{ttid,jdbcType=INTEGER}
+  </update>
+</mapper>
