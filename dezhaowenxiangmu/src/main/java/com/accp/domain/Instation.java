@@ -43,6 +43,8 @@ public class Instation {
 
     private String jiecheren;
 
+    private Integer djid;
+
     public Integer getInsid() {
         return insid;
     }
@@ -201,5 +203,13 @@ public class Instation {
 
     public void setJiecheren(String jiecheren) {
         this.jiecheren = jiecheren;
+    }
+
+    public Integer getDjid() {
+        return djid;
+    }
+
+    public void setDjid(Integer djid) {
+        this.djid = djid;
     }
 }

@@ -1441,6 +1441,66 @@ public class InstationExample {
             addCriterion("jiecheren not between", value1, value2, "jiecheren");
             return (Criteria) this;
         }
+
+        public Criteria andDjidIsNull() {
+            addCriterion("djid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidIsNotNull() {
+            addCriterion("djid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidEqualTo(Integer value) {
+            addCriterion("djid =", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidNotEqualTo(Integer value) {
+            addCriterion("djid <>", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidGreaterThan(Integer value) {
+            addCriterion("djid >", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("djid >=", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidLessThan(Integer value) {
+            addCriterion("djid <", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidLessThanOrEqualTo(Integer value) {
+            addCriterion("djid <=", value, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidIn(List<Integer> values) {
+            addCriterion("djid in", values, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidNotIn(List<Integer> values) {
+            addCriterion("djid not in", values, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidBetween(Integer value1, Integer value2) {
+            addCriterion("djid between", value1, value2, "djid");
+            return (Criteria) this;
+        }
+
+        public Criteria andDjidNotBetween(Integer value1, Integer value2) {
+            addCriterion("djid not between", value1, value2, "djid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
