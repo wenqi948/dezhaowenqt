@@ -12,7 +12,31 @@ public class Firmtree {
     
     private List<Firmtree> children=new ArrayList<Firmtree>();
 
-    public List<Firmtree> getChildren() {
+	public Integer getCitytreeid() {
+		return citytreeid;
+	}
+
+	public void setCitytreeid(Integer citytreeid) {
+		this.citytreeid = citytreeid;
+	}
+
+	public String getCityname() {
+		return cityname;
+	}
+
+	public void setCityname(String cityname) {
+		this.cityname = cityname;
+	}
+
+	public Integer getParentid() {
+		return parentid;
+	}
+
+	public void setParentid(Integer parentid) {
+		this.parentid = parentid;
+	}
+
+	public List<Firmtree> getChildren() {
 		return children;
 	}
 
@@ -20,27 +44,5 @@ public class Firmtree {
 		this.children = children;
 	}
 
-	public Integer getCitytreeid() {
-        return citytreeid;
-    }
-
-    public void setCitytreeid(Integer citytreeid) {
-        this.citytreeid = citytreeid;
-    }
-
-    public String getCityname() {
-        return cityname;
-    }
-
-    public void setCityname(String cityname) {
-        this.cityname = cityname;
-    }
-
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
-    }
+    
 }
