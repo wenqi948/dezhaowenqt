@@ -83,6 +83,8 @@ public class Employee {
 
     private String emjmq;
 
+    private Integer zhuangtai;
+
     public String getEmployeeid() {
         return employeeid;
     }
@@ -401,5 +403,13 @@ public class Employee {
 
     public void setEmjmq(String emjmq) {
         this.emjmq = emjmq;
+    }
+
+    public Integer getZhuangtai() {
+        return zhuangtai;
+    }
+
+    public void setZhuangtai(Integer zhuangtai) {
+        this.zhuangtai = zhuangtai;
     }
 }

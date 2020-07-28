@@ -2861,6 +2861,66 @@ public class EmployeeExample {
             addCriterion("emjmq not between", value1, value2, "emjmq");
             return (Criteria) this;
         }
+
+        public Criteria andZhuangtaiIsNull() {
+            addCriterion("zhuangtai is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiIsNotNull() {
+            addCriterion("zhuangtai is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiEqualTo(Integer value) {
+            addCriterion("zhuangtai =", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiNotEqualTo(Integer value) {
+            addCriterion("zhuangtai <>", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiGreaterThan(Integer value) {
+            addCriterion("zhuangtai >", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiGreaterThanOrEqualTo(Integer value) {
+            addCriterion("zhuangtai >=", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiLessThan(Integer value) {
+            addCriterion("zhuangtai <", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiLessThanOrEqualTo(Integer value) {
+            addCriterion("zhuangtai <=", value, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiIn(List<Integer> values) {
+            addCriterion("zhuangtai in", values, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiNotIn(List<Integer> values) {
+            addCriterion("zhuangtai not in", values, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiBetween(Integer value1, Integer value2) {
+            addCriterion("zhuangtai between", value1, value2, "zhuangtai");
+            return (Criteria) this;
+        }
+
+        public Criteria andZhuangtaiNotBetween(Integer value1, Integer value2) {
+            addCriterion("zhuangtai not between", value1, value2, "zhuangtai");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
