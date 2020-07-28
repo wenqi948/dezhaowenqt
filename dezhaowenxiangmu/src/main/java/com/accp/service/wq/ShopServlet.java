@@ -30,7 +30,7 @@ public class ShopServlet {
 	ShopMapper mapper;
 	
 	@Autowired
-	FirmMapper mapperbm;//商品编码
+	FirmMapper mapperbm;//厂商编码
 	
 	@Autowired
 	StateMapper mapperzt;//状态表
@@ -43,6 +43,22 @@ public class ShopServlet {
 	
 	@Autowired 
 	GoodstypeMapper mapperlx;//商品类型表
+	
+	
+	//查询所有厂商编码
+	public List<Firm> findchangshangbm() {
+		return mapperbm.selectByExample(null);
+	}
+	
+	//查询所有数量单位
+	public List<Unit> finddanwei() {
+		return mapperdw.selectByExample(null);
+	}
+	
+	//查询所有商品类型
+	public List<Goodstype> findleixin() {
+		return mapperlx.selectByExample(null);
+	}
 	
 	
 	public List<Shop> findAll(String name) {
@@ -80,9 +96,37 @@ public class ShopServlet {
 	}
 	
 	
-	//名店查询
+	//门店查询
 	public List<Store> mindainfind() {
 		return mappermd.selectByExample(null);
+	}
+	
+	//商品新增
+	public String insert(Shop sho) {
+		int jg=mapper.insertSelective(sho); 
+		if(jg>0) { 
+			 return "0001"; 
+		}
+		 return "0002";
+		 
+	}
+	
+	//商品修改
+	public String update(Shop sho) {
+		int jg=mapper.updateByPrimaryKey(sho);
+		if(jg>0) { 
+			 return "0001"; 
+		}
+		 return "0002";
+	}
+	
+	//商品删除
+	public String delete(Shop sho) {
+		int jg=mapper.deleteByPrimaryKey(sho.getShopid());
+		if(jg>0) { 
+			return "0001"; 
+		}
+			return "0002";
 	}
 	
 	
