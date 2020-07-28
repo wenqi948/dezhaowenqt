@@ -293,6 +293,66 @@ public class FirmtreeExample {
             addCriterion("parentid not between", value1, value2, "parentid");
             return (Criteria) this;
         }
+
+        public Criteria andBiaoshiidIsNull() {
+            addCriterion("biaoshiid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidIsNotNull() {
+            addCriterion("biaoshiid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidEqualTo(Integer value) {
+            addCriterion("biaoshiid =", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidNotEqualTo(Integer value) {
+            addCriterion("biaoshiid <>", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidGreaterThan(Integer value) {
+            addCriterion("biaoshiid >", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("biaoshiid >=", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidLessThan(Integer value) {
+            addCriterion("biaoshiid <", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidLessThanOrEqualTo(Integer value) {
+            addCriterion("biaoshiid <=", value, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidIn(List<Integer> values) {
+            addCriterion("biaoshiid in", values, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidNotIn(List<Integer> values) {
+            addCriterion("biaoshiid not in", values, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidBetween(Integer value1, Integer value2) {
+            addCriterion("biaoshiid between", value1, value2, "biaoshiid");
+            return (Criteria) this;
+        }
+
+        public Criteria andBiaoshiidNotBetween(Integer value1, Integer value2) {
+            addCriterion("biaoshiid not between", value1, value2, "biaoshiid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

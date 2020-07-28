@@ -7,6 +7,8 @@ public class Firmtree {
 
     private Integer parentid;
 
+    private Integer biaoshiid;
+
     public Integer getCitytreeid() {
         return citytreeid;
     }
@@ -29,5 +31,13 @@ public class Firmtree {
 
     public void setParentid(Integer parentid) {
         this.parentid = parentid;
+    }
+
+    public Integer getBiaoshiid() {
+        return biaoshiid;
+    }
+
+    public void setBiaoshiid(Integer biaoshiid) {
+        this.biaoshiid = biaoshiid;
     }
 }
