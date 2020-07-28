@@ -6,6 +6,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface RepairtreeMapper {
+	
+	
+	
+	List<Repairtree> findTree(Integer parentiid);
+	
     int countByExample(RepairtreeExample example);
 
     int deleteByExample(RepairtreeExample example);

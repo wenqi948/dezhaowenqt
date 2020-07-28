@@ -2,10 +2,15 @@ package com.accp.dao;
 
 import com.accp.domain.Firmtree;
 import com.accp.domain.FirmtreeExample;
+import com.accp.domain.Repairtree;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface FirmtreeMapper {
+	
+	List<Firmtree> findTree(Integer parentid);
+	
     int countByExample(FirmtreeExample example);
 
     int deleteByExample(FirmtreeExample example);

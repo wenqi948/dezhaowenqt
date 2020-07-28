@@ -12,6 +12,8 @@ public class Modeltype {
     private Float ckprice;
     
     private String ctsnames;
+    
+	private String enginename;
  
     public String getCtsnames() {
 		return ctsnames;
@@ -29,7 +31,7 @@ public class Modeltype {
 		this.enginename = enginename;
 	}
 
-	private String enginename;
+
 
     public String getCartypeid() {
         return cartypeid;

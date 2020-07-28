@@ -6,6 +6,20 @@
     <result column="xtypename" property="xtypename" jdbcType="VARCHAR" />
     <result column="parentiid" property="parentiid" jdbcType="INTEGER" />
   </resultMap>
+  
+  <resultMap extends="BaseResultMap" type="com.accp.domain.Repairtree" id="BaseResultMapExtends">
+  	 <collection property="children" 
+  	 column="xtype" ofType="com.accp.domain.Repairtree" 
+  	 select="findTree"></collection>
+ 
+  </resultMap>
+  
+  <select id="findTree" resultMap="BaseResultMapExtends">
+  	SELECT * FROM  repairtree where parentiid=#{parentiid}
+  </select>
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

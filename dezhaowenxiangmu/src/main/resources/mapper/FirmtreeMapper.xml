@@ -6,6 +6,18 @@
     <result column="cityname" property="cityname" jdbcType="VARCHAR" />
     <result column="parentid" property="parentid" jdbcType="INTEGER" />
   </resultMap>
+  
+  <resultMap extends="BaseResultMap" type="com.accp.domain.Firmtree" id="BaseResultMapExtends">
+  	 <collection property="children" 
+  	 column="citytreeid" ofType="com.accp.domain.Firmtree" 
+  	 select="findTree"></collection>
+ 
+  </resultMap>
+  
+  <select id="findTree" resultMap="BaseResultMapExtends">
+  	SELECT * FROM  firmtree where parentid=#{parentid}
+  </select>
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

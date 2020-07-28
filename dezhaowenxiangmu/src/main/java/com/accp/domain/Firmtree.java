@@ -1,13 +1,26 @@
 package com.accp.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Firmtree {
     private Integer citytreeid;
 
     private String cityname;
 
     private Integer parentid;
+    
+    private List<Firmtree> children=new ArrayList<Firmtree>();
 
-    public Integer getCitytreeid() {
+    public List<Firmtree> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Firmtree> children) {
+		this.children = children;
+	}
+
+	public Integer getCitytreeid() {
         return citytreeid;
     }
 
