@@ -6,6 +6,7 @@
     <result column="usname" property="usname" jdbcType="VARCHAR" />
     <result column="uspwd" property="uspwd" jdbcType="VARCHAR" />
     <result column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="storeid" property="storeid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, usname, uspwd, rid
+    id, usname, uspwd, rid, storeid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.UsertableExample" >
     select
@@ -100,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Usertable" >
     insert into usertable (id, usname, uspwd, 
-      rid)
+      rid, storeid)
     values (#{id,jdbcType=INTEGER}, #{usname,jdbcType=VARCHAR}, #{uspwd,jdbcType=VARCHAR}, 
-      #{rid,jdbcType=INTEGER})
+      #{rid,jdbcType=INTEGER}, #{storeid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Usertable" >
     insert into usertable
@@ -119,6 +120,9 @@
       <if test="rid != null" >
         rid,
       </if>
+      <if test="storeid != null" >
+        storeid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -132,6 +136,9 @@
       </if>
       <if test="rid != null" >
         #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="storeid != null" >
+        #{storeid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -156,6 +163,9 @@
       <if test="record.rid != null" >
         rid = #{record.rid,jdbcType=INTEGER},
       </if>
+      <if test="record.storeid != null" >
+        storeid = #{record.storeid,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +176,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       usname = #{record.usname,jdbcType=VARCHAR},
       uspwd = #{record.uspwd,jdbcType=VARCHAR},
-      rid = #{record.rid,jdbcType=INTEGER}
+      rid = #{record.rid,jdbcType=INTEGER},
+      storeid = #{record.storeid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +194,9 @@
       <if test="rid != null" >
         rid = #{rid,jdbcType=INTEGER},
       </if>
+      <if test="storeid != null" >
+        storeid = #{storeid,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -190,7 +204,8 @@
     update usertable
     set usname = #{usname,jdbcType=VARCHAR},
       uspwd = #{uspwd,jdbcType=VARCHAR},
-      rid = #{rid,jdbcType=INTEGER}
+      rid = #{rid,jdbcType=INTEGER},
+      storeid = #{storeid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

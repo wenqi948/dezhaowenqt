@@ -363,6 +363,76 @@ public class UsertableExample {
             addCriterion("rid not between", value1, value2, "rid");
             return (Criteria) this;
         }
+
+        public Criteria andStoreidIsNull() {
+            addCriterion("storeid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidIsNotNull() {
+            addCriterion("storeid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidEqualTo(String value) {
+            addCriterion("storeid =", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidNotEqualTo(String value) {
+            addCriterion("storeid <>", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidGreaterThan(String value) {
+            addCriterion("storeid >", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidGreaterThanOrEqualTo(String value) {
+            addCriterion("storeid >=", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidLessThan(String value) {
+            addCriterion("storeid <", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidLessThanOrEqualTo(String value) {
+            addCriterion("storeid <=", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidLike(String value) {
+            addCriterion("storeid like", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidNotLike(String value) {
+            addCriterion("storeid not like", value, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidIn(List<String> values) {
+            addCriterion("storeid in", values, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidNotIn(List<String> values) {
+            addCriterion("storeid not in", values, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidBetween(String value1, String value2) {
+            addCriterion("storeid between", value1, value2, "storeid");
+            return (Criteria) this;
+        }
+
+        public Criteria andStoreidNotBetween(String value1, String value2) {
+            addCriterion("storeid not between", value1, value2, "storeid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

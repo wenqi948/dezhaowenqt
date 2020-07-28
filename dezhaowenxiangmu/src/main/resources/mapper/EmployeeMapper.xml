@@ -42,6 +42,7 @@
     <result column="emgszkq" property="emgszkq" jdbcType="VARCHAR" />
     <result column="emspzkq" property="emspzkq" jdbcType="VARCHAR" />
     <result column="emjmq" property="emjmq" jdbcType="VARCHAR" />
+    <result column="zhuangtai" property="zhuangtai" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -105,7 +106,7 @@
     employeeid, emname, emsex, emmd, embm, emadmin, emstzk, emgw, emheight, emjg, emmz, 
     emhyzk, emxl, embyyx, emzy, emzyzg, emsx, emxw, embz, emsfz, emhkdz, emxzdz, emlxdh, 
     emsj, ememail, emkhyh, emyhzh, emjjlxr, emrzrq, emsyrq, emcsrq, emhtks, emhtjs, emkzbh, 
-    emknbh, emtjr, emzdzkq, emgszkq, emspzkq, emjmq
+    emknbh, emtjr, emzdzkq, emgszkq, emspzkq, emjmq, zhuangtai
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.EmployeeExample" >
     select
@@ -150,8 +151,8 @@
       emjjlxr, emrzrq, emsyrq, 
       emcsrq, emhtks, emhtjs, emkzbh, 
       emknbh, emtjr, emzdzkq, 
-      emgszkq, emspzkq, emjmq
-      )
+      emgszkq, emspzkq, emjmq, 
+      zhuangtai)
     values (#{employeeid,jdbcType=VARCHAR}, #{emname,jdbcType=VARCHAR}, #{emsex,jdbcType=VARCHAR}, 
       #{emmd,jdbcType=INTEGER}, #{embm,jdbcType=INTEGER}, #{emadmin,jdbcType=VARCHAR}, 
       #{emstzk,jdbcType=VARCHAR}, #{emgw,jdbcType=VARCHAR}, #{emheight,jdbcType=VARCHAR}, 
@@ -164,8 +165,8 @@
       #{emjjlxr,jdbcType=VARCHAR}, #{emrzrq,jdbcType=DATE}, #{emsyrq,jdbcType=DATE}, 
       #{emcsrq,jdbcType=DATE}, #{emhtks,jdbcType=DATE}, #{emhtjs,jdbcType=DATE}, #{emkzbh,jdbcType=VARCHAR}, 
       #{emknbh,jdbcType=VARCHAR}, #{emtjr,jdbcType=VARCHAR}, #{emzdzkq,jdbcType=VARCHAR}, 
-      #{emgszkq,jdbcType=VARCHAR}, #{emspzkq,jdbcType=VARCHAR}, #{emjmq,jdbcType=VARCHAR}
-      )
+      #{emgszkq,jdbcType=VARCHAR}, #{emspzkq,jdbcType=VARCHAR}, #{emjmq,jdbcType=VARCHAR}, 
+      #{zhuangtai,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Employee" >
     insert into employee
@@ -290,6 +291,9 @@
       <if test="emjmq != null" >
         emjmq,
       </if>
+      <if test="zhuangtai != null" >
+        zhuangtai,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="employeeid != null" >
@@ -411,6 +415,9 @@
       </if>
       <if test="emjmq != null" >
         #{emjmq,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangtai != null" >
+        #{zhuangtai,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -543,6 +550,9 @@
       <if test="record.emjmq != null" >
         emjmq = #{record.emjmq,jdbcType=VARCHAR},
       </if>
+      <if test="record.zhuangtai != null" >
+        zhuangtai = #{record.zhuangtai,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -589,7 +599,8 @@
       emzdzkq = #{record.emzdzkq,jdbcType=VARCHAR},
       emgszkq = #{record.emgszkq,jdbcType=VARCHAR},
       emspzkq = #{record.emspzkq,jdbcType=VARCHAR},
-      emjmq = #{record.emjmq,jdbcType=VARCHAR}
+      emjmq = #{record.emjmq,jdbcType=VARCHAR},
+      zhuangtai = #{record.zhuangtai,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -714,6 +725,9 @@
       <if test="emjmq != null" >
         emjmq = #{emjmq,jdbcType=VARCHAR},
       </if>
+      <if test="zhuangtai != null" >
+        zhuangtai = #{zhuangtai,jdbcType=INTEGER},
+      </if>
     </set>
     where employeeid = #{employeeid,jdbcType=VARCHAR}
   </update>
@@ -757,7 +771,8 @@
       emzdzkq = #{emzdzkq,jdbcType=VARCHAR},
       emgszkq = #{emgszkq,jdbcType=VARCHAR},
       emspzkq = #{emspzkq,jdbcType=VARCHAR},
-      emjmq = #{emjmq,jdbcType=VARCHAR}
+      emjmq = #{emjmq,jdbcType=VARCHAR},
+      zhuangtai = #{zhuangtai,jdbcType=INTEGER}
     where employeeid = #{employeeid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -9,6 +9,8 @@ public class Usertable {
 
     private Integer rid;
 
+    private String storeid;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +41,13 @@ public class Usertable {
 
     public void setRid(Integer rid) {
         this.rid = rid;
+    }
+
+    public String getStoreid() {
+        return storeid;
+    }
+
+    public void setStoreid(String storeid) {
+        this.storeid = storeid;
     }
 }
