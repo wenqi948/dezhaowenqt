@@ -5,6 +5,7 @@
     <id column="citytreeid" property="citytreeid" jdbcType="INTEGER" />
     <result column="cityname" property="cityname" jdbcType="VARCHAR" />
     <result column="parentid" property="parentid" jdbcType="INTEGER" />
+    <result column="biaoshiid" property="biaoshiid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    citytreeid, cityname, parentid
+    citytreeid, cityname, parentid, biaoshiid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.FirmtreeExample" >
     select
@@ -98,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Firmtree" >
-    insert into firmtree (citytreeid, cityname, parentid
-      )
-    values (#{citytreeid,jdbcType=INTEGER}, #{cityname,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}
-      )
+    insert into firmtree (citytreeid, cityname, parentid, 
+      biaoshiid)
+    values (#{citytreeid,jdbcType=INTEGER}, #{cityname,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}, 
+      #{biaoshiid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Firmtree" >
     insert into firmtree
@@ -115,6 +116,9 @@
       <if test="parentid != null" >
         parentid,
       </if>
+      <if test="biaoshiid != null" >
+        biaoshiid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="citytreeid != null" >
@@ -125,6 +129,9 @@
       </if>
       <if test="parentid != null" >
         #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="biaoshiid != null" >
+        #{biaoshiid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -146,6 +153,9 @@
       <if test="record.parentid != null" >
         parentid = #{record.parentid,jdbcType=INTEGER},
       </if>
+      <if test="record.biaoshiid != null" >
+        biaoshiid = #{record.biaoshiid,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -155,7 +165,8 @@
     update firmtree
     set citytreeid = #{record.citytreeid,jdbcType=INTEGER},
       cityname = #{record.cityname,jdbcType=VARCHAR},
-      parentid = #{record.parentid,jdbcType=INTEGER}
+      parentid = #{record.parentid,jdbcType=INTEGER},
+      biaoshiid = #{record.biaoshiid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,13 +180,17 @@
       <if test="parentid != null" >
         parentid = #{parentid,jdbcType=INTEGER},
       </if>
+      <if test="biaoshiid != null" >
+        biaoshiid = #{biaoshiid,jdbcType=INTEGER},
+      </if>
     </set>
     where citytreeid = #{citytreeid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Firmtree" >
     update firmtree
     set cityname = #{cityname,jdbcType=VARCHAR},
-      parentid = #{parentid,jdbcType=INTEGER}
+      parentid = #{parentid,jdbcType=INTEGER},
+      biaoshiid = #{biaoshiid,jdbcType=INTEGER}
     where citytreeid = #{citytreeid,jdbcType=INTEGER}
   </update>
 </mapper>
