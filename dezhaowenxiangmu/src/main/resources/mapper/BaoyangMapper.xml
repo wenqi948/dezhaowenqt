@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.dao.BaoyangMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Baoyang" >
+    <id column="byid" property="byid" jdbcType="INTEGER" />
     <result column="carno" property="carno" jdbcType="VARCHAR" />
     <result column="baoyname" property="baoyname" jdbcType="VARCHAR" />
     <result column="jihuadate" property="jihuadate" jdbcType="DATE" />
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    carno, baoyname, jihuadate, jihualicheng, shijidate, shijilicheng, beizhu
+    byid, carno, baoyname, jihuadate, jihualicheng, shijidate, shijilicheng, beizhu
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.BaoyangExample" >
     select
@@ -85,6 +86,16 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from baoyang
+    where byid = #{byid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from baoyang
+    where byid = #{byid,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByExample" parameterType="com.accp.domain.BaoyangExample" >
     delete from baoyang
     <if test="_parameter != null" >
@@ -92,16 +103,19 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Baoyang" >
-    insert into baoyang (carno, baoyname, jihuadate, 
-      jihualicheng, shijidate, shijilicheng, 
-      beizhu)
-    values (#{carno,jdbcType=VARCHAR}, #{baoyname,jdbcType=VARCHAR}, #{jihuadate,jdbcType=DATE}, 
-      #{jihualicheng,jdbcType=VARCHAR}, #{shijidate,jdbcType=DATE}, #{shijilicheng,jdbcType=VARCHAR}, 
-      #{beizhu,jdbcType=VARCHAR})
+    insert into baoyang (byid, carno, baoyname, 
+      jihuadate, jihualicheng, shijidate, 
+      shijilicheng, beizhu)
+    values (#{byid,jdbcType=INTEGER}, #{carno,jdbcType=VARCHAR}, #{baoyname,jdbcType=VARCHAR}, 
+      #{jihuadate,jdbcType=DATE}, #{jihualicheng,jdbcType=VARCHAR}, #{shijidate,jdbcType=DATE}, 
+      #{shijilicheng,jdbcType=VARCHAR}, #{beizhu,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Baoyang" >
     insert into baoyang
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="byid != null" >
+        byid,
+      </if>
       <if test="carno != null" >
         carno,
       </if>
@@ -125,6 +139,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="byid != null" >
+        #{byid,jdbcType=INTEGER},
+      </if>
       <if test="carno != null" >
         #{carno,jdbcType=VARCHAR},
       </if>
@@ -157,6 +174,9 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update baoyang
     <set >
+      <if test="record.byid != null" >
+        byid = #{record.byid,jdbcType=INTEGER},
+      </if>
       <if test="record.carno != null" >
         carno = #{record.carno,jdbcType=VARCHAR},
       </if>
@@ -185,7 +205,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update baoyang
-    set carno = #{record.carno,jdbcType=VARCHAR},
+    set byid = #{record.byid,jdbcType=INTEGER},
+      carno = #{record.carno,jdbcType=VARCHAR},
       baoyname = #{record.baoyname,jdbcType=VARCHAR},
       jihuadate = #{record.jihuadate,jdbcType=DATE},
       jihualicheng = #{record.jihualicheng,jdbcType=VARCHAR},
@@ -195,5 +216,43 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Baoyang" >
+    update baoyang
+    <set >
+      <if test="carno != null" >
+        carno = #{carno,jdbcType=VARCHAR},
+      </if>
+      <if test="baoyname != null" >
+        baoyname = #{baoyname,jdbcType=VARCHAR},
+      </if>
+      <if test="jihuadate != null" >
+        jihuadate = #{jihuadate,jdbcType=DATE},
+      </if>
+      <if test="jihualicheng != null" >
+        jihualicheng = #{jihualicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shijidate != null" >
+        shijidate = #{shijidate,jdbcType=DATE},
+      </if>
+      <if test="shijilicheng != null" >
+        shijilicheng = #{shijilicheng,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null" >
+        beizhu = #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where byid = #{byid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Baoyang" >
+    update baoyang
+    set carno = #{carno,jdbcType=VARCHAR},
+      baoyname = #{baoyname,jdbcType=VARCHAR},
+      jihuadate = #{jihuadate,jdbcType=DATE},
+      jihualicheng = #{jihualicheng,jdbcType=VARCHAR},
+      shijidate = #{shijidate,jdbcType=DATE},
+      shijilicheng = #{shijilicheng,jdbcType=VARCHAR},
+      beizhu = #{beizhu,jdbcType=VARCHAR}
+    where byid = #{byid,jdbcType=INTEGER}
   </update>
 </mapper>
