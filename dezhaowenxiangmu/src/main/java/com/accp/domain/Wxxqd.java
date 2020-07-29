@@ -13,6 +13,8 @@ public class Wxxqd {
 
     private Float datepmoney;
 
+    private String jialei;
+
     public Integer getWxqid() {
         return wxqid;
     }
@@ -59,5 +61,13 @@ public class Wxxqd {
 
     public void setDatepmoney(Float datepmoney) {
         this.datepmoney = datepmoney;
+    }
+
+    public String getJialei() {
+        return jialei;
+    }
+
+    public void setJialei(String jialei) {
+        this.jialei = jialei;
     }
 }
