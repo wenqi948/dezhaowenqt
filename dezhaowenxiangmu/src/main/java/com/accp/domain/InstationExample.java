@@ -2,7 +2,6 @@ package com.accp.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class InstationExample {
@@ -104,32 +103,6 @@ public class InstationExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andInsidIsNull() {
@@ -533,52 +506,52 @@ public class InstationExample {
         }
 
         public Criteria andJoininstimesEqualTo(Date value) {
-            addCriterionForJDBCDate("joininstimes =", value, "joininstimes");
+            addCriterion("joininstimes =", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesNotEqualTo(Date value) {
-            addCriterionForJDBCDate("joininstimes <>", value, "joininstimes");
+            addCriterion("joininstimes <>", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesGreaterThan(Date value) {
-            addCriterionForJDBCDate("joininstimes >", value, "joininstimes");
+            addCriterion("joininstimes >", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("joininstimes >=", value, "joininstimes");
+            addCriterion("joininstimes >=", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesLessThan(Date value) {
-            addCriterionForJDBCDate("joininstimes <", value, "joininstimes");
+            addCriterion("joininstimes <", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("joininstimes <=", value, "joininstimes");
+            addCriterion("joininstimes <=", value, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesIn(List<Date> values) {
-            addCriterionForJDBCDate("joininstimes in", values, "joininstimes");
+            addCriterion("joininstimes in", values, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesNotIn(List<Date> values) {
-            addCriterionForJDBCDate("joininstimes not in", values, "joininstimes");
+            addCriterion("joininstimes not in", values, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("joininstimes between", value1, value2, "joininstimes");
+            addCriterion("joininstimes between", value1, value2, "joininstimes");
             return (Criteria) this;
         }
 
         public Criteria andJoininstimesNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("joininstimes not between", value1, value2, "joininstimes");
+            addCriterion("joininstimes not between", value1, value2, "joininstimes");
             return (Criteria) this;
         }
 
@@ -593,52 +566,52 @@ public class InstationExample {
         }
 
         public Criteria andPredictcompletetimeEqualTo(Date value) {
-            addCriterionForJDBCDate("predictcompletetime =", value, "predictcompletetime");
+            addCriterion("predictcompletetime =", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("predictcompletetime <>", value, "predictcompletetime");
+            addCriterion("predictcompletetime <>", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("predictcompletetime >", value, "predictcompletetime");
+            addCriterion("predictcompletetime >", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("predictcompletetime >=", value, "predictcompletetime");
+            addCriterion("predictcompletetime >=", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeLessThan(Date value) {
-            addCriterionForJDBCDate("predictcompletetime <", value, "predictcompletetime");
+            addCriterion("predictcompletetime <", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("predictcompletetime <=", value, "predictcompletetime");
+            addCriterion("predictcompletetime <=", value, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeIn(List<Date> values) {
-            addCriterionForJDBCDate("predictcompletetime in", values, "predictcompletetime");
+            addCriterion("predictcompletetime in", values, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("predictcompletetime not in", values, "predictcompletetime");
+            addCriterion("predictcompletetime not in", values, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("predictcompletetime between", value1, value2, "predictcompletetime");
+            addCriterion("predictcompletetime between", value1, value2, "predictcompletetime");
             return (Criteria) this;
         }
 
         public Criteria andPredictcompletetimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("predictcompletetime not between", value1, value2, "predictcompletetime");
+            addCriterion("predictcompletetime not between", value1, value2, "predictcompletetime");
             return (Criteria) this;
         }
 
@@ -653,52 +626,52 @@ public class InstationExample {
         }
 
         public Criteria andPredicttimeEqualTo(Date value) {
-            addCriterionForJDBCDate("predicttime =", value, "predicttime");
+            addCriterion("predicttime =", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("predicttime <>", value, "predicttime");
+            addCriterion("predicttime <>", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("predicttime >", value, "predicttime");
+            addCriterion("predicttime >", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("predicttime >=", value, "predicttime");
+            addCriterion("predicttime >=", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeLessThan(Date value) {
-            addCriterionForJDBCDate("predicttime <", value, "predicttime");
+            addCriterion("predicttime <", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("predicttime <=", value, "predicttime");
+            addCriterion("predicttime <=", value, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeIn(List<Date> values) {
-            addCriterionForJDBCDate("predicttime in", values, "predicttime");
+            addCriterion("predicttime in", values, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("predicttime not in", values, "predicttime");
+            addCriterion("predicttime not in", values, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("predicttime between", value1, value2, "predicttime");
+            addCriterion("predicttime between", value1, value2, "predicttime");
             return (Criteria) this;
         }
 
         public Criteria andPredicttimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("predicttime not between", value1, value2, "predicttime");
+            addCriterion("predicttime not between", value1, value2, "predicttime");
             return (Criteria) this;
         }
 
