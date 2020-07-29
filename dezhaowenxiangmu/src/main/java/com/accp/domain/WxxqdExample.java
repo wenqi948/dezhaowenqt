@@ -463,6 +463,76 @@ public class WxxqdExample {
             addCriterion("datepmoney not between", value1, value2, "datepmoney");
             return (Criteria) this;
         }
+
+        public Criteria andJialeiIsNull() {
+            addCriterion("jialei is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiIsNotNull() {
+            addCriterion("jialei is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiEqualTo(String value) {
+            addCriterion("jialei =", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotEqualTo(String value) {
+            addCriterion("jialei <>", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiGreaterThan(String value) {
+            addCriterion("jialei >", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiGreaterThanOrEqualTo(String value) {
+            addCriterion("jialei >=", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLessThan(String value) {
+            addCriterion("jialei <", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLessThanOrEqualTo(String value) {
+            addCriterion("jialei <=", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLike(String value) {
+            addCriterion("jialei like", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotLike(String value) {
+            addCriterion("jialei not like", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiIn(List<String> values) {
+            addCriterion("jialei in", values, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotIn(List<String> values) {
+            addCriterion("jialei not in", values, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiBetween(String value1, String value2) {
+            addCriterion("jialei between", value1, value2, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotBetween(String value1, String value2) {
+            addCriterion("jialei not between", value1, value2, "jialei");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
