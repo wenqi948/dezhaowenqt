@@ -132,6 +132,66 @@ public class BaoyangExample {
             addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
+        public Criteria andByidIsNull() {
+            addCriterion("byid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidIsNotNull() {
+            addCriterion("byid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidEqualTo(Integer value) {
+            addCriterion("byid =", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidNotEqualTo(Integer value) {
+            addCriterion("byid <>", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidGreaterThan(Integer value) {
+            addCriterion("byid >", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("byid >=", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidLessThan(Integer value) {
+            addCriterion("byid <", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidLessThanOrEqualTo(Integer value) {
+            addCriterion("byid <=", value, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidIn(List<Integer> values) {
+            addCriterion("byid in", values, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidNotIn(List<Integer> values) {
+            addCriterion("byid not in", values, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidBetween(Integer value1, Integer value2) {
+            addCriterion("byid between", value1, value2, "byid");
+            return (Criteria) this;
+        }
+
+        public Criteria andByidNotBetween(Integer value1, Integer value2) {
+            addCriterion("byid not between", value1, value2, "byid");
+            return (Criteria) this;
+        }
+
         public Criteria andCarnoIsNull() {
             addCriterion("carno is null");
             return (Criteria) this;

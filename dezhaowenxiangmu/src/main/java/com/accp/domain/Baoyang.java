@@ -3,6 +3,8 @@ package com.accp.domain;
 import java.util.Date;
 
 public class Baoyang {
+    private Integer byid;
+
     private String carno;
 
     private String baoyname;
@@ -16,6 +18,14 @@ public class Baoyang {
     private String shijilicheng;
 
     private String beizhu;
+
+    public Integer getByid() {
+        return byid;
+    }
+
+    public void setByid(Integer byid) {
+        this.byid = byid;
+    }
 
     public String getCarno() {
         return carno;
