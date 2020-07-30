@@ -165,73 +165,63 @@ public class CompletedExample {
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoIsNull() {
-            addCriterion("chepaihao is null");
+        public Criteria andDanhaoIsNull() {
+            addCriterion("danhao is null");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoIsNotNull() {
-            addCriterion("chepaihao is not null");
+        public Criteria andDanhaoIsNotNull() {
+            addCriterion("danhao is not null");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoEqualTo(String value) {
-            addCriterion("chepaihao =", value, "chepaihao");
+        public Criteria andDanhaoEqualTo(Integer value) {
+            addCriterion("danhao =", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoNotEqualTo(String value) {
-            addCriterion("chepaihao <>", value, "chepaihao");
+        public Criteria andDanhaoNotEqualTo(Integer value) {
+            addCriterion("danhao <>", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoGreaterThan(String value) {
-            addCriterion("chepaihao >", value, "chepaihao");
+        public Criteria andDanhaoGreaterThan(Integer value) {
+            addCriterion("danhao >", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoGreaterThanOrEqualTo(String value) {
-            addCriterion("chepaihao >=", value, "chepaihao");
+        public Criteria andDanhaoGreaterThanOrEqualTo(Integer value) {
+            addCriterion("danhao >=", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoLessThan(String value) {
-            addCriterion("chepaihao <", value, "chepaihao");
+        public Criteria andDanhaoLessThan(Integer value) {
+            addCriterion("danhao <", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoLessThanOrEqualTo(String value) {
-            addCriterion("chepaihao <=", value, "chepaihao");
+        public Criteria andDanhaoLessThanOrEqualTo(Integer value) {
+            addCriterion("danhao <=", value, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoLike(String value) {
-            addCriterion("chepaihao like", value, "chepaihao");
+        public Criteria andDanhaoIn(List<Integer> values) {
+            addCriterion("danhao in", values, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoNotLike(String value) {
-            addCriterion("chepaihao not like", value, "chepaihao");
+        public Criteria andDanhaoNotIn(List<Integer> values) {
+            addCriterion("danhao not in", values, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoIn(List<String> values) {
-            addCriterion("chepaihao in", values, "chepaihao");
+        public Criteria andDanhaoBetween(Integer value1, Integer value2) {
+            addCriterion("danhao between", value1, value2, "danhao");
             return (Criteria) this;
         }
 
-        public Criteria andChepaihaoNotIn(List<String> values) {
-            addCriterion("chepaihao not in", values, "chepaihao");
-            return (Criteria) this;
-        }
-
-        public Criteria andChepaihaoBetween(String value1, String value2) {
-            addCriterion("chepaihao between", value1, value2, "chepaihao");
-            return (Criteria) this;
-        }
-
-        public Criteria andChepaihaoNotBetween(String value1, String value2) {
-            addCriterion("chepaihao not between", value1, value2, "chepaihao");
+        public Criteria andDanhaoNotBetween(Integer value1, Integer value2) {
+            addCriterion("danhao not between", value1, value2, "danhao");
             return (Criteria) this;
         }
 

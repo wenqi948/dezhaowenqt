@@ -10,7 +10,7 @@ public interface ViplistMapper {
 
     int deleteByExample(ViplistExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer mid);
 
     int insert(Viplist record);
 
@@ -18,7 +18,7 @@ public interface ViplistMapper {
 
     List<Viplist> selectByExample(ViplistExample example);
 
-    Viplist selectByPrimaryKey(Integer id);
+    Viplist selectByPrimaryKey(Integer mid);
 
     int updateByExampleSelective(@Param("record") Viplist record, @Param("example") ViplistExample example);
 

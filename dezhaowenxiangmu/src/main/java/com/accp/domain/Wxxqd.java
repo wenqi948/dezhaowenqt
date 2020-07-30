@@ -15,6 +15,8 @@ public class Wxxqd {
 
     private String jialei;
 
+    private Integer teamid;
+
     public Integer getWxqid() {
         return wxqid;
     }
@@ -69,5 +71,13 @@ public class Wxxqd {
 
     public void setJialei(String jialei) {
         this.jialei = jialei;
+    }
+
+    public Integer getTeamid() {
+        return teamid;
+    }
+
+    public void setTeamid(Integer teamid) {
+        this.teamid = teamid;
     }
 }
