@@ -1,5 +1,8 @@
 package com.accp.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Modoule {
     private Integer mid;
 
@@ -18,6 +21,22 @@ public class Modoule {
     private String tubiao;
 
     private String active;
+    
+    private List<Modoule> lists=new ArrayList<Modoule>();
+
+    /**
+	 * @return the lists
+	 */
+	public List<Modoule> getLists() {
+		return lists;
+	}
+
+	/**
+	 * @param lists the lists to set
+	 */
+	public void setLists(List<Modoule> lists) {
+		this.lists = lists;
+	}
 
     public Integer getMid() {
         return mid;

@@ -116,6 +116,7 @@ public class ComeCarService {
 		}
 		return list;
 	}
+	
 	public int insert(Completed c) {
 		if(c.getIshg().equals("合格")) {
 			Instation in=im.selectByPrimaryKey(c.getDanhao());
@@ -130,6 +131,7 @@ public class ComeCarService {
 		com.insert(c);
 		return 0;
 	}
+	
 	
 	public int findbynum(Integer dh) {
 		CompletedExample example=new CompletedExample();

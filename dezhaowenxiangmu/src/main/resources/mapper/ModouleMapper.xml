@@ -13,6 +13,13 @@
     <result column="active" property="active" jdbcType="VARCHAR" />
   </resultMap>
   
+  <resultMap id="BaseResultMapExtends" extends="BaseResultMap" type="com.accp.domain.Modoule">
+  	<collection property="lists" column="mid" select="find"></collection>
+  </resultMap>
+  <select id="find" resultMap="BaseResultMapExtends" parameterType="java.lang.Integer">
+  	select * from modoule where parentid=#{parentid}
+  </select>
+  
   <select id="findByRoleId" resultMap="BaseResultMap" >
   	SELECT m.* FROM modoule m
 	INNER JOIN modoule_role mr

@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ModouleMapper {
+	List<Modoule> find(Integer parentid);
+	
 	List<Modoule> findByRoleId(@Param("catalog") Integer catalog,@Param("rid") Integer roleId);
 	
     int countByExample(ModouleExample example);
