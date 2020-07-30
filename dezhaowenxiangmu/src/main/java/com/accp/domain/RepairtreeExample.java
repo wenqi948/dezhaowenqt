@@ -3,14 +3,14 @@ package com.accp.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentExample {
+public class RepairtreeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DepartmentExample() {
+    public RepairtreeExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,253 +104,253 @@ public class DepartmentExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andDepartmentidIsNull() {
-            addCriterion("departmentid is null");
+        public Criteria andXtypeIsNull() {
+            addCriterion("xtype is null");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidIsNotNull() {
-            addCriterion("departmentid is not null");
+        public Criteria andXtypeIsNotNull() {
+            addCriterion("xtype is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidEqualTo(Integer value) {
-            addCriterion("departmentid =", value, "departmentid");
+        public Criteria andXtypeEqualTo(Integer value) {
+            addCriterion("xtype =", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidNotEqualTo(Integer value) {
-            addCriterion("departmentid <>", value, "departmentid");
+        public Criteria andXtypeNotEqualTo(Integer value) {
+            addCriterion("xtype <>", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidGreaterThan(Integer value) {
-            addCriterion("departmentid >", value, "departmentid");
+        public Criteria andXtypeGreaterThan(Integer value) {
+            addCriterion("xtype >", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("departmentid >=", value, "departmentid");
+        public Criteria andXtypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("xtype >=", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidLessThan(Integer value) {
-            addCriterion("departmentid <", value, "departmentid");
+        public Criteria andXtypeLessThan(Integer value) {
+            addCriterion("xtype <", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidLessThanOrEqualTo(Integer value) {
-            addCriterion("departmentid <=", value, "departmentid");
+        public Criteria andXtypeLessThanOrEqualTo(Integer value) {
+            addCriterion("xtype <=", value, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidIn(List<Integer> values) {
-            addCriterion("departmentid in", values, "departmentid");
+        public Criteria andXtypeIn(List<Integer> values) {
+            addCriterion("xtype in", values, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidNotIn(List<Integer> values) {
-            addCriterion("departmentid not in", values, "departmentid");
+        public Criteria andXtypeNotIn(List<Integer> values) {
+            addCriterion("xtype not in", values, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidBetween(Integer value1, Integer value2) {
-            addCriterion("departmentid between", value1, value2, "departmentid");
+        public Criteria andXtypeBetween(Integer value1, Integer value2) {
+            addCriterion("xtype between", value1, value2, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepartmentidNotBetween(Integer value1, Integer value2) {
-            addCriterion("departmentid not between", value1, value2, "departmentid");
+        public Criteria andXtypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("xtype not between", value1, value2, "xtype");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesIsNull() {
-            addCriterion("depnames is null");
+        public Criteria andXtypenameIsNull() {
+            addCriterion("xtypename is null");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesIsNotNull() {
-            addCriterion("depnames is not null");
+        public Criteria andXtypenameIsNotNull() {
+            addCriterion("xtypename is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesEqualTo(String value) {
-            addCriterion("depnames =", value, "depnames");
+        public Criteria andXtypenameEqualTo(String value) {
+            addCriterion("xtypename =", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesNotEqualTo(String value) {
-            addCriterion("depnames <>", value, "depnames");
+        public Criteria andXtypenameNotEqualTo(String value) {
+            addCriterion("xtypename <>", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesGreaterThan(String value) {
-            addCriterion("depnames >", value, "depnames");
+        public Criteria andXtypenameGreaterThan(String value) {
+            addCriterion("xtypename >", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesGreaterThanOrEqualTo(String value) {
-            addCriterion("depnames >=", value, "depnames");
+        public Criteria andXtypenameGreaterThanOrEqualTo(String value) {
+            addCriterion("xtypename >=", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesLessThan(String value) {
-            addCriterion("depnames <", value, "depnames");
+        public Criteria andXtypenameLessThan(String value) {
+            addCriterion("xtypename <", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesLessThanOrEqualTo(String value) {
-            addCriterion("depnames <=", value, "depnames");
+        public Criteria andXtypenameLessThanOrEqualTo(String value) {
+            addCriterion("xtypename <=", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesLike(String value) {
-            addCriterion("depnames like", value, "depnames");
+        public Criteria andXtypenameLike(String value) {
+            addCriterion("xtypename like", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesNotLike(String value) {
-            addCriterion("depnames not like", value, "depnames");
+        public Criteria andXtypenameNotLike(String value) {
+            addCriterion("xtypename not like", value, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesIn(List<String> values) {
-            addCriterion("depnames in", values, "depnames");
+        public Criteria andXtypenameIn(List<String> values) {
+            addCriterion("xtypename in", values, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesNotIn(List<String> values) {
-            addCriterion("depnames not in", values, "depnames");
+        public Criteria andXtypenameNotIn(List<String> values) {
+            addCriterion("xtypename not in", values, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesBetween(String value1, String value2) {
-            addCriterion("depnames between", value1, value2, "depnames");
+        public Criteria andXtypenameBetween(String value1, String value2) {
+            addCriterion("xtypename between", value1, value2, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andDepnamesNotBetween(String value1, String value2) {
-            addCriterion("depnames not between", value1, value2, "depnames");
+        public Criteria andXtypenameNotBetween(String value1, String value2) {
+            addCriterion("xtypename not between", value1, value2, "xtypename");
             return (Criteria) this;
         }
 
-        public Criteria andParentidIsNull() {
-            addCriterion("parentid is null");
+        public Criteria andParentiidIsNull() {
+            addCriterion("parentiid is null");
             return (Criteria) this;
         }
 
-        public Criteria andParentidIsNotNull() {
-            addCriterion("parentid is not null");
+        public Criteria andParentiidIsNotNull() {
+            addCriterion("parentiid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParentidEqualTo(Integer value) {
-            addCriterion("parentid =", value, "parentid");
+        public Criteria andParentiidEqualTo(Integer value) {
+            addCriterion("parentiid =", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidNotEqualTo(Integer value) {
-            addCriterion("parentid <>", value, "parentid");
+        public Criteria andParentiidNotEqualTo(Integer value) {
+            addCriterion("parentiid <>", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidGreaterThan(Integer value) {
-            addCriterion("parentid >", value, "parentid");
+        public Criteria andParentiidGreaterThan(Integer value) {
+            addCriterion("parentiid >", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("parentid >=", value, "parentid");
+        public Criteria andParentiidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parentiid >=", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidLessThan(Integer value) {
-            addCriterion("parentid <", value, "parentid");
+        public Criteria andParentiidLessThan(Integer value) {
+            addCriterion("parentiid <", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidLessThanOrEqualTo(Integer value) {
-            addCriterion("parentid <=", value, "parentid");
+        public Criteria andParentiidLessThanOrEqualTo(Integer value) {
+            addCriterion("parentiid <=", value, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidIn(List<Integer> values) {
-            addCriterion("parentid in", values, "parentid");
+        public Criteria andParentiidIn(List<Integer> values) {
+            addCriterion("parentiid in", values, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidNotIn(List<Integer> values) {
-            addCriterion("parentid not in", values, "parentid");
+        public Criteria andParentiidNotIn(List<Integer> values) {
+            addCriterion("parentiid not in", values, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidBetween(Integer value1, Integer value2) {
-            addCriterion("parentid between", value1, value2, "parentid");
+        public Criteria andParentiidBetween(Integer value1, Integer value2) {
+            addCriterion("parentiid between", value1, value2, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andParentidNotBetween(Integer value1, Integer value2) {
-            addCriterion("parentid not between", value1, value2, "parentid");
+        public Criteria andParentiidNotBetween(Integer value1, Integer value2) {
+            addCriterion("parentiid not between", value1, value2, "parentiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIsNull() {
-            addCriterion("code is null");
+        public Criteria andBiaoshiidIsNull() {
+            addCriterion("biaoshiid is null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIsNotNull() {
-            addCriterion("code is not null");
+        public Criteria andBiaoshiidIsNotNull() {
+            addCriterion("biaoshiid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeEqualTo(Integer value) {
-            addCriterion("code =", value, "code");
+        public Criteria andBiaoshiidEqualTo(Integer value) {
+            addCriterion("biaoshiid =", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotEqualTo(Integer value) {
-            addCriterion("code <>", value, "code");
+        public Criteria andBiaoshiidNotEqualTo(Integer value) {
+            addCriterion("biaoshiid <>", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeGreaterThan(Integer value) {
-            addCriterion("code >", value, "code");
+        public Criteria andBiaoshiidGreaterThan(Integer value) {
+            addCriterion("biaoshiid >", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("code >=", value, "code");
+        public Criteria andBiaoshiidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("biaoshiid >=", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeLessThan(Integer value) {
-            addCriterion("code <", value, "code");
+        public Criteria andBiaoshiidLessThan(Integer value) {
+            addCriterion("biaoshiid <", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeLessThanOrEqualTo(Integer value) {
-            addCriterion("code <=", value, "code");
+        public Criteria andBiaoshiidLessThanOrEqualTo(Integer value) {
+            addCriterion("biaoshiid <=", value, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIn(List<Integer> values) {
-            addCriterion("code in", values, "code");
+        public Criteria andBiaoshiidIn(List<Integer> values) {
+            addCriterion("biaoshiid in", values, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotIn(List<Integer> values) {
-            addCriterion("code not in", values, "code");
+        public Criteria andBiaoshiidNotIn(List<Integer> values) {
+            addCriterion("biaoshiid not in", values, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeBetween(Integer value1, Integer value2) {
-            addCriterion("code between", value1, value2, "code");
+        public Criteria andBiaoshiidBetween(Integer value1, Integer value2) {
+            addCriterion("biaoshiid between", value1, value2, "biaoshiid");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotBetween(Integer value1, Integer value2) {
-            addCriterion("code not between", value1, value2, "code");
+        public Criteria andBiaoshiidNotBetween(Integer value1, Integer value2) {
+            addCriterion("biaoshiid not between", value1, value2, "biaoshiid");
             return (Criteria) this;
         }
     }

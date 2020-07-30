@@ -8,13 +8,21 @@
     <result column="ctsid" property="ctsid" jdbcType="INTEGER" />
     <result column="instation" property="instation" jdbcType="VARCHAR" />
     <result column="jsyuan" property="jsyuan" jdbcType="VARCHAR" />
-    <result column="joininstimes" property="joininstimes" jdbcType="DATE" />
-    <result column="predictcompletetime" property="predictcompletetime" jdbcType="DATE" />
-    <result column="predicttime" property="predicttime" jdbcType="DATE" />
+    <result column="joininstimes" property="joininstimes" jdbcType="TIMESTAMP" />
+    <result column="predictcompletetime" property="predictcompletetime" jdbcType="TIMESTAMP" />
+    <result column="predicttime" property="predicttime" jdbcType="TIMESTAMP" />
     <result column="budgetmoney" property="budgetmoney" jdbcType="REAL" />
     <result column="insevent" property="insevent" jdbcType="VARCHAR" />
     <result column="iszn" property="iszn" jdbcType="BIT" />
     <result column="ifjs" property="ifjs" jdbcType="BIT" />
+    <result column="qcxinhao" property="qcxinhao" jdbcType="VARCHAR" />
+    <result column="chezhuname" property="chezhuname" jdbcType="VARCHAR" />
+    <result column="yewutype" property="yewutype" jdbcType="VARCHAR" />
+    <result column="jiesuantype" property="jiesuantype" jdbcType="VARCHAR" />
+    <result column="shigonclass" property="shigonclass" jdbcType="VARCHAR" />
+    <result column="toptime" property="toptime" jdbcType="VARCHAR" />
+    <result column="jiecheren" property="jiecheren" jdbcType="VARCHAR" />
+    <result column="djid" property="djid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -45,6 +53,13 @@
       </foreach>
     </where>
   </sql>
+  
+   
+  	
+  
+  
+  
+  
   <sql id="Update_By_Example_Where_Clause" >
     <where >
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >
@@ -76,7 +91,8 @@
   </sql>
   <sql id="Base_Column_List" >
     insid, wxstateid, artisanid, ctsid, instation, jsyuan, joininstimes, predictcompletetime, 
-    predicttime, budgetmoney, insevent, iszn, ifjs
+    predicttime, budgetmoney, insevent, iszn, ifjs, qcxinhao, chezhuname, yewutype, jiesuantype, 
+    shigonclass, toptime, jiecheren, djid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.InstationExample" >
     select
@@ -111,14 +127,20 @@
   <insert id="insert" parameterType="com.accp.domain.Instation" >
     insert into instation (insid, wxstateid, artisanid, 
       ctsid, instation, jsyuan, 
-      joininstimes, predictcompletetime, predicttime, 
-      budgetmoney, insevent, iszn, 
-      ifjs)
+      joininstimes, predictcompletetime, 
+      predicttime, budgetmoney, insevent, 
+      iszn, ifjs, qcxinhao, chezhuname, 
+      yewutype, jiesuantype, shigonclass, 
+      toptime, jiecheren, djid
+      )
     values (#{insid,jdbcType=INTEGER}, #{wxstateid,jdbcType=INTEGER}, #{artisanid,jdbcType=VARCHAR}, 
       #{ctsid,jdbcType=INTEGER}, #{instation,jdbcType=VARCHAR}, #{jsyuan,jdbcType=VARCHAR}, 
-      #{joininstimes,jdbcType=DATE}, #{predictcompletetime,jdbcType=DATE}, #{predicttime,jdbcType=DATE}, 
-      #{budgetmoney,jdbcType=REAL}, #{insevent,jdbcType=VARCHAR}, #{iszn,jdbcType=BIT}, 
-      #{ifjs,jdbcType=BIT})
+      #{joininstimes,jdbcType=TIMESTAMP}, #{predictcompletetime,jdbcType=TIMESTAMP}, 
+      #{predicttime,jdbcType=TIMESTAMP}, #{budgetmoney,jdbcType=REAL}, #{insevent,jdbcType=VARCHAR}, 
+      #{iszn,jdbcType=BIT}, #{ifjs,jdbcType=BIT}, #{qcxinhao,jdbcType=VARCHAR}, #{chezhuname,jdbcType=VARCHAR}, 
+      #{yewutype,jdbcType=VARCHAR}, #{jiesuantype,jdbcType=VARCHAR}, #{shigonclass,jdbcType=VARCHAR}, 
+      #{toptime,jdbcType=VARCHAR}, #{jiecheren,jdbcType=VARCHAR}, #{djid,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Instation" >
     insert into instation
@@ -162,6 +184,30 @@
       <if test="ifjs != null" >
         ifjs,
       </if>
+      <if test="qcxinhao != null" >
+        qcxinhao,
+      </if>
+      <if test="chezhuname != null" >
+        chezhuname,
+      </if>
+      <if test="yewutype != null" >
+        yewutype,
+      </if>
+      <if test="jiesuantype != null" >
+        jiesuantype,
+      </if>
+      <if test="shigonclass != null" >
+        shigonclass,
+      </if>
+      <if test="toptime != null" >
+        toptime,
+      </if>
+      <if test="jiecheren != null" >
+        jiecheren,
+      </if>
+      <if test="djid != null" >
+        djid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="insid != null" >
@@ -183,13 +229,13 @@
         #{jsyuan,jdbcType=VARCHAR},
       </if>
       <if test="joininstimes != null" >
-        #{joininstimes,jdbcType=DATE},
+        #{joininstimes,jdbcType=TIMESTAMP},
       </if>
       <if test="predictcompletetime != null" >
-        #{predictcompletetime,jdbcType=DATE},
+        #{predictcompletetime,jdbcType=TIMESTAMP},
       </if>
       <if test="predicttime != null" >
-        #{predicttime,jdbcType=DATE},
+        #{predicttime,jdbcType=TIMESTAMP},
       </if>
       <if test="budgetmoney != null" >
         #{budgetmoney,jdbcType=REAL},
@@ -202,6 +248,30 @@
       </if>
       <if test="ifjs != null" >
         #{ifjs,jdbcType=BIT},
+      </if>
+      <if test="qcxinhao != null" >
+        #{qcxinhao,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuname != null" >
+        #{chezhuname,jdbcType=VARCHAR},
+      </if>
+      <if test="yewutype != null" >
+        #{yewutype,jdbcType=VARCHAR},
+      </if>
+      <if test="jiesuantype != null" >
+        #{jiesuantype,jdbcType=VARCHAR},
+      </if>
+      <if test="shigonclass != null" >
+        #{shigonclass,jdbcType=VARCHAR},
+      </if>
+      <if test="toptime != null" >
+        #{toptime,jdbcType=VARCHAR},
+      </if>
+      <if test="jiecheren != null" >
+        #{jiecheren,jdbcType=VARCHAR},
+      </if>
+      <if test="djid != null" >
+        #{djid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -233,13 +303,13 @@
         jsyuan = #{record.jsyuan,jdbcType=VARCHAR},
       </if>
       <if test="record.joininstimes != null" >
-        joininstimes = #{record.joininstimes,jdbcType=DATE},
+        joininstimes = #{record.joininstimes,jdbcType=TIMESTAMP},
       </if>
       <if test="record.predictcompletetime != null" >
-        predictcompletetime = #{record.predictcompletetime,jdbcType=DATE},
+        predictcompletetime = #{record.predictcompletetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.predicttime != null" >
-        predicttime = #{record.predicttime,jdbcType=DATE},
+        predicttime = #{record.predicttime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.budgetmoney != null" >
         budgetmoney = #{record.budgetmoney,jdbcType=REAL},
@@ -252,6 +322,30 @@
       </if>
       <if test="record.ifjs != null" >
         ifjs = #{record.ifjs,jdbcType=BIT},
+      </if>
+      <if test="record.qcxinhao != null" >
+        qcxinhao = #{record.qcxinhao,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chezhuname != null" >
+        chezhuname = #{record.chezhuname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yewutype != null" >
+        yewutype = #{record.yewutype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jiesuantype != null" >
+        jiesuantype = #{record.jiesuantype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shigonclass != null" >
+        shigonclass = #{record.shigonclass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.toptime != null" >
+        toptime = #{record.toptime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jiecheren != null" >
+        jiecheren = #{record.jiecheren,jdbcType=VARCHAR},
+      </if>
+      <if test="record.djid != null" >
+        djid = #{record.djid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -266,13 +360,21 @@
       ctsid = #{record.ctsid,jdbcType=INTEGER},
       instation = #{record.instation,jdbcType=VARCHAR},
       jsyuan = #{record.jsyuan,jdbcType=VARCHAR},
-      joininstimes = #{record.joininstimes,jdbcType=DATE},
-      predictcompletetime = #{record.predictcompletetime,jdbcType=DATE},
-      predicttime = #{record.predicttime,jdbcType=DATE},
+      joininstimes = #{record.joininstimes,jdbcType=TIMESTAMP},
+      predictcompletetime = #{record.predictcompletetime,jdbcType=TIMESTAMP},
+      predicttime = #{record.predicttime,jdbcType=TIMESTAMP},
       budgetmoney = #{record.budgetmoney,jdbcType=REAL},
       insevent = #{record.insevent,jdbcType=VARCHAR},
       iszn = #{record.iszn,jdbcType=BIT},
-      ifjs = #{record.ifjs,jdbcType=BIT}
+      ifjs = #{record.ifjs,jdbcType=BIT},
+      qcxinhao = #{record.qcxinhao,jdbcType=VARCHAR},
+      chezhuname = #{record.chezhuname,jdbcType=VARCHAR},
+      yewutype = #{record.yewutype,jdbcType=VARCHAR},
+      jiesuantype = #{record.jiesuantype,jdbcType=VARCHAR},
+      shigonclass = #{record.shigonclass,jdbcType=VARCHAR},
+      toptime = #{record.toptime,jdbcType=VARCHAR},
+      jiecheren = #{record.jiecheren,jdbcType=VARCHAR},
+      djid = #{record.djid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -296,13 +398,13 @@
         jsyuan = #{jsyuan,jdbcType=VARCHAR},
       </if>
       <if test="joininstimes != null" >
-        joininstimes = #{joininstimes,jdbcType=DATE},
+        joininstimes = #{joininstimes,jdbcType=TIMESTAMP},
       </if>
       <if test="predictcompletetime != null" >
-        predictcompletetime = #{predictcompletetime,jdbcType=DATE},
+        predictcompletetime = #{predictcompletetime,jdbcType=TIMESTAMP},
       </if>
       <if test="predicttime != null" >
-        predicttime = #{predicttime,jdbcType=DATE},
+        predicttime = #{predicttime,jdbcType=TIMESTAMP},
       </if>
       <if test="budgetmoney != null" >
         budgetmoney = #{budgetmoney,jdbcType=REAL},
@@ -316,6 +418,30 @@
       <if test="ifjs != null" >
         ifjs = #{ifjs,jdbcType=BIT},
       </if>
+      <if test="qcxinhao != null" >
+        qcxinhao = #{qcxinhao,jdbcType=VARCHAR},
+      </if>
+      <if test="chezhuname != null" >
+        chezhuname = #{chezhuname,jdbcType=VARCHAR},
+      </if>
+      <if test="yewutype != null" >
+        yewutype = #{yewutype,jdbcType=VARCHAR},
+      </if>
+      <if test="jiesuantype != null" >
+        jiesuantype = #{jiesuantype,jdbcType=VARCHAR},
+      </if>
+      <if test="shigonclass != null" >
+        shigonclass = #{shigonclass,jdbcType=VARCHAR},
+      </if>
+      <if test="toptime != null" >
+        toptime = #{toptime,jdbcType=VARCHAR},
+      </if>
+      <if test="jiecheren != null" >
+        jiecheren = #{jiecheren,jdbcType=VARCHAR},
+      </if>
+      <if test="djid != null" >
+        djid = #{djid,jdbcType=INTEGER},
+      </if>
     </set>
     where insid = #{insid,jdbcType=INTEGER}
   </update>
@@ -326,13 +452,21 @@
       ctsid = #{ctsid,jdbcType=INTEGER},
       instation = #{instation,jdbcType=VARCHAR},
       jsyuan = #{jsyuan,jdbcType=VARCHAR},
-      joininstimes = #{joininstimes,jdbcType=DATE},
-      predictcompletetime = #{predictcompletetime,jdbcType=DATE},
-      predicttime = #{predicttime,jdbcType=DATE},
+      joininstimes = #{joininstimes,jdbcType=TIMESTAMP},
+      predictcompletetime = #{predictcompletetime,jdbcType=TIMESTAMP},
+      predicttime = #{predicttime,jdbcType=TIMESTAMP},
       budgetmoney = #{budgetmoney,jdbcType=REAL},
       insevent = #{insevent,jdbcType=VARCHAR},
       iszn = #{iszn,jdbcType=BIT},
-      ifjs = #{ifjs,jdbcType=BIT}
+      ifjs = #{ifjs,jdbcType=BIT},
+      qcxinhao = #{qcxinhao,jdbcType=VARCHAR},
+      chezhuname = #{chezhuname,jdbcType=VARCHAR},
+      yewutype = #{yewutype,jdbcType=VARCHAR},
+      jiesuantype = #{jiesuantype,jdbcType=VARCHAR},
+      shigonclass = #{shigonclass,jdbcType=VARCHAR},
+      toptime = #{toptime,jdbcType=VARCHAR},
+      jiecheren = #{jiecheren,jdbcType=VARCHAR},
+      djid = #{djid,jdbcType=INTEGER}
     where insid = #{insid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.accp.dao.CompletedMapper" >
+  <resultMap id="BaseResultMap" type="com.accp.domain.Completed" >
+    <id column="cmid" property="cmid" jdbcType="INTEGER" />
+    <result column="danhao" property="danhao" jdbcType="INTEGER" />
+    <result column="yjwg" property="yjwg" jdbcType="VARCHAR" />
+    <result column="sjwg" property="sjwg" jdbcType="VARCHAR" />
+    <result column="wgyy" property="wgyy" jdbcType="VARCHAR" />
+    <result column="zjyid" property="zjyid" jdbcType="VARCHAR" />
+    <result column="cfmoney" property="cfmoney" jdbcType="INTEGER" />
+    <result column="ishg" property="ishg" jdbcType="VARCHAR" />
+    <result column="fgyy" property="fgyy" jdbcType="VARCHAR" />
+    <result column="bhgcfje" property="bhgcfje" jdbcType="VARCHAR" />
+    <result column="bhgzjr" property="bhgzjr" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cmid, danhao, yjwg, sjwg, wgyy, zjyid, cfmoney, ishg, fgyy, bhgcfje, bhgzjr
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.CompletedExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from completed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from completed
+    where cmid = #{cmid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from completed
+    where cmid = #{cmid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.accp.domain.CompletedExample" >
+    delete from completed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.accp.domain.Completed" >
+    insert into completed (cmid, danhao, yjwg, 
+      sjwg, wgyy, zjyid, 
+      cfmoney, ishg, fgyy, 
+      bhgcfje, bhgzjr)
+    values (#{cmid,jdbcType=INTEGER}, #{danhao,jdbcType=INTEGER}, #{yjwg,jdbcType=VARCHAR}, 
+      #{sjwg,jdbcType=VARCHAR}, #{wgyy,jdbcType=VARCHAR}, #{zjyid,jdbcType=VARCHAR}, 
+      #{cfmoney,jdbcType=INTEGER}, #{ishg,jdbcType=VARCHAR}, #{fgyy,jdbcType=VARCHAR}, 
+      #{bhgcfje,jdbcType=VARCHAR}, #{bhgzjr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.accp.domain.Completed" >
+    insert into completed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cmid != null" >
+        cmid,
+      </if>
+      <if test="danhao != null" >
+        danhao,
+      </if>
+      <if test="yjwg != null" >
+        yjwg,
+      </if>
+      <if test="sjwg != null" >
+        sjwg,
+      </if>
+      <if test="wgyy != null" >
+        wgyy,
+      </if>
+      <if test="zjyid != null" >
+        zjyid,
+      </if>
+      <if test="cfmoney != null" >
+        cfmoney,
+      </if>
+      <if test="ishg != null" >
+        ishg,
+      </if>
+      <if test="fgyy != null" >
+        fgyy,
+      </if>
+      <if test="bhgcfje != null" >
+        bhgcfje,
+      </if>
+      <if test="bhgzjr != null" >
+        bhgzjr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cmid != null" >
+        #{cmid,jdbcType=INTEGER},
+      </if>
+      <if test="danhao != null" >
+        #{danhao,jdbcType=INTEGER},
+      </if>
+      <if test="yjwg != null" >
+        #{yjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjwg != null" >
+        #{sjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="wgyy != null" >
+        #{wgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zjyid != null" >
+        #{zjyid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfmoney != null" >
+        #{cfmoney,jdbcType=INTEGER},
+      </if>
+      <if test="ishg != null" >
+        #{ishg,jdbcType=VARCHAR},
+      </if>
+      <if test="fgyy != null" >
+        #{fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgcfje != null" >
+        #{bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgzjr != null" >
+        #{bhgzjr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.accp.domain.CompletedExample" resultType="java.lang.Integer" >
+    select count(*) from completed
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update completed
+    <set >
+      <if test="record.cmid != null" >
+        cmid = #{record.cmid,jdbcType=INTEGER},
+      </if>
+      <if test="record.danhao != null" >
+        danhao = #{record.danhao,jdbcType=INTEGER},
+      </if>
+      <if test="record.yjwg != null" >
+        yjwg = #{record.yjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sjwg != null" >
+        sjwg = #{record.sjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wgyy != null" >
+        wgyy = #{record.wgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjyid != null" >
+        zjyid = #{record.zjyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfmoney != null" >
+        cfmoney = #{record.cfmoney,jdbcType=INTEGER},
+      </if>
+      <if test="record.ishg != null" >
+        ishg = #{record.ishg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fgyy != null" >
+        fgyy = #{record.fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bhgcfje != null" >
+        bhgcfje = #{record.bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bhgzjr != null" >
+        bhgzjr = #{record.bhgzjr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update completed
+    set cmid = #{record.cmid,jdbcType=INTEGER},
+      danhao = #{record.danhao,jdbcType=INTEGER},
+      yjwg = #{record.yjwg,jdbcType=VARCHAR},
+      sjwg = #{record.sjwg,jdbcType=VARCHAR},
+      wgyy = #{record.wgyy,jdbcType=VARCHAR},
+      zjyid = #{record.zjyid,jdbcType=VARCHAR},
+      cfmoney = #{record.cfmoney,jdbcType=INTEGER},
+      ishg = #{record.ishg,jdbcType=VARCHAR},
+      fgyy = #{record.fgyy,jdbcType=VARCHAR},
+      bhgcfje = #{record.bhgcfje,jdbcType=VARCHAR},
+      bhgzjr = #{record.bhgzjr,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Completed" >
+    update completed
+    <set >
+      <if test="danhao != null" >
+        danhao = #{danhao,jdbcType=INTEGER},
+      </if>
+      <if test="yjwg != null" >
+        yjwg = #{yjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="sjwg != null" >
+        sjwg = #{sjwg,jdbcType=VARCHAR},
+      </if>
+      <if test="wgyy != null" >
+        wgyy = #{wgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="zjyid != null" >
+        zjyid = #{zjyid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfmoney != null" >
+        cfmoney = #{cfmoney,jdbcType=INTEGER},
+      </if>
+      <if test="ishg != null" >
+        ishg = #{ishg,jdbcType=VARCHAR},
+      </if>
+      <if test="fgyy != null" >
+        fgyy = #{fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgcfje != null" >
+        bhgcfje = #{bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgzjr != null" >
+        bhgzjr = #{bhgzjr,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cmid = #{cmid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.accp.domain.Completed" >
+    update completed
+    set danhao = #{danhao,jdbcType=INTEGER},
+      yjwg = #{yjwg,jdbcType=VARCHAR},
+      sjwg = #{sjwg,jdbcType=VARCHAR},
+      wgyy = #{wgyy,jdbcType=VARCHAR},
+      zjyid = #{zjyid,jdbcType=VARCHAR},
+      cfmoney = #{cfmoney,jdbcType=INTEGER},
+      ishg = #{ishg,jdbcType=VARCHAR},
+      fgyy = #{fgyy,jdbcType=VARCHAR},
+      bhgcfje = #{bhgcfje,jdbcType=VARCHAR},
+      bhgzjr = #{bhgzjr,jdbcType=VARCHAR}
+    where cmid = #{cmid,jdbcType=INTEGER}
+  </update>
+</mapper>

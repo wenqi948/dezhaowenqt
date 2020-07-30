@@ -463,6 +463,136 @@ public class WxxqdExample {
             addCriterion("datepmoney not between", value1, value2, "datepmoney");
             return (Criteria) this;
         }
+
+        public Criteria andJialeiIsNull() {
+            addCriterion("jialei is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiIsNotNull() {
+            addCriterion("jialei is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiEqualTo(String value) {
+            addCriterion("jialei =", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotEqualTo(String value) {
+            addCriterion("jialei <>", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiGreaterThan(String value) {
+            addCriterion("jialei >", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiGreaterThanOrEqualTo(String value) {
+            addCriterion("jialei >=", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLessThan(String value) {
+            addCriterion("jialei <", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLessThanOrEqualTo(String value) {
+            addCriterion("jialei <=", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiLike(String value) {
+            addCriterion("jialei like", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotLike(String value) {
+            addCriterion("jialei not like", value, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiIn(List<String> values) {
+            addCriterion("jialei in", values, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotIn(List<String> values) {
+            addCriterion("jialei not in", values, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiBetween(String value1, String value2) {
+            addCriterion("jialei between", value1, value2, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andJialeiNotBetween(String value1, String value2) {
+            addCriterion("jialei not between", value1, value2, "jialei");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidIsNull() {
+            addCriterion("teamid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidIsNotNull() {
+            addCriterion("teamid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidEqualTo(Integer value) {
+            addCriterion("teamid =", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotEqualTo(Integer value) {
+            addCriterion("teamid <>", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidGreaterThan(Integer value) {
+            addCriterion("teamid >", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("teamid >=", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidLessThan(Integer value) {
+            addCriterion("teamid <", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidLessThanOrEqualTo(Integer value) {
+            addCriterion("teamid <=", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidIn(List<Integer> values) {
+            addCriterion("teamid in", values, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotIn(List<Integer> values) {
+            addCriterion("teamid not in", values, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidBetween(Integer value1, Integer value2) {
+            addCriterion("teamid between", value1, value2, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotBetween(Integer value1, Integer value2) {
+            addCriterion("teamid not between", value1, value2, "teamid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

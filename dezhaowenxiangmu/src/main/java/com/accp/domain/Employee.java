@@ -13,7 +13,29 @@ public class Employee {
 
     private Integer embm;
 
-    private String emadmin;
+  //部门名字
+  	private String embmname;
+  	
+  	//门店名字
+  	private String emmdname;
+    
+    public String getEmbmname() {
+		return embmname;
+	}
+
+	public void setEmbmname(String embmname) {
+		this.embmname = embmname;
+	}
+
+	public String getEmmdname() {
+		return emmdname;
+	}
+
+	public void setEmmdname(String emmdname) {
+		this.emmdname = emmdname;
+	}
+
+	private String emadmin;
 
     private String emstzk;
 
@@ -82,6 +104,8 @@ public class Employee {
     private String emspzkq;
 
     private String emjmq;
+
+    private Integer zhuangtai;
 
     public String getEmployeeid() {
         return employeeid;
@@ -401,5 +425,13 @@ public class Employee {
 
     public void setEmjmq(String emjmq) {
         this.emjmq = emjmq;
+    }
+
+    public Integer getZhuangtai() {
+        return zhuangtai;
+    }
+
+    public void setZhuangtai(Integer zhuangtai) {
+        this.zhuangtai = zhuangtai;
     }
 }

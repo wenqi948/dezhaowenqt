@@ -10,13 +10,21 @@ public interface BaoyangMapper {
 
     int deleteByExample(BaoyangExample example);
 
+    int deleteByPrimaryKey(Integer byid);
+
     int insert(Baoyang record);
 
     int insertSelective(Baoyang record);
 
     List<Baoyang> selectByExample(BaoyangExample example);
 
+    Baoyang selectByPrimaryKey(Integer byid);
+
     int updateByExampleSelective(@Param("record") Baoyang record, @Param("example") BaoyangExample example);
 
     int updateByExample(@Param("record") Baoyang record, @Param("example") BaoyangExample example);
+
+    int updateByPrimaryKeySelective(Baoyang record);
+
+    int updateByPrimaryKey(Baoyang record);
 }

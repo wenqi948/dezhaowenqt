@@ -13,7 +13,30 @@ public class Wxxqd {
 
     private Float datepmoney;
 
-    public Integer getWxqid() {
+    private String jialei;
+
+    private Integer teamid;
+
+    private Repair repair;//维修项目表
+    private Team team;//班组表 
+    
+    public Repair getRepair() {
+		return repair;
+	}
+
+	public void setRepair(Repair repair) {
+		this.repair = repair;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Integer getWxqid() {
         return wxqid;
     }
 
@@ -59,5 +82,21 @@ public class Wxxqd {
 
     public void setDatepmoney(Float datepmoney) {
         this.datepmoney = datepmoney;
+    }
+
+    public String getJialei() {
+        return jialei;
+    }
+
+    public void setJialei(String jialei) {
+        this.jialei = jialei;
+    }
+
+    public Integer getTeamid() {
+        return teamid;
+    }
+
+    public void setTeamid(Integer teamid) {
+        this.teamid = teamid;
     }
 }
