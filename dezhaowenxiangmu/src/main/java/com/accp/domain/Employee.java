@@ -84,8 +84,20 @@ public class Employee {
     private String emjmq;
 
     private Integer zhuangtai;
+    
+    private Department department;
+    
+    
 
-    public String getEmployeeid() {
+    public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public String getEmployeeid() {
         return employeeid;
     }
 
