@@ -1,5 +1,7 @@
 package com.accp.domain;
 
+import java.util.List;
+
 public class Department {
     private Integer departmentid;
 
@@ -8,8 +10,20 @@ public class Department {
     private Integer parentid;
 
     private Integer code;
+    
+   public List<Employee> employeeList;
+   
+    
 
-    public Integer getDepartmentid() {
+    public List<Employee> getEmployeeList() {
+	return employeeList;
+}
+
+public void setEmployeeList(List<Employee> employeeList) {
+	this.employeeList = employeeList;
+}
+
+	public Integer getDepartmentid() {
         return departmentid;
     }
 

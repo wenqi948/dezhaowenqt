@@ -8,6 +8,12 @@
     <result column="dimtimes" property="dimtimes" jdbcType="DATE" />
     <result column="dimreasona" property="dimreasona" jdbcType="VARCHAR" />
   </resultMap>
+  <resultMap type="com.accp.domain.Dimission" id="BaseResultMapex" extends="BaseResultMap">
+        <association property="employee" column="employeeid" select="com.accp.dao.EmployeeMapper.selectByPrimaryKey">
+        </association>
+         <association property="department" column="departmentid" select="com.accp.dao.DepartmentMapper.selectByPrimaryKey">
+        </association>
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -69,7 +75,7 @@
   <sql id="Base_Column_List" >
     dimissionid, employeeid, departmentid, dimtimes, dimreasona
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.DimissionExample" >
+  <select id="selectByExample" resultMap="BaseResultMapex" parameterType="com.accp.domain.DimissionExample" >
     select
     <if test="distinct" >
       distinct

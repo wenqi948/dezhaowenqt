@@ -6,7 +6,16 @@
     <result column="depnames" property="depnames" jdbcType="VARCHAR" />
     <result column="parentid" property="parentid" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="INTEGER" />
+     <collection property="employeeList" ofType="com.accp.domain.Employee">
+            <result column="employeeid" property="employeeid"></result>
+            <result column="embm" property="embm"></result>
+            <result column="emname" property="emname"></result>
+     </collection>
   </resultMap>
+  <select id="findAll" resultMap="BaseResultMap">
+        SELECT * FROM `department` d JOIN `employee` e ON d.`departmentid`=e.`embm`
+        WHERE e.zhuangtai=0
+    </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
