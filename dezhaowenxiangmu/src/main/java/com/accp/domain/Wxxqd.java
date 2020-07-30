@@ -17,7 +17,26 @@ public class Wxxqd {
 
     private Integer teamid;
 
-    public Integer getWxqid() {
+    private Repair repair;//维修项目表
+    private Team team;//班组表 
+    
+    public Repair getRepair() {
+		return repair;
+	}
+
+	public void setRepair(Repair repair) {
+		this.repair = repair;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
+
+	public Integer getWxqid() {
         return wxqid;
     }
 

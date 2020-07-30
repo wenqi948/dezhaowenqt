@@ -414,63 +414,63 @@ public class TeamtimeExample {
             return (Criteria) this;
         }
 
-        public Criteria andZwbtIsNull() {
-            addCriterion("zwbt is null");
+        public Criteria andZnbtIsNull() {
+            addCriterion("znbt is null");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtIsNotNull() {
-            addCriterion("zwbt is not null");
+        public Criteria andZnbtIsNotNull() {
+            addCriterion("znbt is not null");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtEqualTo(Double value) {
-            addCriterion("zwbt =", value, "zwbt");
+        public Criteria andZnbtEqualTo(Double value) {
+            addCriterion("znbt =", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtNotEqualTo(Double value) {
-            addCriterion("zwbt <>", value, "zwbt");
+        public Criteria andZnbtNotEqualTo(Double value) {
+            addCriterion("znbt <>", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtGreaterThan(Double value) {
-            addCriterion("zwbt >", value, "zwbt");
+        public Criteria andZnbtGreaterThan(Double value) {
+            addCriterion("znbt >", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtGreaterThanOrEqualTo(Double value) {
-            addCriterion("zwbt >=", value, "zwbt");
+        public Criteria andZnbtGreaterThanOrEqualTo(Double value) {
+            addCriterion("znbt >=", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtLessThan(Double value) {
-            addCriterion("zwbt <", value, "zwbt");
+        public Criteria andZnbtLessThan(Double value) {
+            addCriterion("znbt <", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtLessThanOrEqualTo(Double value) {
-            addCriterion("zwbt <=", value, "zwbt");
+        public Criteria andZnbtLessThanOrEqualTo(Double value) {
+            addCriterion("znbt <=", value, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtIn(List<Double> values) {
-            addCriterion("zwbt in", values, "zwbt");
+        public Criteria andZnbtIn(List<Double> values) {
+            addCriterion("znbt in", values, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtNotIn(List<Double> values) {
-            addCriterion("zwbt not in", values, "zwbt");
+        public Criteria andZnbtNotIn(List<Double> values) {
+            addCriterion("znbt not in", values, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtBetween(Double value1, Double value2) {
-            addCriterion("zwbt between", value1, value2, "zwbt");
+        public Criteria andZnbtBetween(Double value1, Double value2) {
+            addCriterion("znbt between", value1, value2, "znbt");
             return (Criteria) this;
         }
 
-        public Criteria andZwbtNotBetween(Double value1, Double value2) {
-            addCriterion("zwbt not between", value1, value2, "zwbt");
+        public Criteria andZnbtNotBetween(Double value1, Double value2) {
+            addCriterion("znbt not between", value1, value2, "znbt");
             return (Criteria) this;
         }
 

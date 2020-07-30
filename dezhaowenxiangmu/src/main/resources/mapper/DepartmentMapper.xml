@@ -6,7 +6,7 @@
     <result column="depnames" property="depnames" jdbcType="VARCHAR" />
     <result column="parentid" property="parentid" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="INTEGER" />
-     <collection property="employeeList" ofType="com.accp.domain.Employee">
+    <collection property="employeeList" ofType="com.accp.domain.Employee">
             <result column="employeeid" property="employeeid"></result>
             <result column="embm" property="embm"></result>
             <result column="emname" property="emname"></result>
@@ -15,7 +15,7 @@
   <select id="findAll" resultMap="BaseResultMap">
         SELECT * FROM `department` d JOIN `employee` e ON d.`departmentid`=e.`embm`
         WHERE e.zhuangtai=0
-    </select>
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -74,6 +74,18 @@
       </foreach>
     </where>
   </sql>
+  
+  
+   <resultMap id="BaseResultMapExtends" type="com.accp.domain.Department" extends="BaseResultMap">
+    	<collection property="children" column="departmentid" select="find"></collection>
+</resultMap>
+  
+   <select id="find" resultMap="BaseResultMapExtends" >
+   		select * from department where parentid=#{parentid}
+   	</select>
+  
+  
+  
   <sql id="Base_Column_List" >
     departmentid, depnames, parentid, code
   </sql>

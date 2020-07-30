@@ -2,19 +2,30 @@ package com.accp.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Clientcar {
-    private String carno;
+	private Client client;
+    public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	private String carno;
 
     private String typeid;
 
     private String people;
 
     private String peoplephone;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date peopleday;
 
     private String carguishu;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date cardaoqi;
 
     private String chejiahao;
@@ -28,11 +39,11 @@ public class Clientcar {
     private String fadongjipp;
 
     private Float zaizhong;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date buyday;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date shangpaiday;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date chejian;
 
     private String ranyou;
@@ -40,11 +51,11 @@ public class Clientcar {
     private String chexi;
 
     private String jiaoqiang;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date jiaoqiangday;
 
     private String shangye;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date shangyeday;
 
     private String yuliu;

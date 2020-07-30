@@ -1,5 +1,6 @@
 package com.accp.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
@@ -23,10 +24,24 @@ public void setEmployeeList(List<Employee> employeeList) {
 	this.employeeList = employeeList;
 }
 
-	public Integer getDepartmentid() {
+
+    
+    private List<Department> children=new ArrayList<Department>();
+    
+    public List<Department> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Department> children) {
+		this.children = children;
+	}
+    
+    public Integer getDepartmentid() {
         return departmentid;
     }
 
+    
+    
     public void setDepartmentid(Integer departmentid) {
         this.departmentid = departmentid;
     }

@@ -24,6 +24,8 @@ public interface TeamMapper {
 
     int updateByExample(@Param("record") Team record, @Param("example") TeamExample example);
 
+    List<Team> find(Integer fteamid);
+    
     int updateByPrimaryKeySelective(Team record);
 
     int updateByPrimaryKey(Team record);

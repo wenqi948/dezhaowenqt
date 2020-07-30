@@ -4,13 +4,15 @@
   <resultMap id="BaseResultMap" type="com.accp.domain.Completed" >
     <id column="cmid" property="cmid" jdbcType="INTEGER" />
     <result column="danhao" property="danhao" jdbcType="INTEGER" />
-    <result column="yiwg" property="yiwg" jdbcType="TIMESTAMP" />
-    <result column="sjwg" property="sjwg" jdbcType="TIMESTAMP" />
+    <result column="yjwg" property="yjwg" jdbcType="VARCHAR" />
+    <result column="sjwg" property="sjwg" jdbcType="VARCHAR" />
     <result column="wgyy" property="wgyy" jdbcType="VARCHAR" />
-    <result column="zjyid" property="zjyid" jdbcType="INTEGER" />
+    <result column="zjyid" property="zjyid" jdbcType="VARCHAR" />
     <result column="cfmoney" property="cfmoney" jdbcType="INTEGER" />
-    <result column="ishg" property="ishg" jdbcType="BIT" />
+    <result column="ishg" property="ishg" jdbcType="VARCHAR" />
     <result column="fgyy" property="fgyy" jdbcType="VARCHAR" />
+    <result column="bhgcfje" property="bhgcfje" jdbcType="VARCHAR" />
+    <result column="bhgzjr" property="bhgzjr" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    cmid, danhao, yiwg, sjwg, wgyy, zjyid, cfmoney, ishg, fgyy
+    cmid, danhao, yjwg, sjwg, wgyy, zjyid, cfmoney, ishg, fgyy, bhgcfje, bhgzjr
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.CompletedExample" >
     select
@@ -104,12 +106,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Completed" >
-    insert into completed (cmid, danhao, yiwg, 
+    insert into completed (cmid, danhao, yjwg, 
       sjwg, wgyy, zjyid, 
-      cfmoney, ishg, fgyy)
-    values (#{cmid,jdbcType=INTEGER}, #{danhao,jdbcType=INTEGER}, #{yiwg,jdbcType=TIMESTAMP}, 
-      #{sjwg,jdbcType=TIMESTAMP}, #{wgyy,jdbcType=VARCHAR}, #{zjyid,jdbcType=INTEGER}, 
-      #{cfmoney,jdbcType=INTEGER}, #{ishg,jdbcType=BIT}, #{fgyy,jdbcType=VARCHAR})
+      cfmoney, ishg, fgyy, 
+      bhgcfje, bhgzjr)
+    values (#{cmid,jdbcType=INTEGER}, #{danhao,jdbcType=INTEGER}, #{yjwg,jdbcType=VARCHAR}, 
+      #{sjwg,jdbcType=VARCHAR}, #{wgyy,jdbcType=VARCHAR}, #{zjyid,jdbcType=VARCHAR}, 
+      #{cfmoney,jdbcType=INTEGER}, #{ishg,jdbcType=VARCHAR}, #{fgyy,jdbcType=VARCHAR}, 
+      #{bhgcfje,jdbcType=VARCHAR}, #{bhgzjr,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Completed" >
     insert into completed
@@ -120,8 +124,8 @@
       <if test="danhao != null" >
         danhao,
       </if>
-      <if test="yiwg != null" >
-        yiwg,
+      <if test="yjwg != null" >
+        yjwg,
       </if>
       <if test="sjwg != null" >
         sjwg,
@@ -141,6 +145,12 @@
       <if test="fgyy != null" >
         fgyy,
       </if>
+      <if test="bhgcfje != null" >
+        bhgcfje,
+      </if>
+      <if test="bhgzjr != null" >
+        bhgzjr,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cmid != null" >
@@ -149,26 +159,32 @@
       <if test="danhao != null" >
         #{danhao,jdbcType=INTEGER},
       </if>
-      <if test="yiwg != null" >
-        #{yiwg,jdbcType=TIMESTAMP},
+      <if test="yjwg != null" >
+        #{yjwg,jdbcType=VARCHAR},
       </if>
       <if test="sjwg != null" >
-        #{sjwg,jdbcType=TIMESTAMP},
+        #{sjwg,jdbcType=VARCHAR},
       </if>
       <if test="wgyy != null" >
         #{wgyy,jdbcType=VARCHAR},
       </if>
       <if test="zjyid != null" >
-        #{zjyid,jdbcType=INTEGER},
+        #{zjyid,jdbcType=VARCHAR},
       </if>
       <if test="cfmoney != null" >
         #{cfmoney,jdbcType=INTEGER},
       </if>
       <if test="ishg != null" >
-        #{ishg,jdbcType=BIT},
+        #{ishg,jdbcType=VARCHAR},
       </if>
       <if test="fgyy != null" >
         #{fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgcfje != null" >
+        #{bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgzjr != null" >
+        #{bhgzjr,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -187,26 +203,32 @@
       <if test="record.danhao != null" >
         danhao = #{record.danhao,jdbcType=INTEGER},
       </if>
-      <if test="record.yiwg != null" >
-        yiwg = #{record.yiwg,jdbcType=TIMESTAMP},
+      <if test="record.yjwg != null" >
+        yjwg = #{record.yjwg,jdbcType=VARCHAR},
       </if>
       <if test="record.sjwg != null" >
-        sjwg = #{record.sjwg,jdbcType=TIMESTAMP},
+        sjwg = #{record.sjwg,jdbcType=VARCHAR},
       </if>
       <if test="record.wgyy != null" >
         wgyy = #{record.wgyy,jdbcType=VARCHAR},
       </if>
       <if test="record.zjyid != null" >
-        zjyid = #{record.zjyid,jdbcType=INTEGER},
+        zjyid = #{record.zjyid,jdbcType=VARCHAR},
       </if>
       <if test="record.cfmoney != null" >
         cfmoney = #{record.cfmoney,jdbcType=INTEGER},
       </if>
       <if test="record.ishg != null" >
-        ishg = #{record.ishg,jdbcType=BIT},
+        ishg = #{record.ishg,jdbcType=VARCHAR},
       </if>
       <if test="record.fgyy != null" >
         fgyy = #{record.fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bhgcfje != null" >
+        bhgcfje = #{record.bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bhgzjr != null" >
+        bhgzjr = #{record.bhgzjr,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -217,13 +239,15 @@
     update completed
     set cmid = #{record.cmid,jdbcType=INTEGER},
       danhao = #{record.danhao,jdbcType=INTEGER},
-      yiwg = #{record.yiwg,jdbcType=TIMESTAMP},
-      sjwg = #{record.sjwg,jdbcType=TIMESTAMP},
+      yjwg = #{record.yjwg,jdbcType=VARCHAR},
+      sjwg = #{record.sjwg,jdbcType=VARCHAR},
       wgyy = #{record.wgyy,jdbcType=VARCHAR},
-      zjyid = #{record.zjyid,jdbcType=INTEGER},
+      zjyid = #{record.zjyid,jdbcType=VARCHAR},
       cfmoney = #{record.cfmoney,jdbcType=INTEGER},
-      ishg = #{record.ishg,jdbcType=BIT},
-      fgyy = #{record.fgyy,jdbcType=VARCHAR}
+      ishg = #{record.ishg,jdbcType=VARCHAR},
+      fgyy = #{record.fgyy,jdbcType=VARCHAR},
+      bhgcfje = #{record.bhgcfje,jdbcType=VARCHAR},
+      bhgzjr = #{record.bhgzjr,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -234,26 +258,32 @@
       <if test="danhao != null" >
         danhao = #{danhao,jdbcType=INTEGER},
       </if>
-      <if test="yiwg != null" >
-        yiwg = #{yiwg,jdbcType=TIMESTAMP},
+      <if test="yjwg != null" >
+        yjwg = #{yjwg,jdbcType=VARCHAR},
       </if>
       <if test="sjwg != null" >
-        sjwg = #{sjwg,jdbcType=TIMESTAMP},
+        sjwg = #{sjwg,jdbcType=VARCHAR},
       </if>
       <if test="wgyy != null" >
         wgyy = #{wgyy,jdbcType=VARCHAR},
       </if>
       <if test="zjyid != null" >
-        zjyid = #{zjyid,jdbcType=INTEGER},
+        zjyid = #{zjyid,jdbcType=VARCHAR},
       </if>
       <if test="cfmoney != null" >
         cfmoney = #{cfmoney,jdbcType=INTEGER},
       </if>
       <if test="ishg != null" >
-        ishg = #{ishg,jdbcType=BIT},
+        ishg = #{ishg,jdbcType=VARCHAR},
       </if>
       <if test="fgyy != null" >
         fgyy = #{fgyy,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgcfje != null" >
+        bhgcfje = #{bhgcfje,jdbcType=VARCHAR},
+      </if>
+      <if test="bhgzjr != null" >
+        bhgzjr = #{bhgzjr,jdbcType=VARCHAR},
       </if>
     </set>
     where cmid = #{cmid,jdbcType=INTEGER}
@@ -261,13 +291,15 @@
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Completed" >
     update completed
     set danhao = #{danhao,jdbcType=INTEGER},
-      yiwg = #{yiwg,jdbcType=TIMESTAMP},
-      sjwg = #{sjwg,jdbcType=TIMESTAMP},
+      yjwg = #{yjwg,jdbcType=VARCHAR},
+      sjwg = #{sjwg,jdbcType=VARCHAR},
       wgyy = #{wgyy,jdbcType=VARCHAR},
-      zjyid = #{zjyid,jdbcType=INTEGER},
+      zjyid = #{zjyid,jdbcType=VARCHAR},
       cfmoney = #{cfmoney,jdbcType=INTEGER},
-      ishg = #{ishg,jdbcType=BIT},
-      fgyy = #{fgyy,jdbcType=VARCHAR}
+      ishg = #{ishg,jdbcType=VARCHAR},
+      fgyy = #{fgyy,jdbcType=VARCHAR},
+      bhgcfje = #{bhgcfje,jdbcType=VARCHAR},
+      bhgzjr = #{bhgzjr,jdbcType=VARCHAR}
     where cmid = #{cmid,jdbcType=INTEGER}
   </update>
 </mapper>

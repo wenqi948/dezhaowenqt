@@ -1,25 +1,28 @@
 package com.accp.domain;
 
 import java.util.Date;
-
 public class Completed {
     private Integer cmid;
 
     private Integer danhao;
 
-    private Date yiwg;
+    private String yjwg;
 
-    private Date sjwg;
+    private String sjwg;
 
     private String wgyy;
 
-    private Integer zjyid;
+    private String zjyid;
 
     private Integer cfmoney;
 
-    private Boolean ishg;
+    private String ishg;
 
     private String fgyy;
+
+    private String bhgcfje;
+
+    private String bhgzjr;
 
     public Integer getCmid() {
         return cmid;
@@ -37,19 +40,19 @@ public class Completed {
         this.danhao = danhao;
     }
 
-    public Date getYiwg() {
-        return yiwg;
+    public String getYjwg() {
+        return yjwg;
     }
 
-    public void setYiwg(Date yiwg) {
-        this.yiwg = yiwg;
+    public void setYjwg(String yjwg) {
+        this.yjwg = yjwg;
     }
 
-    public Date getSjwg() {
+    public String getSjwg() {
         return sjwg;
     }
 
-    public void setSjwg(Date sjwg) {
+    public void setSjwg(String sjwg) {
         this.sjwg = sjwg;
     }
 
@@ -61,11 +64,11 @@ public class Completed {
         this.wgyy = wgyy;
     }
 
-    public Integer getZjyid() {
+    public String getZjyid() {
         return zjyid;
     }
 
-    public void setZjyid(Integer zjyid) {
+    public void setZjyid(String zjyid) {
         this.zjyid = zjyid;
     }
 
@@ -77,11 +80,11 @@ public class Completed {
         this.cfmoney = cfmoney;
     }
 
-    public Boolean getIshg() {
+    public String getIshg() {
         return ishg;
     }
 
-    public void setIshg(Boolean ishg) {
+    public void setIshg(String ishg) {
         this.ishg = ishg;
     }
 
@@ -91,5 +94,21 @@ public class Completed {
 
     public void setFgyy(String fgyy) {
         this.fgyy = fgyy;
+    }
+
+    public String getBhgcfje() {
+        return bhgcfje;
+    }
+
+    public void setBhgcfje(String bhgcfje) {
+        this.bhgcfje = bhgcfje;
+    }
+
+    public String getBhgzjr() {
+        return bhgzjr;
+    }
+
+    public void setBhgzjr(String bhgzjr) {
+        this.bhgzjr = bhgzjr;
     }
 }

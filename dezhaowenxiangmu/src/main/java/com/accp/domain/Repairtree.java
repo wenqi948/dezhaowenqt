@@ -6,6 +6,8 @@ public class Repairtree {
     private String xtypename;
 
     private Integer parentiid;
+   
+    private Integer biaoshiid;
 
     public Integer getXtype() {
         return xtype;
@@ -29,5 +31,13 @@ public class Repairtree {
 
     public void setParentiid(Integer parentiid) {
         this.parentiid = parentiid;
+    }
+
+    public Integer getBiaoshiid() {
+        return biaoshiid;
+    }
+
+    public void setBiaoshiid(Integer biaoshiid) {
+        this.biaoshiid = biaoshiid;
     }
 }

@@ -7,7 +7,7 @@
     <result column="teamid" property="teamid" jdbcType="INTEGER" />
     <result column="moneyznbt" property="moneyznbt" jdbcType="DOUBLE" />
     <result column="znws" property="znws" jdbcType="DOUBLE" />
-    <result column="zwbt" property="zwbt" jdbcType="DOUBLE" />
+    <result column="znbt" property="znbt" jdbcType="DOUBLE" />
     <result column="zwws" property="zwws" jdbcType="DOUBLE" />
     <result column="ztbt" property="ztbt" jdbcType="DOUBLE" />
     <result column="ztws" property="ztws" jdbcType="DOUBLE" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ttid, teamname, teamid, moneyznbt, znws, zwbt, zwws, ztbt, ztws, rymoney
+    ttid, teamname, teamid, moneyznbt, znws, znbt, zwws, ztbt, ztws, rymoney
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.TeamtimeExample" >
     select
@@ -106,11 +106,11 @@
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Teamtime" >
     insert into teamtime (ttid, teamname, teamid, 
-      moneyznbt, znws, zwbt, 
+      moneyznbt, znws, znbt, 
       zwws, ztbt, ztws, rymoney
       )
     values (#{ttid,jdbcType=INTEGER}, #{teamname,jdbcType=VARCHAR}, #{teamid,jdbcType=INTEGER}, 
-      #{moneyznbt,jdbcType=DOUBLE}, #{znws,jdbcType=DOUBLE}, #{zwbt,jdbcType=DOUBLE}, 
+      #{moneyznbt,jdbcType=DOUBLE}, #{znws,jdbcType=DOUBLE}, #{znbt,jdbcType=DOUBLE}, 
       #{zwws,jdbcType=DOUBLE}, #{ztbt,jdbcType=DOUBLE}, #{ztws,jdbcType=DOUBLE}, #{rymoney,jdbcType=DOUBLE}
       )
   </insert>
@@ -132,8 +132,8 @@
       <if test="znws != null" >
         znws,
       </if>
-      <if test="zwbt != null" >
-        zwbt,
+      <if test="znbt != null" >
+        znbt,
       </if>
       <if test="zwws != null" >
         zwws,
@@ -164,8 +164,8 @@
       <if test="znws != null" >
         #{znws,jdbcType=DOUBLE},
       </if>
-      <if test="zwbt != null" >
-        #{zwbt,jdbcType=DOUBLE},
+      <if test="znbt != null" >
+        #{znbt,jdbcType=DOUBLE},
       </if>
       <if test="zwws != null" >
         #{zwws,jdbcType=DOUBLE},
@@ -205,8 +205,8 @@
       <if test="record.znws != null" >
         znws = #{record.znws,jdbcType=DOUBLE},
       </if>
-      <if test="record.zwbt != null" >
-        zwbt = #{record.zwbt,jdbcType=DOUBLE},
+      <if test="record.znbt != null" >
+        znbt = #{record.znbt,jdbcType=DOUBLE},
       </if>
       <if test="record.zwws != null" >
         zwws = #{record.zwws,jdbcType=DOUBLE},
@@ -232,7 +232,7 @@
       teamid = #{record.teamid,jdbcType=INTEGER},
       moneyznbt = #{record.moneyznbt,jdbcType=DOUBLE},
       znws = #{record.znws,jdbcType=DOUBLE},
-      zwbt = #{record.zwbt,jdbcType=DOUBLE},
+      znbt = #{record.znbt,jdbcType=DOUBLE},
       zwws = #{record.zwws,jdbcType=DOUBLE},
       ztbt = #{record.ztbt,jdbcType=DOUBLE},
       ztws = #{record.ztws,jdbcType=DOUBLE},
@@ -256,8 +256,8 @@
       <if test="znws != null" >
         znws = #{znws,jdbcType=DOUBLE},
       </if>
-      <if test="zwbt != null" >
-        zwbt = #{zwbt,jdbcType=DOUBLE},
+      <if test="znbt != null" >
+        znbt = #{znbt,jdbcType=DOUBLE},
       </if>
       <if test="zwws != null" >
         zwws = #{zwws,jdbcType=DOUBLE},
@@ -280,7 +280,7 @@
       teamid = #{teamid,jdbcType=INTEGER},
       moneyznbt = #{moneyznbt,jdbcType=DOUBLE},
       znws = #{znws,jdbcType=DOUBLE},
-      zwbt = #{zwbt,jdbcType=DOUBLE},
+      znbt = #{znbt,jdbcType=DOUBLE},
       zwws = #{zwws,jdbcType=DOUBLE},
       ztbt = #{ztbt,jdbcType=DOUBLE},
       ztws = #{ztws,jdbcType=DOUBLE},

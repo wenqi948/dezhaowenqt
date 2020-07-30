@@ -73,6 +73,24 @@
       </foreach>
     </where>
   </sql>
+  
+  <select id="iffrom" resultMap="BaseResultMap">
+  	SELECT * FROM `employee` WHERE 1=1
+  	<if test="ppgh==null">
+  			and 1=1 
+  	</if>
+  	
+  	<if test="ppgh!=null">
+  			and (employeeid=#{ppgh} or emname=#{ppgh} or emsj=#{ppgh}) 
+  	</if>
+  	
+  	<if test="bmid!=0">
+  			and embm=#{bmid} 
+  	</if>
+
+  </select>
+  
+  
   <sql id="Update_By_Example_Where_Clause" >
     <where >
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >

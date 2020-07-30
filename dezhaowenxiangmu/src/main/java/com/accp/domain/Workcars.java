@@ -13,7 +13,16 @@ public class Workcars {
 
     private Integer clic;
 
-    public Integer getWid() {
+    private String teamname;
+    public String getTeamname() {
+		return teamname;
+	}
+
+	public void setTeamname(String teamname) {
+		this.teamname = teamname;
+	}
+
+	public Integer getWid() {
         return wid;
     }
 

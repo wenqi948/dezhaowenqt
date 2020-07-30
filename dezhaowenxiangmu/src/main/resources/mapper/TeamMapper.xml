@@ -35,6 +35,16 @@
       </foreach>
     </where>
   </sql>
+  
+  
+   <resultMap type="com.accp.domain.Team" id="BaseResultMapExtends" extends="BaseResultMap">
+  	<collection property="children" column="teamid" select="find"></collection>
+  </resultMap>
+  
+  <select id="find" resultMap="BaseResultMapExtends">
+  		select * from team where fteamid=#{fteamid}
+  </select>
+  
   <sql id="Update_By_Example_Where_Clause" >
     <where >
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >

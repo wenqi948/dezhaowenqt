@@ -2,6 +2,8 @@ package com.accp.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Client {
     private String clientno;
 
@@ -16,7 +18,7 @@ public class Client {
     private String clientphone;
 
     private String clientaddresss;
-
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date clientday;
 
     private Integer clientzq;

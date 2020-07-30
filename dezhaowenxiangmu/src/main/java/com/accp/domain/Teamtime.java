@@ -11,7 +11,7 @@ public class Teamtime {
 
     private Double znws;
 
-    private Double zwbt;
+    private Double znbt;
 
     private Double zwws;
 
@@ -61,12 +61,12 @@ public class Teamtime {
         this.znws = znws;
     }
 
-    public Double getZwbt() {
-        return zwbt;
+    public Double getZnbt() {
+        return znbt;
     }
 
-    public void setZwbt(Double zwbt) {
-        this.zwbt = zwbt;
+    public void setZnbt(Double znbt) {
+        this.znbt = znbt;
     }
 
     public Double getZwws() {

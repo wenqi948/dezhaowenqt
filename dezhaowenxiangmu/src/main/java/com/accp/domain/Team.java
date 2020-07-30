@@ -1,5 +1,8 @@
 package com.accp.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Team {
     private Integer teamid;
 
@@ -7,6 +10,15 @@ public class Team {
 
     private Integer fteamid;
 
+    
+    private List<Team> children =new ArrayList<Team>();
+    public List<Team> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Team> children) {
+		this.children = children;
+	}
     public Integer getTeamid() {
         return teamid;
     }

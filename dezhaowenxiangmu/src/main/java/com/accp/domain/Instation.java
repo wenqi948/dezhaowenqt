@@ -1,6 +1,11 @@
 package com.accp.domain;
 
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Instation {
     private Integer insid;
@@ -8,17 +13,69 @@ public class Instation {
     private Integer wxstateid;
 
     private String artisanid;
+    
+    private List<Wxxqd> wxxqd;//维修单详情
+    public List<Wxxqd> getWxxqd() {
+		return wxxqd;
+	}
 
-    private Integer ctsid;
+	public void setWxxqd(List<Wxxqd> wxxqd) {
+		this.wxxqd = wxxqd;
+	}
+
+	private Djtype djtype;//
+	private Danjutype danjutype;//单据类型
+	private Clientcar clientcar;//客户车辆表
+	private Cartypes cartypes;//业务类型
+    
+    public Djtype getDjtype() {
+		return djtype;
+	}
+
+	public void setDjtype(Djtype djtype) {
+		this.djtype = djtype;
+	}
+
+	public Danjutype getDanjutype() {
+		return danjutype;
+	}
+
+	public void setDanjutype(Danjutype danjutype) {
+		this.danjutype = danjutype;
+	}
+
+	public Clientcar getClientcar() {
+		return clientcar;
+	}
+
+	public void setClientcar(Clientcar clientcar) {
+		this.clientcar = clientcar;
+	}
+
+	public Cartypes getCartypes() {
+		return cartypes;
+	}
+
+	public void setCartypes(Cartypes cartypes) {
+		this.cartypes = cartypes;
+	}
+
+	private Integer ctsid;
 
     private String instation;
 
     private String jsyuan;
-
+    
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date joininstimes;
 
-    private Date predictcompletetime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date predictcompletetime; 
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date predicttime;
 
     private Float budgetmoney;
