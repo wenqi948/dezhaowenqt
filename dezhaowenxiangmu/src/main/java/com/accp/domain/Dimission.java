@@ -2,18 +2,46 @@ package com.accp.domain;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Dimission {
     private Integer dimissionid;
 
     private String employeeid;
 
     private Integer departmentid;
-
+    
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dimtimes;
 
     private String dimreasona;
+    
+    private Employee employee;
+    
+    private Department department;
+    
+    
 
-    public Integer getDimissionid() {
+    public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Integer getDimissionid() {
         return dimissionid;
     }
 
