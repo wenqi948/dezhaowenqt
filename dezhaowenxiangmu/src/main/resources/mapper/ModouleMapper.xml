@@ -12,6 +12,13 @@
     <result column="tubiao" property="tubiao" jdbcType="VARCHAR" />
     <result column="active" property="active" jdbcType="VARCHAR" />
   </resultMap>
+  
+  <select id="findByRoleId" resultMap="BaseResultMap" >
+  	SELECT m.* FROM modoule m
+	INNER JOIN modoule_role mr
+	ON m.mid = mr.mid
+	WHERE m.catalog=#{catalog} AND mr.rid=#{rid}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

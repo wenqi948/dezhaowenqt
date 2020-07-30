@@ -5,7 +5,7 @@ import java.util.Date;
 public class Completed {
     private Integer cmid;
 
-    private String chepaihao;
+    private Integer danhao;
 
     private Date yiwg;
 
@@ -29,12 +29,12 @@ public class Completed {
         this.cmid = cmid;
     }
 
-    public String getChepaihao() {
-        return chepaihao;
+    public Integer getDanhao() {
+        return danhao;
     }
 
-    public void setChepaihao(String chepaihao) {
-        this.chepaihao = chepaihao;
+    public void setDanhao(Integer danhao) {
+        this.danhao = danhao;
     }
 
     public Date getYiwg() {

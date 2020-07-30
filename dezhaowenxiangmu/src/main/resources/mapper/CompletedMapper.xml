@@ -3,7 +3,7 @@
 <mapper namespace="com.accp.dao.CompletedMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Completed" >
     <id column="cmid" property="cmid" jdbcType="INTEGER" />
-    <result column="chepaihao" property="chepaihao" jdbcType="VARCHAR" />
+    <result column="danhao" property="danhao" jdbcType="INTEGER" />
     <result column="yiwg" property="yiwg" jdbcType="TIMESTAMP" />
     <result column="sjwg" property="sjwg" jdbcType="TIMESTAMP" />
     <result column="wgyy" property="wgyy" jdbcType="VARCHAR" />
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    cmid, chepaihao, yiwg, sjwg, wgyy, zjyid, cfmoney, ishg, fgyy
+    cmid, danhao, yiwg, sjwg, wgyy, zjyid, cfmoney, ishg, fgyy
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.CompletedExample" >
     select
@@ -104,10 +104,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Completed" >
-    insert into completed (cmid, chepaihao, yiwg, 
+    insert into completed (cmid, danhao, yiwg, 
       sjwg, wgyy, zjyid, 
       cfmoney, ishg, fgyy)
-    values (#{cmid,jdbcType=INTEGER}, #{chepaihao,jdbcType=VARCHAR}, #{yiwg,jdbcType=TIMESTAMP}, 
+    values (#{cmid,jdbcType=INTEGER}, #{danhao,jdbcType=INTEGER}, #{yiwg,jdbcType=TIMESTAMP}, 
       #{sjwg,jdbcType=TIMESTAMP}, #{wgyy,jdbcType=VARCHAR}, #{zjyid,jdbcType=INTEGER}, 
       #{cfmoney,jdbcType=INTEGER}, #{ishg,jdbcType=BIT}, #{fgyy,jdbcType=VARCHAR})
   </insert>
@@ -117,8 +117,8 @@
       <if test="cmid != null" >
         cmid,
       </if>
-      <if test="chepaihao != null" >
-        chepaihao,
+      <if test="danhao != null" >
+        danhao,
       </if>
       <if test="yiwg != null" >
         yiwg,
@@ -146,8 +146,8 @@
       <if test="cmid != null" >
         #{cmid,jdbcType=INTEGER},
       </if>
-      <if test="chepaihao != null" >
-        #{chepaihao,jdbcType=VARCHAR},
+      <if test="danhao != null" >
+        #{danhao,jdbcType=INTEGER},
       </if>
       <if test="yiwg != null" >
         #{yiwg,jdbcType=TIMESTAMP},
@@ -184,8 +184,8 @@
       <if test="record.cmid != null" >
         cmid = #{record.cmid,jdbcType=INTEGER},
       </if>
-      <if test="record.chepaihao != null" >
-        chepaihao = #{record.chepaihao,jdbcType=VARCHAR},
+      <if test="record.danhao != null" >
+        danhao = #{record.danhao,jdbcType=INTEGER},
       </if>
       <if test="record.yiwg != null" >
         yiwg = #{record.yiwg,jdbcType=TIMESTAMP},
@@ -216,7 +216,7 @@
   <update id="updateByExample" parameterType="map" >
     update completed
     set cmid = #{record.cmid,jdbcType=INTEGER},
-      chepaihao = #{record.chepaihao,jdbcType=VARCHAR},
+      danhao = #{record.danhao,jdbcType=INTEGER},
       yiwg = #{record.yiwg,jdbcType=TIMESTAMP},
       sjwg = #{record.sjwg,jdbcType=TIMESTAMP},
       wgyy = #{record.wgyy,jdbcType=VARCHAR},
@@ -231,8 +231,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Completed" >
     update completed
     <set >
-      <if test="chepaihao != null" >
-        chepaihao = #{chepaihao,jdbcType=VARCHAR},
+      <if test="danhao != null" >
+        danhao = #{danhao,jdbcType=INTEGER},
       </if>
       <if test="yiwg != null" >
         yiwg = #{yiwg,jdbcType=TIMESTAMP},
@@ -260,7 +260,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Completed" >
     update completed
-    set chepaihao = #{chepaihao,jdbcType=VARCHAR},
+    set danhao = #{danhao,jdbcType=INTEGER},
       yiwg = #{yiwg,jdbcType=TIMESTAMP},
       sjwg = #{sjwg,jdbcType=TIMESTAMP},
       wgyy = #{wgyy,jdbcType=VARCHAR},

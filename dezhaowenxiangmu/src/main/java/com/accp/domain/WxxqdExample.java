@@ -533,6 +533,66 @@ public class WxxqdExample {
             addCriterion("jialei not between", value1, value2, "jialei");
             return (Criteria) this;
         }
+
+        public Criteria andTeamidIsNull() {
+            addCriterion("teamid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidIsNotNull() {
+            addCriterion("teamid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidEqualTo(Integer value) {
+            addCriterion("teamid =", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotEqualTo(Integer value) {
+            addCriterion("teamid <>", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidGreaterThan(Integer value) {
+            addCriterion("teamid >", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("teamid >=", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidLessThan(Integer value) {
+            addCriterion("teamid <", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidLessThanOrEqualTo(Integer value) {
+            addCriterion("teamid <=", value, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidIn(List<Integer> values) {
+            addCriterion("teamid in", values, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotIn(List<Integer> values) {
+            addCriterion("teamid not in", values, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidBetween(Integer value1, Integer value2) {
+            addCriterion("teamid between", value1, value2, "teamid");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamidNotBetween(Integer value1, Integer value2) {
+            addCriterion("teamid not between", value1, value2, "teamid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

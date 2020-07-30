@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.accp.dao.ViplistMapper" >
   <resultMap id="BaseResultMap" type="com.accp.domain.Viplist" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="mid" property="mid" jdbcType="INTEGER" />
-    <result column="clientno" property="clientno" jdbcType="VARCHAR" />
-    <result column="integral" property="integral" jdbcType="REAL" />
-    <result column="jiontime" property="jiontime" jdbcType="DATE" />
-    <result column="sumjf" property="sumjf" jdbcType="REAL" />
+    <id column="mid" property="mid" jdbcType="INTEGER" />
+    <result column="viptype" property="viptype" jdbcType="VARCHAR" />
+    <result column="moneytype" property="moneytype" jdbcType="VARCHAR" />
+    <result column="youxianqi" property="youxianqi" jdbcType="INTEGER" />
+    <result column="huifei" property="huifei" jdbcType="INTEGER" />
+    <result column="ttyyppee" property="ttyyppee" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, mid, clientno, integral, jiontime, sumjf
+    mid, viptype, moneytype, youxianqi, huifei, ttyyppee
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.ViplistExample" >
     select
@@ -88,11 +88,11 @@
     select 
     <include refid="Base_Column_List" />
     from viplist
-    where id = #{id,jdbcType=INTEGER}
+    where mid = #{mid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from viplist
-    where id = #{id,jdbcType=INTEGER}
+    where mid = #{mid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.accp.domain.ViplistExample" >
     delete from viplist
@@ -101,51 +101,53 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.accp.domain.Viplist" >
-    insert into viplist (id, mid, clientno, 
-      integral, jiontime, sumjf)
-    values (#{id,jdbcType=INTEGER}, #{mid,jdbcType=INTEGER}, #{clientno,jdbcType=VARCHAR}, 
-      #{integral,jdbcType=REAL}, #{jiontime,jdbcType=DATE}, #{sumjf,jdbcType=REAL})
+    insert into viplist (mid, viptype, moneytype, 
+      youxianqi, huifei, ttyyppee
+      )
+    values (#{mid,jdbcType=INTEGER}, #{viptype,jdbcType=VARCHAR}, #{moneytype,jdbcType=VARCHAR}, 
+      #{youxianqi,jdbcType=INTEGER}, #{huifei,jdbcType=INTEGER}, #{ttyyppee,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Viplist" >
     insert into viplist
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="mid != null" >
         mid,
       </if>
-      <if test="clientno != null" >
-        clientno,
+      <if test="viptype != null" >
+        viptype,
       </if>
-      <if test="integral != null" >
-        integral,
+      <if test="moneytype != null" >
+        moneytype,
       </if>
-      <if test="jiontime != null" >
-        jiontime,
+      <if test="youxianqi != null" >
+        youxianqi,
       </if>
-      <if test="sumjf != null" >
-        sumjf,
+      <if test="huifei != null" >
+        huifei,
+      </if>
+      <if test="ttyyppee != null" >
+        ttyyppee,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="mid != null" >
         #{mid,jdbcType=INTEGER},
       </if>
-      <if test="clientno != null" >
-        #{clientno,jdbcType=VARCHAR},
+      <if test="viptype != null" >
+        #{viptype,jdbcType=VARCHAR},
       </if>
-      <if test="integral != null" >
-        #{integral,jdbcType=REAL},
+      <if test="moneytype != null" >
+        #{moneytype,jdbcType=VARCHAR},
       </if>
-      <if test="jiontime != null" >
-        #{jiontime,jdbcType=DATE},
+      <if test="youxianqi != null" >
+        #{youxianqi,jdbcType=INTEGER},
       </if>
-      <if test="sumjf != null" >
-        #{sumjf,jdbcType=REAL},
+      <if test="huifei != null" >
+        #{huifei,jdbcType=INTEGER},
+      </if>
+      <if test="ttyyppee != null" >
+        #{ttyyppee,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -158,23 +160,23 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update viplist
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.mid != null" >
         mid = #{record.mid,jdbcType=INTEGER},
       </if>
-      <if test="record.clientno != null" >
-        clientno = #{record.clientno,jdbcType=VARCHAR},
+      <if test="record.viptype != null" >
+        viptype = #{record.viptype,jdbcType=VARCHAR},
       </if>
-      <if test="record.integral != null" >
-        integral = #{record.integral,jdbcType=REAL},
+      <if test="record.moneytype != null" >
+        moneytype = #{record.moneytype,jdbcType=VARCHAR},
       </if>
-      <if test="record.jiontime != null" >
-        jiontime = #{record.jiontime,jdbcType=DATE},
+      <if test="record.youxianqi != null" >
+        youxianqi = #{record.youxianqi,jdbcType=INTEGER},
       </if>
-      <if test="record.sumjf != null" >
-        sumjf = #{record.sumjf,jdbcType=REAL},
+      <if test="record.huifei != null" >
+        huifei = #{record.huifei,jdbcType=INTEGER},
+      </if>
+      <if test="record.ttyyppee != null" >
+        ttyyppee = #{record.ttyyppee,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -183,12 +185,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update viplist
-    set id = #{record.id,jdbcType=INTEGER},
-      mid = #{record.mid,jdbcType=INTEGER},
-      clientno = #{record.clientno,jdbcType=VARCHAR},
-      integral = #{record.integral,jdbcType=REAL},
-      jiontime = #{record.jiontime,jdbcType=DATE},
-      sumjf = #{record.sumjf,jdbcType=REAL}
+    set mid = #{record.mid,jdbcType=INTEGER},
+      viptype = #{record.viptype,jdbcType=VARCHAR},
+      moneytype = #{record.moneytype,jdbcType=VARCHAR},
+      youxianqi = #{record.youxianqi,jdbcType=INTEGER},
+      huifei = #{record.huifei,jdbcType=INTEGER},
+      ttyyppee = #{record.ttyyppee,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -196,31 +198,31 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.accp.domain.Viplist" >
     update viplist
     <set >
-      <if test="mid != null" >
-        mid = #{mid,jdbcType=INTEGER},
+      <if test="viptype != null" >
+        viptype = #{viptype,jdbcType=VARCHAR},
       </if>
-      <if test="clientno != null" >
-        clientno = #{clientno,jdbcType=VARCHAR},
+      <if test="moneytype != null" >
+        moneytype = #{moneytype,jdbcType=VARCHAR},
       </if>
-      <if test="integral != null" >
-        integral = #{integral,jdbcType=REAL},
+      <if test="youxianqi != null" >
+        youxianqi = #{youxianqi,jdbcType=INTEGER},
       </if>
-      <if test="jiontime != null" >
-        jiontime = #{jiontime,jdbcType=DATE},
+      <if test="huifei != null" >
+        huifei = #{huifei,jdbcType=INTEGER},
       </if>
-      <if test="sumjf != null" >
-        sumjf = #{sumjf,jdbcType=REAL},
+      <if test="ttyyppee != null" >
+        ttyyppee = #{ttyyppee,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where mid = #{mid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.accp.domain.Viplist" >
     update viplist
-    set mid = #{mid,jdbcType=INTEGER},
-      clientno = #{clientno,jdbcType=VARCHAR},
-      integral = #{integral,jdbcType=REAL},
-      jiontime = #{jiontime,jdbcType=DATE},
-      sumjf = #{sumjf,jdbcType=REAL}
-    where id = #{id,jdbcType=INTEGER}
+    set viptype = #{viptype,jdbcType=VARCHAR},
+      moneytype = #{moneytype,jdbcType=VARCHAR},
+      youxianqi = #{youxianqi,jdbcType=INTEGER},
+      huifei = #{huifei,jdbcType=INTEGER},
+      ttyyppee = #{ttyyppee,jdbcType=VARCHAR}
+    where mid = #{mid,jdbcType=INTEGER}
   </update>
 </mapper>

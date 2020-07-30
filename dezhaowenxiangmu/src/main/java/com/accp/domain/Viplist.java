@@ -1,27 +1,17 @@
 package com.accp.domain;
 
-import java.util.Date;
-
 public class Viplist {
-    private Integer id;
-
     private Integer mid;
 
-    private String clientno;
+    private String viptype;
 
-    private Float integral;
+    private String moneytype;
 
-    private Date jiontime;
+    private Integer youxianqi;
 
-    private Float sumjf;
+    private Integer huifei;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String ttyyppee;
 
     public Integer getMid() {
         return mid;
@@ -31,35 +21,43 @@ public class Viplist {
         this.mid = mid;
     }
 
-    public String getClientno() {
-        return clientno;
+    public String getViptype() {
+        return viptype;
     }
 
-    public void setClientno(String clientno) {
-        this.clientno = clientno;
+    public void setViptype(String viptype) {
+        this.viptype = viptype;
     }
 
-    public Float getIntegral() {
-        return integral;
+    public String getMoneytype() {
+        return moneytype;
     }
 
-    public void setIntegral(Float integral) {
-        this.integral = integral;
+    public void setMoneytype(String moneytype) {
+        this.moneytype = moneytype;
     }
 
-    public Date getJiontime() {
-        return jiontime;
+    public Integer getYouxianqi() {
+        return youxianqi;
     }
 
-    public void setJiontime(Date jiontime) {
-        this.jiontime = jiontime;
+    public void setYouxianqi(Integer youxianqi) {
+        this.youxianqi = youxianqi;
     }
 
-    public Float getSumjf() {
-        return sumjf;
+    public Integer getHuifei() {
+        return huifei;
     }
 
-    public void setSumjf(Float sumjf) {
-        this.sumjf = sumjf;
+    public void setHuifei(Integer huifei) {
+        this.huifei = huifei;
+    }
+
+    public String getTtyyppee() {
+        return ttyyppee;
+    }
+
+    public void setTtyyppee(String ttyyppee) {
+        this.ttyyppee = ttyyppee;
     }
 }

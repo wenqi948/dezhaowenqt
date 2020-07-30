@@ -9,6 +9,7 @@
     <result column="couponmoney" property="couponmoney" jdbcType="REAL" />
     <result column="datepmoney" property="datepmoney" jdbcType="REAL" />
     <result column="jialei" property="jialei" jdbcType="VARCHAR" />
+    <result column="teamid" property="teamid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    wxqid, insid, rid, sum, couponmoney, datepmoney, jialei
+    wxqid, insid, rid, sum, couponmoney, datepmoney, jialei, teamid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.accp.domain.WxxqdExample" >
     select
@@ -104,10 +105,10 @@
   <insert id="insert" parameterType="com.accp.domain.Wxxqd" >
     insert into wxxqd (wxqid, insid, rid, 
       sum, couponmoney, datepmoney, 
-      jialei)
+      jialei, teamid)
     values (#{wxqid,jdbcType=INTEGER}, #{insid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, 
       #{sum,jdbcType=INTEGER}, #{couponmoney,jdbcType=REAL}, #{datepmoney,jdbcType=REAL}, 
-      #{jialei,jdbcType=VARCHAR})
+      #{jialei,jdbcType=VARCHAR}, #{teamid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.accp.domain.Wxxqd" >
     insert into wxxqd
@@ -133,6 +134,9 @@
       <if test="jialei != null" >
         jialei,
       </if>
+      <if test="teamid != null" >
+        teamid,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="wxqid != null" >
@@ -155,6 +159,9 @@
       </if>
       <if test="jialei != null" >
         #{jialei,jdbcType=VARCHAR},
+      </if>
+      <if test="teamid != null" >
+        #{teamid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -188,6 +195,9 @@
       <if test="record.jialei != null" >
         jialei = #{record.jialei,jdbcType=VARCHAR},
       </if>
+      <if test="record.teamid != null" >
+        teamid = #{record.teamid,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -201,7 +211,8 @@
       sum = #{record.sum,jdbcType=INTEGER},
       couponmoney = #{record.couponmoney,jdbcType=REAL},
       datepmoney = #{record.datepmoney,jdbcType=REAL},
-      jialei = #{record.jialei,jdbcType=VARCHAR}
+      jialei = #{record.jialei,jdbcType=VARCHAR},
+      teamid = #{record.teamid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,6 +238,9 @@
       <if test="jialei != null" >
         jialei = #{jialei,jdbcType=VARCHAR},
       </if>
+      <if test="teamid != null" >
+        teamid = #{teamid,jdbcType=INTEGER},
+      </if>
     </set>
     where wxqid = #{wxqid,jdbcType=INTEGER}
   </update>
@@ -237,7 +251,8 @@
       sum = #{sum,jdbcType=INTEGER},
       couponmoney = #{couponmoney,jdbcType=REAL},
       datepmoney = #{datepmoney,jdbcType=REAL},
-      jialei = #{jialei,jdbcType=VARCHAR}
+      jialei = #{jialei,jdbcType=VARCHAR},
+      teamid = #{teamid,jdbcType=INTEGER}
     where wxqid = #{wxqid,jdbcType=INTEGER}
   </update>
 </mapper>
